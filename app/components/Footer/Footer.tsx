@@ -60,20 +60,20 @@ export default function Footer() {
                             <div className={styles.contactItemGroup}>
                                 <p className={styles.contactLabel}>Endereço</p>
                                 <p className={styles.contactValue}>
-                                    Rua Jacaranda, 122, Barro<br />
-                                    Fortaleza, Ceará
+                                    Rua Rio Grande do Norte, 1436, Funcionarios<br />
+                                    Belo Horizonte, Minas Gerais
                                 </p>
                             </div>
                             <div className={styles.contactItemGroup}>
                                 <p className={styles.contactLabel}>Telefone</p>
-                                <a href="tel:+5516305870" className={styles.contactValueLink}>
-                                    +55 (1) 6305-8700
+                                <a href="tel:+553199012901" className={styles.contactValueLink}>
+                                    +55 (31) 99801-2901
                                 </a>
                             </div>
                             <div className={styles.contactItemGroup}>
                                 <p className={styles.contactLabel}>Email</p>
-                                <a href="mailto:contato@kayllogger.eng.br" className={styles.contactValueLink}>
-                                    contato@kayllogger.eng.br
+                                <a href="mailto:kayllon@krconsultoria.eng.br" className={styles.contactValueLink}>
+                                    kayllon@krconsultoria.eng.br
                                 </a>
                             </div>
                         </div>
@@ -83,7 +83,7 @@ export default function Footer() {
                 {/* Divider */}
                 <div className={styles.divider}>
                     <div className={styles.copyright}>
-                        <p className={styles.copyrightText}>© 2024 Kro Tec-Eng Soluções, Inc.</p>
+                        <p className={styles.copyrightText}>© 2026 KR Engenharia e Consultoria LTDA.</p>
                         <p className={styles.copyrightLinks}>Todos os direitos reservados. | Política de Privacidade</p>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ export default function Header() {
             <div className={styles.container}>
                 {/* Logo */}
                 <div className={styles.logo}>
-                    <div className={styles.logoBadge}>KR</div>
+                    <img src="/logo.svg" alt="Logo" className={styles.logoBadge} />
                     <div className={styles.logoText}>
                         <span className={styles.logoMain}>KAYLLON ROGGER</span>
                         <span className={styles.logoSub}>Engenharia & Consultoria</span>

@@ -1,6 +1,9 @@
 'use client';
 
+import Image from 'next/image';
+
 import styles from './About.module.css';
+import foto from "../../../public/Image/20260130_130042.jpg";
 
 export default function About() {
     return (
@@ -9,9 +12,7 @@ export default function About() {
                 {/* Left - Image Placeholder */}
                 <div className={styles.imagePlaceholder}>
                     <div className={styles.imagePlaceholderCard}>
-                        <svg className={styles.imageSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.856-1.487M15 10a3 3 0 11-6 0 3 3 0 016 0zM6 20H1v-2a6 6 0 016-6v0" />
-                        </svg>
+                        <Image src={foto} alt="Foto em obra" className={styles.imageSvg} />
                     </div>
                 </div>
 

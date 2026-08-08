@@ -2,19 +2,19 @@
   width: 100%;
   background: linear-gradient(to right, rgb(30, 58, 138), rgb(30, 64, 175));
   color: white;
-  padding: 4rem 1rem;
+  padding: 64px 16px;
 }
 
 .container {
-  max-width: 80rem;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
+  gap: 48px;
+  margin-bottom: 48px;
 }
 
 @media (min-width: 768px) {
@@ -29,27 +29,27 @@
 }
 
 .columnTitle {
-  font-size: 1.125rem;
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
   color: var(--primary-orange);
 }
 
 .columnDescription {
   color: rgba(191, 219, 254, 0.8);
-  font-size: 0.875rem;
+  font-size: 14px;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
 }
 
 .socialLinks {
   display: flex;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .socialLink {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 40px;
+  height: 40px;
   background-color: rgb(30, 58, 138);
   border-radius: 9999px;
   display: flex;
@@ -70,11 +70,11 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 12px;
 }
 
 .linksItem {
-  font-size: 0.875rem;
+  font-size: 14px;
 }
 
 .linksItemLink {
@@ -90,7 +90,7 @@
 .contactItem {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .contactItemGroup {
@@ -100,17 +100,17 @@
 
 .contactLabel {
   color: rgba(191, 219, 254, 0.8);
-  font-size: 0.75rem;
-  margin-bottom: 0.25rem;
+  font-size: 12px;
+  margin-bottom: 4px;
 }
 
 .contactValue {
   color: white;
   font-weight: bold;
-  font-size: 0.875rem;
+  font-size: 14px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .contactValueLink {
@@ -125,20 +125,20 @@
 
 .divider {
   border-top: 1px solid rgb(30, 58, 138);
-  padding-top: 2rem;
-  margin-bottom: 2rem;
+  padding-top: 32px;
+  margin-bottom: 32px;
 }
 
 .copyright {
   text-align: center;
   color: rgba(191, 219, 254, 0.8);
-  font-size: 0.875rem;
+  font-size: 14px;
 }
 
 .copyrightText {
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
 .copyrightLinks {
-  font-size: 0.75rem;
+  font-size: 12px;
 }
