@@ -72,8 +72,8 @@ export default function Footer() {
                             </div>
                             <div className={styles.contactItemGroup}>
                                 <p className={styles.contactLabel}>Email</p>
-                                <a href="mailto:kayllon@krconsultoria.eng.br" className={styles.contactValueLink}>
-                                    kayllon@krconsultoria.eng.br
+                                <a href="mailto:kayllon@krconsultoria.com" className={styles.contactValueLink}>
+                                    kayllon@krconsultoria.com
                                 </a>
                             </div>
                         </div>

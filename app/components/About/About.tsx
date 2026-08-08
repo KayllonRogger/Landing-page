@@ -18,7 +18,7 @@ export default function About() {
 
                 {/* Right - Content */}
                 <div className={styles.content}>
-                    <h2 className={styles.title}>KAYLLON ROGGER</h2>
+                    <h2 className={styles.title}>KR ENGENHARIA E CONSULTORIA</h2>
 
                     <p className={styles.description}>
                         A Kayllon Rogger Engenharia e Consultoria combina expertise técnica para transformar desafios em oportunidades sustentáveis.
