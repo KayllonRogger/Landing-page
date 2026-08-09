@@ -21,16 +21,16 @@ export default function Header() {
 
                 {/* Desktop Navigation */}
                 <nav className={styles.nav}>
-                    <Link href="#inicio" className={styles.navLink}>
+                    <Link href="/" className={styles.navLink}>
                         INÍCIO
                     </Link>
-                    <Link href="#sobre" className={styles.navLink}>
+                    <Link href="/sobre" className={styles.navLink}>
                         SOBRE NÓS
                     </Link>
-                    <Link href="#servicos" className={styles.navLink}>
+                    <Link href="/servicos" className={styles.navLink}>
                         SERVIÇOS
                     </Link>
-                    <Link href="#projetos" className={styles.navLink}>
+                    <Link href="/projetos" className={styles.navLink}>
                         PROJETOS
                     </Link>
                     <Link href="/blog" className={styles.navLink}>
@@ -56,16 +56,16 @@ export default function Header() {
 
             {/* Mobile Menu */}
             <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.active : ''}`}>
-                <Link href="#inicio" className={styles.mobileNavLink}>
+                <Link href="/" className={styles.mobileNavLink}>
                     INÍCIO
                 </Link>
-                <Link href="#sobre" className={styles.mobileNavLink}>
+                <Link href="/sobre" className={styles.mobileNavLink}>
                     SOBRE NÓS
                 </Link>
-                <Link href="#servicos" className={styles.mobileNavLink}>
+                <Link href="/servicos" className={styles.mobileNavLink}>
                     SERVIÇOS
                 </Link>
-                <Link href="#projetos" className={styles.mobileNavLink}>
+                <Link href="/projetos" className={styles.mobileNavLink}>
                     PROJETOS
                 </Link>
                 <Link href="/blog" className={styles.mobileNavLink}>

@@ -1,0 +1,222 @@
+.page {
+  width: 100%;
+  background: white;
+  color: var(--text-dark);
+}
+
+.section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.intro {
+  max-width: 720px;
+  margin-bottom: 64px;
+}
+
+.sectionLabel {
+  display: inline-flex;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  background-color: var(--primary-blue);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--primary-blue);
+  line-height: 1.05;
+  margin: 24px 0 24px;
+}
+
+.description {
+  font-size: 18px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.valuesGrid {
+  column-count: 1;
+  column-gap: 24px;
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .valuesGrid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .valuesGrid {
+    column-count: 3;
+  }
+}
+
+.valueCard {
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.06);
+  break-inside: avoid;
+}
+
+.panelRow {
+  display: grid;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+@media (min-width: 1024px) {
+  .panelRow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.panelCard {
+  border-radius: 28px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: white;
+  padding: 32px;
+  box-shadow: 0 24px 44px rgba(15, 23, 42, 0.05);
+}
+
+.valueTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 16px;
+}
+
+.valueText {
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.valueHighlight {
+  color: var(--text-dark);
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.panelCard {
+  border-radius: 28px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: white;
+  padding: 32px;
+  box-shadow: 0 24px 44px rgba(15, 23, 42, 0.05);
+}
+
+.panelCardAccent {
+  background: var(--primary-blue);
+  color: white;
+  border: none;
+}
+
+.panelTitle {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.panelText {
+  color: inherit;
+  line-height: 1.8;
+}
+
+.aboutBlock {
+  margin-top: 80px;
+}
+
+.testimonialsSection {
+  margin-top: 64px;
+  padding: 48px 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.testimonialsHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.testimonialsTitle {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary-blue);
+}
+
+.testimonialCard {
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.06);
+}
+
+.testimonialTop {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.avatar {
+  min-width: 64px;
+  min-height: 64px;
+  border-radius: 9999px;
+  background: var(--primary-blue);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.testimonialName {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.testimonialCompany {
+  color: var(--text-light);
+}
+
+.testimonialText {
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+}
+
+.testimonialControls {
+  display: flex;
+  gap: 16px;
+}
+
+.controlButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  border: none;
+  background: var(--primary-blue);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.controlButton:hover {
+  background: var(--secondary-blue);
+}

@@ -26,27 +26,27 @@ export default function Footer() {
                         <h4 className={styles.columnTitle}>LINKS RÁPIDOS</h4>
                         <ul className={styles.linksList}>
                             <li className={styles.linksItem}>
-                                <Link href="#" className={styles.linksItemLink}>
+                                <Link href="/" className={styles.linksItemLink}>
                                     → Início
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
-                                <Link href="#" className={styles.linksItemLink}>
+                                <Link href="/sobre" className={styles.linksItemLink}>
                                     → Sobre Nós
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
-                                <Link href="#" className={styles.linksItemLink}>
+                                <Link href="/servicos" className={styles.linksItemLink}>
                                     → Serviços
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
-                                <Link href="#" className={styles.linksItemLink}>
+                                <Link href="/projetos" className={styles.linksItemLink}>
                                     → Projetos
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
-                                <Link href="#" className={styles.linksItemLink}>
+                                <Link href="/blog" className={styles.linksItemLink}>
                                     → Blog
                                 </Link>
                             </li>
