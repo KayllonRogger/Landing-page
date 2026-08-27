@@ -1,22 +1,39 @@
 'use client';
 
 import Image from 'next/image';
-
+import Link from 'next/link';
 import subestacao from '../../../public/Image/20211228_131619.jpg';
-
 import styles from './Hero.module.css';
 
 export default function Hero() {
     return (
         <section id="inicio" className={styles.hero}>
+            {/* Background Substation Image */}
+            <Image
+                src={subestacao}
+                alt="Subestação de energia elétrica e sistemas de automação"
+                fill
+                priority
+                quality={90}
+                placeholder="blur"
+                className={styles.bgImage}
+            />
+
+            {/* Gradient & Pattern Overlays */}
+            <div className={styles.overlay}></div>
             <div className={styles.heroPattern}></div>
 
             <div className={styles.content}>
-                {/* Left Content */}
+                {/* Text Content */}
                 <div className={styles.textContent}>
+                    <div className={styles.badge}>
+                        <span className={styles.badgeDot}></span>
+                        <span>SOLUÇÕES EM ALTA TENSÃO & SAS</span>
+                    </div>
+
                     <h1 className={styles.title}>
-                        KAYLLON ROGGER<br />
-                        <span className={styles.titleHighlight}>ENGENHARIA ELÉTRICA & SAS</span>
+                        KR ENGENHARIA<br />
+                        <span className={styles.titleHighlight}>ELÉTRICA, AUTOMAÇÃO & SAS</span>
                     </h1>
 
                     <h2 className={styles.subtitle}>
@@ -25,36 +42,26 @@ export default function Hero() {
                     </h2>
 
                     <p className={styles.description}>
-                        Engenharia integrada para a confiabilidade,<br />
-                        eficiência e digitalização da rede elétrica.
+                        Engenharia integrada para a confiabilidade, eficiência e digitalização da rede elétrica.
                     </p>
 
                     <div className={styles.buttons}>
-                        <button className={styles.btnPrimary}>
+                        <Link href="/servicos" className={styles.btnPrimary}>
                             NOSSOS SERVIÇOS
-                        </button>
-                        <button className={styles.btnSecondary}>
+                        </Link>
+                        <Link href="/contato" className={styles.btnSecondary}>
                             FALE COM UM ESPECIALISTA
-                        </button>
-                    </div>
-                </div>
-
-                {/* Right Content - Image Placeholder */}
-                <div className={styles.imagePlaceholder}>
-                    <div className={styles.imagePlaceholderCard}>
-                        <div className={styles.imagePlaceholderContent}>
-                            <Image src={subestacao} alt="Foto de uma subestacao" className={styles.imagePhoto} />
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>
 
             {/* Scroll Indicator */}
-            <div className={styles.scrollIndicator}>
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a href="#servicos" className={styles.scrollIndicator} aria-label="Rolar para a seção de serviços">
+                <svg className={styles.scrollIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
-            </div>
+            </a>
         </section>
     );
 }

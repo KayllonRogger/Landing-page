@@ -1,7 +1,8 @@
 .services {
   width: 100%;
-  padding: 80px 16px;
-  background-color: #f9fafb;
+  padding: 100px 24px;
+  background-color: #f8fafc;
+  position: relative;
 }
 
 .container {
@@ -12,26 +13,61 @@
 .header {
   text-align: center;
   margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(13, 59, 102, 0.08);
+  border: 1px solid rgba(13, 59, 102, 0.15);
+  border-radius: 9999px;
+  color: var(--primary-blue);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--primary-orange);
 }
 
 .title {
-  font-size: 36px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 800;
   color: var(--primary-blue);
   margin-bottom: 16px;
+  letter-spacing: -0.02em;
 }
 
 @media (min-width: 768px) {
   .title {
-    font-size: 48px;
+    font-size: 42px;
   }
 }
 
+.headerDescription {
+  font-size: 17px;
+  color: #64748b;
+  max-width: 680px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
 .divider {
-  width: 80px;
+  width: 60px;
   height: 4px;
   background-color: var(--primary-orange);
-  margin: 0 auto;
+  border-radius: 2px;
 }
 
 .grid {
@@ -48,46 +84,123 @@
 
 .serviceCard {
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 32px;
-  text-align: center;
-  transition: all 0.3s ease;
+  border-radius: 20px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-orange), #f1c40f);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .serviceCard:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  transform: translateY(-4.8px);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(13, 59, 102, 0.12);
+  border-color: rgba(243, 156, 18, 0.3);
 }
 
-.icon {
-  font-size: 60px;
-  margin-bottom: 16px;
+.serviceCard:hover::before {
+  opacity: 1;
+}
+
+.cardHeader {
+  margin-bottom: 24px;
+}
+
+.iconBox {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(13, 59, 102, 0.08) 0%, rgba(243, 156, 18, 0.12) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-blue);
+  transition: all 0.3s ease;
+}
+
+.serviceCard:hover .iconBox {
+  background: var(--primary-blue);
+  color: white;
+  transform: scale(1.05);
+}
+
+.iconSvg {
+  width: 32px;
+  height: 32px;
 }
 
 .serviceTitle {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 19px;
+  font-weight: 800;
   color: var(--primary-blue);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
 }
 
 .serviceDescription {
-  color: #666666;
-  line-height: 1.6;
+  color: #64748b;
+  line-height: 1.7;
+  font-size: 15px;
   margin-bottom: 24px;
+  flex: 1;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 4px 10px;
+  border-radius: 6px;
 }
 
 .serviceLink {
   color: var(--primary-orange);
-  font-weight: bold;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  transition: all 0.25s ease;
+}
+
+.arrowIcon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
 }
 
 .serviceLink:hover {
-  color: #e67e22;
+  color: #d35400;
+}
+
+.serviceLink:hover .arrowIcon {
+  transform: translateX(4px);
 }
