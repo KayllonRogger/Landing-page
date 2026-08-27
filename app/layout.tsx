@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kayllon Rogger - Engenharia e Consultoria",
+  title: "KR Consultoria e Soluções em Engenharia LTDA",
   description: "Automação inteligente de subestações e sistemas de energia. Engenharia integrada para confiabilidade, eficiência e digitalização da rede elétrica.",
 };
 
