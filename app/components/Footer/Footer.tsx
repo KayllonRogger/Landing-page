@@ -66,8 +66,8 @@ export default function Footer() {
                             </div>
                             <div className={styles.contactItemGroup}>
                                 <p className={styles.contactLabel}>Telefone</p>
-                                <a href="tel:+553199012901" className={styles.contactValueLink}>
-                                    +55 (31) 99801-2901
+                                <a href="tel:+5531995666963" className={styles.contactValueLink}>
+                                    +55 (31) 99566-6963
                                 </a>
                             </div>
                             <div className={styles.contactItemGroup}>
