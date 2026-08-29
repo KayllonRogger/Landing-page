@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import subestacao from '../../../public/Image/20211228_131619.jpg';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -10,7 +9,7 @@ export default function Hero() {
         <section id="inicio" className={styles.hero}>
             {/* Background Substation Image */}
             <Image
-                src={subestacao}
+                src={"/Image/20211228_131619.jpg"}
                 alt="Subestação de energia elétrica e sistemas de automação"
                 fill
                 priority

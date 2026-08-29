@@ -109,8 +109,8 @@ export default function ContatoPage() {
                                     </div>
                                     <div className={styles.contactDetails}>
                                         <span className={styles.contactLabel}>E-mail Oficial</span>
-                                        <a href="mailto:contato@krconsultoria.com" className={styles.contactValue}>
-                                            contato@krconsultoria.com
+                                        <a href="mailto:contato@krconsultoria.com.br" className={styles.contactValue}>
+                                            contato@krconsultoria.com.br
                                         </a>
                                     </div>
                                 </div>

@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import foto from '../../../public/Image/20260130_130042.jpg';
 import styles from './About.module.css';
 
 export default function About() {
@@ -13,7 +12,7 @@ export default function About() {
                 <div className={styles.imageWrapper}>
                     <div className={styles.imageCard}>
                         <Image
-                            src={foto}
+                            src={"/Image/20260130_130042.jpg"}
                             alt="Engenheiro em campo na subestação"
                             className={styles.imagePhoto}
                             placeholder="blur"

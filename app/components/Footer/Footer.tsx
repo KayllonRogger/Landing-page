@@ -21,7 +21,7 @@ export default function Footer() {
                         <div className={styles.socialLinks}>
                             {/* LinkedIn */}
                             <a
-                                href="https://linkedin.com"
+                                href="https://linkedin.com/in/kayllon"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.socialLink}
@@ -45,7 +45,7 @@ export default function Footer() {
                             </a>
                             {/* Email */}
                             <a
-                                href="mailto:contato@krconsultoria.com"
+                                href="mailto:contato@krconsultoria.com.br"
                                 className={styles.socialLink}
                                 aria-label="Enviar Email"
                             >
@@ -128,8 +128,8 @@ export default function Footer() {
                                     </svg>
                                     Email
                                 </p>
-                                <a href="mailto:contato@krconsultoria.com" className={styles.contactValueLink}>
-                                    contato@krconsultoria.com
+                                <a href="mailto:contato@krconsultoria.com.br" className={styles.contactValueLink}>
+                                    contato@krconsultoria.com.br
                                 </a>
                             </div>
                         </div>
