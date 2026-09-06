@@ -152,32 +152,33 @@ export default function SobrePage() {
                         </p>
                     </div>
 
-                    <div className={`${styles.panelCard} ${styles.panelCardAccent}`}>
-                        <div className={styles.panelIconWrapper}>
+                    <div className={styles.panelCard}>
+                        <div className={styles.panelIconWrapperOrange}>
                             <svg className={styles.panelIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
-                        <h3 className={styles.panelTitle}>Nosso Método</h3>
-                        <p className={styles.panelText}>
+                        <h3 className={styles.panelTitleDark}>Nosso Método</h3>
+                        <p className={styles.panelTextDark}>
                             Priorizamos comunicação clara, análises técnicas profundas e decisões baseadas em dados, garantindo que cada etapa seja transparente e com valor perceptível.
                         </p>
                     </div>
 
-                    <div className={styles.panelCard}>
-                        <div className={styles.panelIconWrapperOrange}>
+                    <div className={`${styles.panelCard} ${styles.panelCardAccent}`}>
+                        <div className={styles.panelIconWrapper}>
                             <svg className={styles.panelIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                             </svg>
                         </div>
-                        <h3 className={styles.panelTitleDark}>Entregas com Impacto</h3>
-                        <p className={styles.panelTextDark}>
+                        <h3 className={styles.panelTitle}>Entregas com Impacto</h3>
+                        <p className={styles.panelText}>
                             Nossa equipe atua desde a viabilidade técnica até o comissionamento final em campo, com foco em mitigação de riscos e alta disponibilidade operacional.
                         </p>
                     </div>
                 </div>
 
-                {/* Testimonials */}
+                {/* Depoimentos: Temporariamente ocultos até o recebimento de depoimentos de clientes reais */}
+                {/* 
                 <section className={styles.testimonialsSection}>
                     <div className={styles.testimonialsHeader}>
                         <div className={styles.badgeLight}>
@@ -230,6 +231,7 @@ export default function SobrePage() {
                         </div>
                     </div>
                 </section>
+                */}
 
                 {/* CTA Box */}
                 <section className={styles.ctaBanner}>

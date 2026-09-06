@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import styles from './page.module.css';
+import styles from '../../contato/page.module.css';
 
-export default function ContatoPage() {
+export default function ContactPageEn() {
     const [formData, setFormData] = useState({
         name: '',
         company: '',
@@ -39,15 +39,14 @@ export default function ContatoPage() {
             if (res.ok && data.success) {
                 setIsSuccess(true);
             } else {
-                setErrorMessage(data.error || 'Ocorreu um erro ao enviar sua mensagem.');
+                setErrorMessage(data.error || 'An error occurred while sending your message. Please try again.');
             }
         } catch (err) {
-            console.error('Erro de submissão:', err);
-            // Fallback: direct mailto trigger if offline/network failure
+            console.error('Submission error:', err);
             const mailtoUrl = `mailto:contato@krconsultoria.com?subject=${encodeURIComponent(
-                `[Orçamento] ${formData.service} - ${formData.name}`
+                `[Proposal Request] ${formData.service} - ${formData.name}`
             )}&body=${encodeURIComponent(
-                `Nome: ${formData.name}\nEmpresa: ${formData.company}\nE-mail: ${formData.email}\nTelefone: ${formData.phone}\nServiço: ${formData.service}\n\nMensagem:\n${formData.message}`
+                `Name: ${formData.name}\nCompany: ${formData.company}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\n\nProject Details:\n${formData.message}`
             )}`;
             window.location.href = mailtoUrl;
             setIsSuccess(true);
@@ -77,13 +76,13 @@ export default function ContatoPage() {
                 <div className={styles.bannerContainer}>
                     <div className={styles.badge}>
                         <span className={styles.badgeDot}></span>
-                        <span>PROPOSTA TÉCNICA & CONSULTORIA</span>
+                        <span>TECHNICAL PROPOSAL & CONSULTING</span>
                     </div>
                     <h1 className={styles.bannerTitle}>
-                        Solicite uma Proposta Técnica / Análise de Escopo
+                        Request a Technical Proposal / Scope Analysis
                     </h1>
                     <p className={styles.bannerDescription}>
-                        Conte com nossa equipe de engenharia para avaliar seu escopo preliminar, dimensionar e executar soluções especializadas em proteção, automação de subestações e sistemas de energia.
+                        Count on our engineering team to assess your preliminary scope, dimension, and execute specialized protection, substation automation, and power systems solutions.
                     </p>
                 </div>
             </section>
@@ -94,9 +93,9 @@ export default function ContatoPage() {
                     {/* Left Column: Direct Info */}
                     <div className={styles.infoColumn}>
                         <div className={styles.infoCard}>
-                            <h2 className={styles.infoCardTitle}>Canais de Atendimento Direto</h2>
+                            <h2 className={styles.infoCardTitle}>Direct Contact Channels</h2>
                             <p className={styles.infoCardSubtitle}>
-                                Se preferir, fale diretamente com nossa equipe técnica através dos nossos canais corporativos:
+                                Or contact our technical engineering team directly through our corporate channels:
                             </p>
 
                             <div className={styles.contactList}>
@@ -108,7 +107,7 @@ export default function ContatoPage() {
                                         </svg>
                                     </div>
                                     <div className={styles.contactDetails}>
-                                        <span className={styles.contactLabel}>E-mail Oficial</span>
+                                        <span className={styles.contactLabel}>Official Email</span>
                                         <a href="mailto:contato@krconsultoria.com.br" className={styles.contactValue}>
                                             contato@krconsultoria.com.br
                                         </a>
@@ -123,14 +122,14 @@ export default function ContatoPage() {
                                         </svg>
                                     </div>
                                     <div className={styles.contactDetails}>
-                                        <span className={styles.contactLabel}>Telefone / WhatsApp</span>
+                                        <span className={styles.contactLabel}>Phone / WhatsApp</span>
                                         <a href="tel:+5531995666963" className={styles.contactValue}>
                                             +55 (31) 99566-6963
                                         </a>
                                     </div>
                                 </div>
 
-                                {/* Address */}
+                                {/* Location */}
                                 <div className={styles.contactItem}>
                                     <div className={styles.contactIconBox}>
                                         <svg className={styles.contactIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,10 +138,10 @@ export default function ContatoPage() {
                                         </svg>
                                     </div>
                                     <div className={styles.contactDetails}>
-                                        <span className={styles.contactLabel}>Endereço Comercial</span>
+                                        <span className={styles.contactLabel}>Corporate Headquarters</span>
                                         <span className={styles.contactText}>
                                             Rua Rio Grande do Norte, 1436, sala 813, Funcionários<br />
-                                            Belo Horizonte - MG, Brasil
+                                            Belo Horizonte - MG, Brazil
                                         </span>
                                     </div>
                                 </div>
@@ -157,9 +156,9 @@ export default function ContatoPage() {
                                 </svg>
                             </div>
                             <div>
-                                <h3 className={styles.guaranteeTitle}>Retorno Rápido Garantido</h3>
+                                <h3 className={styles.guaranteeTitle}>Fast Turnaround Guaranteed</h3>
                                 <p className={styles.guaranteeDesc}>
-                                    Nossa equipe técnica analisa sua solicitação e responde em até 24 horas úteis.
+                                    Our technical engineering team analyzes your request and responds within 24 business hours.
                                 </p>
                             </div>
                         </div>
@@ -169,9 +168,9 @@ export default function ContatoPage() {
                     <div className={styles.formCard}>
                         {!isSuccess ? (
                             <>
-                                <h2 className={styles.formHeading}>Envie seu Escopo Preliminar</h2>
+                                <h2 className={styles.formHeading}>Submit Your Preliminary Scope</h2>
                                 <p className={styles.formSubheading}>
-                                    Preencha os campos abaixo com os dados do empreendimento para gerarmos uma proposta técnica e análise de escopo sem compromisso.
+                                    Fill in the fields below with your project details to receive a personalized, no-commitment technical proposal.
                                 </p>
 
                                 {errorMessage && <div className={styles.errorMessage}>{errorMessage}</div>}
@@ -180,7 +179,7 @@ export default function ContatoPage() {
                                     <div className={styles.formRow}>
                                         <div className={styles.inputGroup}>
                                             <label htmlFor="name" className={styles.label}>
-                                                Nome Completo <span className={styles.required}>*</span>
+                                                Full Name <span className={styles.required}>*</span>
                                             </label>
                                             <input
                                                 type="text"
@@ -189,14 +188,14 @@ export default function ContatoPage() {
                                                 value={formData.name}
                                                 onChange={handleChange}
                                                 required
-                                                placeholder="Ex: Engenheiro Carlos Silva"
+                                                placeholder="e.g., Carlos Silva, Lead Engineer"
                                                 className={styles.input}
                                             />
                                         </div>
 
                                         <div className={styles.inputGroup}>
                                             <label htmlFor="company" className={styles.label}>
-                                                Empresa / Empreendimento
+                                                Company / Project
                                             </label>
                                             <input
                                                 type="text"
@@ -204,7 +203,7 @@ export default function ContatoPage() {
                                                 name="company"
                                                 value={formData.company}
                                                 onChange={handleChange}
-                                                placeholder="Ex: Companhia Energética do Sul"
+                                                placeholder="e.g., Solar Power Grid Ltd."
                                                 className={styles.input}
                                             />
                                         </div>
@@ -213,7 +212,7 @@ export default function ContatoPage() {
                                     <div className={styles.formRow}>
                                         <div className={styles.inputGroup}>
                                             <label htmlFor="email" className={styles.label}>
-                                                E-mail Corporativo <span className={styles.required}>*</span>
+                                                Corporate Email <span className={styles.required}>*</span>
                                             </label>
                                             <input
                                                 type="email"
@@ -222,14 +221,14 @@ export default function ContatoPage() {
                                                 value={formData.email}
                                                 onChange={handleChange}
                                                 required
-                                                placeholder="carlos@empresa.com.br"
+                                                placeholder="name@company.com"
                                                 className={styles.input}
                                             />
                                         </div>
 
                                         <div className={styles.inputGroup}>
                                             <label htmlFor="phone" className={styles.label}>
-                                                Telefone / WhatsApp <span className={styles.required}>*</span>
+                                                Phone / WhatsApp <span className={styles.required}>*</span>
                                             </label>
                                             <input
                                                 type="tel"
@@ -238,7 +237,7 @@ export default function ContatoPage() {
                                                 value={formData.phone}
                                                 onChange={handleChange}
                                                 required
-                                                placeholder="(31) 99999-9999"
+                                                placeholder="+1 (555) 000-0000"
                                                 className={styles.input}
                                             />
                                         </div>
@@ -246,7 +245,7 @@ export default function ContatoPage() {
 
                                     <div className={styles.inputGroup}>
                                         <label htmlFor="service" className={styles.label}>
-                                            Serviço de Interesse
+                                            Service of Interest
                                         </label>
                                         <select
                                             id="service"
@@ -255,18 +254,18 @@ export default function ContatoPage() {
                                             onChange={handleChange}
                                             className={styles.select}
                                         >
-                                            <option value="Estudos de Proteção & Controle">Estudos de Proteção & Controle</option>
-                                            <option value="Engenharia de Redes & SAS (IEC 61850)">Engenharia de Redes & SAS (IEC 61850)</option>
-                                            <option value="Automação e SCADA Industrial">Automação e SCADA Industrial</option>
-                                            <option value="Comissionamento & Ensaios em Campo">Comissionamento & Ensaios em Campo</option>
-                                            <option value="Integração de Renováveis (Solar / Eólica)">Integração de Renováveis (Solar / Eólica)</option>
-                                            <option value="Consultoria Técnica Geral">Consultoria Técnica Geral</option>
+                                            <option value="Estudos de Proteção & Controle">Protection & Control Studies (P&C)</option>
+                                            <option value="Engenharia de Redes & SAS (IEC 61850)">Substation Automation (SAS IEC 61850)</option>
+                                            <option value="Automação e SCADA Industrial">Industrial Automation & SCADA</option>
+                                            <option value="Comissionamento & Ensaios em Campo">Commissioning & Field Testing</option>
+                                            <option value="Integração de Renováveis (Solar / Eólica)">Renewable Integration (Solar / Wind)</option>
+                                            <option value="Consultoria Técnica Geral">General Technical Consulting</option>
                                         </select>
                                     </div>
 
                                     <div className={styles.inputGroup}>
                                         <label htmlFor="message" className={styles.label}>
-                                            Descrição do Projeto ou Demanda <span className={styles.required}>*</span>
+                                            Project Details / Scope Description <span className={styles.required}>*</span>
                                         </label>
                                         <textarea
                                             id="message"
@@ -275,7 +274,7 @@ export default function ContatoPage() {
                                             onChange={handleChange}
                                             required
                                             rows={4}
-                                            placeholder="Conte-nos brevemente sobre a subestação, nível de tensão, prazos ou escopo desejado..."
+                                            placeholder="Tell us briefly about the substation, voltage level, project schedule, or required scope..."
                                             className={styles.textarea}
                                         />
                                     </div>
@@ -288,11 +287,11 @@ export default function ContatoPage() {
                                         {isSubmitting ? (
                                             <>
                                                 <div className={styles.spinner}></div>
-                                                <span>ENVIANDO SOLICITAÇÃO...</span>
+                                                <span>SENDING REQUEST...</span>
                                             </>
                                         ) : (
                                             <>
-                                                <span>SOLICITAR PROPOSTA TÉCNICA / ANÁLISE DE ESCOPO</span>
+                                                <span>REQUEST TECHNICAL PROPOSAL / SCOPE ANALYSIS</span>
                                                 <svg className={styles.btnArrow} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                                 </svg>
@@ -308,16 +307,16 @@ export default function ContatoPage() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <h3 className={styles.successTitle}>Solicitação Enviada com Sucesso!</h3>
+                                <h3 className={styles.successTitle}>Request Submitted Successfully!</h3>
                                 <p className={styles.successText}>
-                                    Recebemos sua mensagem em <strong>contato@krconsultoria.com</strong>. Nossos engenheiros especialistas entrarão em contato em breve através do e-mail ou telefone informado.
+                                    We have received your message at <strong>contato@krconsultoria.com</strong>. Our engineering specialists will contact you shortly via the email or phone provided.
                                 </p>
                                 <button
                                     type="button"
                                     onClick={handleReset}
                                     className={styles.resetBtn}
                                 >
-                                    Enviar Outra Mensagem
+                                    Submit Another Message
                                 </button>
                             </div>
                         )}

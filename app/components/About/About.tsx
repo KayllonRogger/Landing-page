@@ -4,25 +4,33 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './About.module.css';
 
-export default function About() {
+interface AboutProps {
+    locale?: 'pt' | 'en';
+}
+
+export default function About({ locale = 'pt' }: AboutProps) {
+    const isEn = locale === 'en';
+    const aboutUrl = isEn ? '/en/about' : '/sobre';
+
     return (
-        <section id="sobre" className={styles.about}>
+        <section id={isEn ? "about" : "sobre"} className={styles.about}>
             <div className={styles.container}>
                 {/* Left - Image with Modern Tech Frame */}
                 <div className={styles.imageWrapper}>
                     <div className={styles.imageCard}>
                         <Image
-                            src={"/Image/20260130_130042.jpg"}
-                            alt="Engenheiro em campo na subestação"
+                            src="/Image/20260130_130042.jpg"
+                            alt={isEn ? "Field engineer at high-voltage substation" : "Engenheiro em campo na subestação"}
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 480px"
                             className={styles.imagePhoto}
-                            placeholder="blur"
                         />
                         <div className={styles.imageOverlay}></div>
                         <div className={styles.floatingBadge}>
                             <div className={styles.badgePulse}></div>
                             <div>
-                                <p className={styles.badgeTitle}>ATUAÇÃO EM CAMPO</p>
-                                <p className={styles.badgeSub}>Especialistas em SE & Alta Tensão</p>
+                                <p className={styles.badgeTitle}>{isEn ? "FIELD EXPERTISE" : "ATUAÇÃO EM CAMPO"}</p>
+                                <p className={styles.badgeSub}>{isEn ? "Substation & High-Voltage Specialists" : "Especialistas em SE & Alta Tensão"}</p>
                             </div>
                         </div>
                     </div>
@@ -32,13 +40,17 @@ export default function About() {
                 <div className={styles.content}>
                     <div className={styles.badge}>
                         <span className={styles.badgeDot}></span>
-                        <span>SOBRE A KR ENGENHARIA</span>
+                        <span>{isEn ? "ABOUT KR ENGENHARIA" : "SOBRE A KR ENGENHARIA"}</span>
                     </div>
 
-                    <h2 className={styles.title}>EXCELÊNCIA & INOVAÇÃO EM ENERGIA</h2>
+                    <h2 className={styles.title}>
+                        {isEn ? "EXCELLENCE & INNOVATION IN POWER SYSTEMS" : "EXCELÊNCIA & INOVAÇÃO EM ENERGIA"}
+                    </h2>
 
                     <p className={styles.description}>
-                        A KR Engenharia combina sólida formação técnica e experiência prática para transformar desafios complexos de sistemas de potência em operações seguras, sustentáveis e digitais.
+                        {isEn
+                            ? "KR Engenharia combines solid technical foundations and hands-on expertise to transform complex power system challenges into safe, sustainable, and digital operations."
+                            : "A KR Engenharia combina sólida formação técnica e experiência prática para transformar desafios complexos de sistemas de potência em operações seguras, sustentáveis e digitais."}
                     </p>
 
                     <div className={styles.features}>
@@ -49,9 +61,13 @@ export default function About() {
                                 </svg>
                             </div>
                             <div className={styles.featureContent}>
-                                <h3 className={styles.featureTitle}>EXPERIÊNCIA TÉCNICA APLICADA</h3>
+                                <h3 className={styles.featureTitle}>
+                                    {isEn ? "APPLIED TECHNICAL EXPERTISE" : "EXPERIÊNCIA TÉCNICA APLICADA"}
+                                </h3>
                                 <p className={styles.featureDescription}>
-                                    Domínio em engenharia elétrica, estudos de proteção e sistemas integrados de automação de subestações.
+                                    {isEn
+                                        ? "Deep proficiency in electrical engineering, protection studies, and integrated substation automation."
+                                        : "Domínio em engenharia elétrica, estudos de proteção e sistemas integrados de automação de subestações."}
                                 </p>
                             </div>
                         </div>
@@ -63,9 +79,13 @@ export default function About() {
                                 </svg>
                             </div>
                             <div className={styles.featureContent}>
-                                <h3 className={styles.featureTitle}>RIGOR NORMATIVO & IEC 61850</h3>
+                                <h3 className={styles.featureTitle}>
+                                    {isEn ? "REGULATORY RIGOR & IEC 61850" : "RIGOR NORMATIVO & IEC 61850"}
+                                </h3>
                                 <p className={styles.featureDescription}>
-                                    Projetos 100% alinhados com o estado da arte e as mais exigentes normas internacionais do setor elétrico.
+                                    {isEn
+                                        ? "Engineering fully compliant with state-of-the-art standards and rigorous international electrical codes."
+                                        : "Projetos 100% alinhados com o estado da arte e as mais exigentes normas internacionais do setor elétrico."}
                                 </p>
                             </div>
                         </div>
@@ -77,16 +97,20 @@ export default function About() {
                                 </svg>
                             </div>
                             <div className={styles.featureContent}>
-                                <h3 className={styles.featureTitle}>PARCERIA ESTRATÉGICA</h3>
+                                <h3 className={styles.featureTitle}>
+                                    {isEn ? "STRATEGIC PARTNERSHIP" : "PARCERIA ESTRATÉGICA"}
+                                </h3>
                                 <p className={styles.featureDescription}>
-                                    Atuação lado a lado com o cliente, da concepção do projeto ao comissionamento e testes de campo.
+                                    {isEn
+                                        ? "Working side-by-side with our clients from project conception to on-site testing and energization."
+                                        : "Atuação lado a lado com o cliente, da concepção do projeto ao comissionamento e testes de campo."}
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <Link href="/sobre" className={styles.ctaButton}>
-                        <span>CONHEÇA MAIS SOBRE NÓS</span>
+                    <Link href={aboutUrl} className={styles.ctaButton}>
+                        <span>{isEn ? "LEARN MORE ABOUT US" : "CONHEÇA MAIS SOBRE NÓS"}</span>
                         <svg className={styles.btnArrow} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>

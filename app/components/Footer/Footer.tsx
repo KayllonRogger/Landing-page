@@ -1,9 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styles from './Footer.module.css';
 
 export default function Footer() {
+    const pathname = usePathname();
+    const isEn = pathname.startsWith('/en');
+
     return (
         <footer className={styles.footer}>
             <div className={styles.footerPattern}></div>
@@ -16,7 +20,9 @@ export default function Footer() {
                             <h3 className={styles.columnTitle}>KR ENGENHARIA</h3>
                         </div>
                         <p className={styles.columnDescription}>
-                            Engenharia integrada para a confiabilidade, eficiência e digitalização da rede elétrica e sistemas de automação de subestações.
+                            {isEn
+                                ? 'Integrated engineering for electrical grid reliability, efficiency, and digitalization, specializing in substation automation systems.'
+                                : 'Engenharia integrada para a confiabilidade, eficiência e digitalização da rede elétrica e sistemas de automação de subestações.'}
                         </p>
                         <div className={styles.socialLinks}>
                             {/* LinkedIn */}
@@ -47,7 +53,7 @@ export default function Footer() {
                             <a
                                 href="mailto:contato@krconsultoria.com.br"
                                 className={styles.socialLink}
-                                aria-label="Enviar Email"
+                                aria-label="Email"
                             >
                                 <svg className={styles.socialIcon} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -58,36 +64,36 @@ export default function Footer() {
 
                     {/* Column 2 - Quick Links */}
                     <div className={styles.column}>
-                        <h4 className={styles.columnHeading}>LINKS RÁPIDOS</h4>
+                        <h4 className={styles.columnHeading}>{isEn ? 'QUICK LINKS' : 'LINKS RÁPIDOS'}</h4>
                         <ul className={styles.linksList}>
                             <li className={styles.linksItem}>
-                                <Link href="/" className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>→</span> Início
+                                <Link href={isEn ? '/en' : '/'} className={styles.linksItemLink}>
+                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Home' : 'Início'}
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
-                                <Link href="/sobre" className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>→</span> Sobre Nós
+                                <Link href={isEn ? '/en/about' : '/sobre'} className={styles.linksItemLink}>
+                                    <span className={styles.linkArrow}>→</span> {isEn ? 'About Us' : 'Sobre Nós'}
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
-                                <Link href="/servicos" className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>→</span> Serviços
+                                <Link href={isEn ? '/en/services' : '/servicos'} className={styles.linksItemLink}>
+                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Services' : 'Serviços'}
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
-                                <Link href="/projetos" className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>→</span> Projetos
+                                <Link href={isEn ? '/en/projects' : '/projetos'} className={styles.linksItemLink}>
+                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Projects' : 'Projetos'}
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
-                                <Link href="/blog" className={styles.linksItemLink}>
+                                <Link href={isEn ? '/en/blog' : '/blog'} className={styles.linksItemLink}>
                                     <span className={styles.linkArrow}>→</span> Blog
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
-                                <Link href="/contato" className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>→</span> Contato & Orçamento
+                                <Link href={isEn ? '/en/contact' : '/contato'} className={styles.linksItemLink}>
+                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Technical Proposal & Contact' : 'Proposta Técnica & Contato'}
                                 </Link>
                             </li>
                         </ul>
@@ -95,7 +101,7 @@ export default function Footer() {
 
                     {/* Column 3 - Contact */}
                     <div className={styles.column}>
-                        <h4 className={styles.columnHeading}>CONTATO & LOCALIZAÇÃO</h4>
+                        <h4 className={styles.columnHeading}>{isEn ? 'CONTACT & LOCATION' : 'CONTATO & LOCALIZAÇÃO'}</h4>
                         <div className={styles.contactItem}>
                             <div className={styles.contactItemGroup}>
                                 <p className={styles.contactLabel}>
@@ -103,11 +109,11 @@ export default function Footer() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                     </svg>
-                                    Endereço
+                                    {isEn ? 'Address' : 'Endereço'}
                                 </p>
                                 <p className={styles.contactValue}>
                                     Rua Rio Grande do Norte, 1436, sala 813, Funcionários<br />
-                                    Belo Horizonte, Minas Gerais
+                                    Belo Horizonte, Minas Gerais, Brazil
                                 </p>
                             </div>
                             <div className={styles.contactItemGroup}>
@@ -115,7 +121,7 @@ export default function Footer() {
                                     <svg className={styles.contactIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                     </svg>
-                                    Telefone / WhatsApp
+                                    {isEn ? 'Phone / WhatsApp' : 'Telefone / WhatsApp'}
                                 </p>
                                 <a href="tel:+5531995666963" className={styles.contactValueLink}>
                                     +55 (31) 99566-6963
@@ -139,8 +145,14 @@ export default function Footer() {
                 {/* Bottom Divider */}
                 <div className={styles.divider}>
                     <div className={styles.copyright}>
-                        <p className={styles.copyrightText}>© 2026 KR Consultoria e Soluções em Engenharia LTDA. Todos os direitos reservados.</p>
-                        <p className={styles.copyrightLinks}>Engenharia Elétrica • Sistemas de Automação de Subestações (SAS) • SCADA</p>
+                        <p className={styles.copyrightText}>
+                            © 2026 KR Consultoria e Soluções em Engenharia LTDA. {isEn ? 'All rights reserved.' : 'Todos os direitos reservados.'}
+                        </p>
+                        <p className={styles.copyrightLinks}>
+                            {isEn
+                                ? 'Electrical Engineering • Substation Automation Systems (SAS) • SCADA'
+                                : 'Engenharia Elétrica • Sistemas de Automação de Subestações (SAS) • SCADA'}
+                        </p>
                     </div>
                 </div>
             </div>

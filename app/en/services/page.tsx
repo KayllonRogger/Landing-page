@@ -1,20 +1,20 @@
 'use client';
 
 import Link from 'next/link';
-import styles from './page.module.css';
+import styles from '../../servicos/page.module.css';
 
-const detailedServices = [
+const detailedServicesEn = [
     {
         id: 1,
-        title: 'Estudos de Proteção & Controle',
-        description: 'Dimensionamento e parametrização detalhada de relés numéricos para assegurar a rápida eliminação de faltas com máxima seletividade.',
+        title: 'Protection & Control Studies (P&C)',
+        description: 'Comprehensive dimensioning and parameterization of numerical relays to ensure rapid fault clearing with maximum selectivity.',
         deliverables: [
-            'Estudos de curto-circuito e fluxo de carga',
-            'Coordenação e seletividade de proteção',
-            'Parametrização e arquivos de ajuste (CID/ICD/RVD)',
-            'Validação de saturação de TCs e TPs',
+            'Short-circuit and load-flow simulation studies',
+            'Protection coordination and selectivity curve setting',
+            'Parameterization and relay configuration files (CID/ICD/RVD)',
+            'CT and VT saturation and burden validation',
         ],
-        tags: ['Proteção Digital', 'Seletividade', 'Análise de Transitórios'],
+        tags: ['Digital Protection', 'Selectivity', 'Transient Analysis'],
         icon: (
             <svg className={styles.cardIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -23,15 +23,15 @@ const detailedServices = [
     },
     {
         id: 2,
-        title: 'Engenharia de Redes & Sistemas SAS',
-        description: 'Projetos completos de arquitetura de automação de subestações baseados em normas internacionais para operação crítica.',
+        title: 'Network Engineering & SAS Systems',
+        description: 'Complete substation automation architecture engineering based on global standards for mission-critical operations.',
         deliverables: [
-            'Projetos de arquitetura IEC 61850 (Ed. 1 e Ed. 2)',
-            'Configuração de mensagens GOOSE, MMS e Sampled Values',
-            'Topologias de rede em anel com redundância PRP/HSR e RSTP',
-            'Engenharia de integração com gateways e IEDs multimarca',
+            'IEC 61850 architecture design (Ed. 1 and Ed. 2)',
+            'GOOSE, MMS, and Sampled Values message configuration',
+            'Ring network topologies with PRP/HSR and RSTP redundancy',
+            'Multi-vendor gateway and numerical IED integration engineering',
         ],
-        tags: ['IEC 61850', 'Redes Industriais', 'Subestação Digital'],
+        tags: ['IEC 61850', 'Industrial Networks', 'Digital Substation'],
         icon: (
             <svg className={styles.cardIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -40,15 +40,15 @@ const detailedServices = [
     },
     {
         id: 3,
-        title: 'Sistemas SCADA & Telemetria Industrial',
-        description: 'Desenvolvimento de sistemas supervisórios avançados para operação local e remota com alta disponibilidade e interface moderna.',
+        title: 'SCADA Systems & Industrial Telemetry',
+        description: 'Development of advanced supervisory control systems for local and remote operation with high availability and modern HMIs.',
         deliverables: [
-            'Desenvolvimento de telas HMI e supervisórios locais e remotos',
-            'Integração com centros de operação (COS/COI/ONS) via DNP3 / IEC 60870-5-104',
-            'Gestão de alarmes, oscilografia e historiadores de eventos',
-            'Lógicas de intertravamento e recomposição automática de carga',
+            'Local and remote HMI & supervisory screen development',
+            'Control center integration via DNP3.0 / IEC 60870-5-104',
+            'Alarm management, oscillography, and event historians',
+            'Interlocking logic and automated load restoration schemes',
         ],
-        tags: ['SCADA', 'DNP3.0 / 104', 'Telecontrole ONS'],
+        tags: ['SCADA', 'DNP3.0 / 104', 'Telecontrol'],
         icon: (
             <svg className={styles.cardIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
@@ -57,15 +57,15 @@ const detailedServices = [
     },
     {
         id: 4,
-        title: 'Comissionamento & Ensaios em Campo',
-        description: 'Testes funcionais, injeção de corrente e tensão secundária e validação ponto a ponto para energização segura e conforme.',
+        title: 'Commissioning & Field Testing',
+        description: 'Functional tests, calibrated secondary current/voltage injection, and point-to-point validation for safe energization.',
         deliverables: [
-            'Testes de bancada com caixas de injeção secundária',
-            'Validação ponto a ponto até o centro de operação (TAF / TAC)',
-            'Ensaios de atuação de disjuntores e intertravamentos de segurança',
-            'Acompanhamento e suporte técnico na energização inicial',
+            'Secondary injection bench testing with OMICRON / Doble',
+            'Point-to-point end-to-end telemetry validation (FAT / SAT)',
+            'Circuit breaker trip timing and safety interlocking tests',
+            'On-site technical support during initial energization',
         ],
-        tags: ['Testes TAF / TAC', 'Comissionamento', 'Injeção Secundária'],
+        tags: ['FAT / SAT Testing', 'Commissioning', 'Secondary Injection'],
         icon: (
             <svg className={styles.cardIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -74,7 +74,7 @@ const detailedServices = [
     },
 ];
 
-export default function ServicosPage() {
+export default function ServicesPageEn() {
     return (
         <main className={styles.page}>
             {/* Hero Banner */}
@@ -83,13 +83,13 @@ export default function ServicosPage() {
                 <div className={styles.bannerContainer}>
                     <div className={styles.badge}>
                         <span className={styles.badgeDot}></span>
-                        <span>CATÁLOGO DE SERVIÇOS</span>
+                        <span>SERVICES CATALOG</span>
                     </div>
                     <h1 className={styles.bannerTitle}>
-                        Engenharia Especializada para Subestações & Sistemas de Energia
+                        Specialized Engineering for Substations & Power Systems
                     </h1>
                     <p className={styles.bannerDescription}>
-                        Atuamos com rigor normativo, automação inteligente e comissionamento de alta precisão para garantir confiabilidade e segurança energética.
+                        We operate with regulatory rigor, intelligent automation, and high-precision commissioning to guarantee energy reliability and safety.
                     </p>
                 </div>
             </section>
@@ -98,14 +98,14 @@ export default function ServicosPage() {
             <section className={styles.section}>
                 <div className={styles.sectionHeader}>
                     <div className={styles.badgeLight}>
-                        <span>NOSSAS CAPACIDADES</span>
+                        <span>OUR CAPABILITIES</span>
                     </div>
-                    <h2 className={styles.sectionTitle}>Soluções Técnicas de Ponta a Ponta</h2>
+                    <h2 className={styles.sectionTitle}>End-to-End Technical Engineering Solutions</h2>
                     <div className={styles.titleDivider}></div>
                 </div>
 
                 <div className={styles.catalogGrid}>
-                    {detailedServices.map((service) => (
+                    {detailedServicesEn.map((service) => (
                         <article key={service.id} className={styles.serviceCard}>
                             <div className={styles.cardTop}>
                                 <div className={styles.iconBox}>{service.icon}</div>
@@ -113,7 +113,7 @@ export default function ServicosPage() {
                             </div>
                             <p className={styles.cardDescription}>{service.description}</p>
 
-                            <h4 className={styles.deliverablesHeading}>Principais Entregáveis:</h4>
+                            <h4 className={styles.deliverablesHeading}>Key Deliverables:</h4>
                             <ul className={styles.deliverablesList}>
                                 {service.deliverables.map((item, idx) => (
                                     <li key={idx} className={styles.deliverableItem}>
@@ -138,12 +138,12 @@ export default function ServicosPage() {
                 <section className={styles.ctaBanner}>
                     <div className={styles.ctaPattern}></div>
                     <div className={styles.ctaContent}>
-                        <h3 className={styles.ctaTitle}>Precisa de uma proposta técnica ou análise de escopo?</h3>
+                        <h3 className={styles.ctaTitle}>Need a technical proposal or scope analysis?</h3>
                         <p className={styles.ctaSubtitle}>
-                            Discuta seu escopo preliminar com nossos engenheiros e obtenha uma solução precisa para seu empreendimento.
+                            Discuss your preliminary scope with our engineers and receive a precise solution tailored to your project.
                         </p>
-                        <Link href="/contato" className={styles.ctaActionBtn}>
-                            SOLICITAR PROPOSTA TÉCNICA / ANÁLISE DE ESCOPO
+                        <Link href="/en/contact" className={styles.ctaActionBtn}>
+                            REQUEST TECHNICAL PROPOSAL / SCOPE ANALYSIS
                         </Link>
                     </div>
                 </section>
@@ -151,3 +151,4 @@ export default function ServicosPage() {
         </main>
     );
 }
+
