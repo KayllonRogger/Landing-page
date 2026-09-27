@@ -1,0 +1,17 @@
+# ==========================================
+# Robots.txt - KR Consultoria e Engenharia
+# ==========================================
+
+User-agent: *
+# Bloqueio de indexacao e rastreamento de areas restritas/login
+Disallow: /drive/
+Disallow: /en/drive/
+Disallow: /drive-api.php
+Disallow: /api/
+
+# Permitir todas as paginas publicas
+Allow: /
+
+# Sitemap Oficial
+Sitemap: https://krconsultoria.com.br/sitemap.xml
+

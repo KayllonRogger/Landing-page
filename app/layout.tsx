@@ -16,9 +16,69 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://krconsultoria.com.br";
+const DEFAULT_TITLE = "KR Engenharia - Automação de Subestações & Sistemas de Energia";
+const DEFAULT_DESCRIPTION =
+  "Automação inteligente de subestações e sistemas de energia. Engenharia integrada para confiabilidade, eficiência e digitalização da rede elétrica. CNPJ: 68.797.626/0001-04 • CREA- nº 141854962-2.";
+
 export const metadata: Metadata = {
-  title: "KR Engenharia - Automação de Subestações & Sistemas de Energia",
-  description: "Automação inteligente de subestações e sistemas de energia. Engenharia integrada para confiabilidade, eficiência e digitalização da rede elétrica.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: DEFAULT_TITLE,
+    template: "%s | KR Engenharia",
+  },
+  description: DEFAULT_DESCRIPTION,
+  authors: [{ name: "KR Consultoria e Soluções em Engenharia LTDA" }],
+  keywords: [
+    "Automação de Subestações",
+    "Sistemas de Energia",
+    "SAS",
+    "SCADA",
+    "IEC 61850",
+    "Proteção de Sistemas Elétricos",
+    "Comissionamento de Subestações",
+    "MiCOM",
+    "SIPROTEC",
+    "BCU C264",
+  ],
+  creator: "KR Engenharia",
+  publisher: "KR Engenharia",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "pt-BR": "/",
+      "en-US": "/en/",
+    },
+  },
+  openGraph: {
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: "/",
+    siteName: "KR Engenharia",
+    locale: "pt_BR",
+    alternateLocale: ["en_US"],
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: DEFAULT_TITLE,
+        type: "image/jpeg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_TITLE,
+    description:
+      "Automação inteligente de subestações e sistemas de energia. CNPJ: 68.797.626/0001-04 • CREA- nº 141854962-2.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

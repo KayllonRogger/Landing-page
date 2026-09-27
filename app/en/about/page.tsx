@@ -61,6 +61,13 @@ const valuesListEn = [
     },
 ];
 
+const credentials = [
+    'Corporate License at CREA- No. 141854962-2',
+    'Corporate Tax ID (CNPJ): 68.797.626/0001-04 (KR Consultoria e Soluções em Engenharia LTDA)',
+    'Official ART Issuance per Study / Project / Commissioning',
+    'Certified Competencies in IEC 61850, OMICRON, and ETAP',
+];
+
 export default function AboutUsPageEn() {
     return (
         <main className={styles.page}>
@@ -145,6 +152,35 @@ export default function AboutUsPageEn() {
                         </p>
                     </div>
                 </div>
+
+                {/* Technical Responsibility & Governance */}
+                <section className={styles.leadershipSection}>
+                    <div>
+                        <div className={styles.leadershipBadge}>TECHNICAL LEADERSHIP & GOVERNANCE</div>
+                        <h2 className={styles.leadershipTitle}>Engineering with Legal & Professional Backing</h2>
+                        <p className={styles.leadershipText}>
+                            Every engineering study, protection calculation, and commissioning activity is officially registered with the Regional Council of Engineering and Agronomy (CREA) through Technical Responsibility Notes (ART), guaranteeing full legal accountability, regulatory rigor, and compliance with IEEE, ONS, and IEC standards.
+                        </p>
+                        <div className={styles.creaList}>
+                            {credentials.map((item) => (
+                                <div key={item} className={styles.creaItem}>
+                                    <svg className={styles.creaIcon} fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    <span>{item}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className={styles.leadershipCardRight}>
+                        <div className={styles.leadRole}>TECHNICAL DIRECTION & ENGINEERING</div>
+                        <h3 className={styles.leadName}>Specialist Engineering Staff</h3>
+                        <p className={styles.leadBio}>
+                            Licensed electrical engineers specialized in critical power systems and digital substation automation, committed to delivering robust, selective, and resilient solutions under all operating contingencies.
+                        </p>
+                    </div>
+                </section>
 
                 {/* CTA Box */}
                 <section className={styles.ctaBanner}>

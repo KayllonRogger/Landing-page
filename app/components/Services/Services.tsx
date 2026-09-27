@@ -13,11 +13,12 @@ export default function Services({ locale = 'pt' }: ServicesProps) {
     const services = [
         {
             id: 1,
-            title: isEn ? 'PROTECTION & CONTROL STUDIES' : 'ESTUDOS DE PROTEÇÃO & CONTROLE',
+            title: isEn ? 'PROTECTION & SELECTIVITY STUDIES' : 'ESTUDOS DE PROTEÇÃO & SELETIVIDADE',
             description: isEn
-                ? 'Comprehensive short-circuit analysis, coordination, selectivity, and numerical IED parameterization under strict standards.'
-                : 'Análise completa de curto-circuito, coordenação, seletividade e parametrização de IEDs com rigor normativo.',
-            tags: isEn ? ['IEC 61850', 'Selectivity', 'Relay Settings'] : ['IEC 61850', 'Seletividade', 'Ajuste de Relés'],
+                ? 'Mitigate outage risks and ensure asset integrity. Analytical short-circuit calculations, coordination curves, and IED parameterization in ETAP.'
+                : 'Mitigue riscos de desligamentos intempestivos e proteja ativos críticos. Cálculos analíticos de curto-circuito, curvas de coordenação e parametrização de IEDs em ETAP.',
+            tags: isEn ? ['ETAP Analysis', 'Coordination Curves', 'ONS Compliance'] : ['Estudos ETAP', 'Curvas de Coordenação', 'Conformidade ONS'],
+            href: isEn ? '/en/protection-and-selectivity-studies/' : '/estudos-de-protecao-e-seletividade/',
             icon: (
                 <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -26,11 +27,12 @@ export default function Services({ locale = 'pt' }: ServicesProps) {
         },
         {
             id: 2,
-            title: isEn ? 'NETWORK ENGINEERING & SAS' : 'ENGENHARIA DE REDES & SAS',
+            title: isEn ? 'POWER SYSTEM AUTOMATION & IEC 61850' : 'AUTOMAÇÃO DE SISTEMAS ELÉTRICOS & IEC 61850',
             description: isEn
-                ? 'Advanced communication architectures for high- and extra-high-voltage substation automation systems.'
-                : 'Arquiteturas avançadas de comunicação para sistemas de automação de subestações de alta e extra alta tensão.',
-            tags: isEn ? ['GOOSE / MMS', 'PRP/HSR Networks', 'SAS Systems'] : ['GOOSE / MMS', 'Redes PRP/HSR', 'Sistemas SAS'],
+                ? 'End-to-end substation automation (SAS). High-speed GOOSE messaging, zero-loss PRP/HSR redundancy, SCADA HMIs, and utility protocols (DNP3, IEC 60870-5-104).'
+                : 'Engenharia completa de automação de subestações (SAS). Mensagens GOOSE ultrarrápidas, redes redundantes PRP/HSR, supervisórios SCADA e telecontrole ONS (DNP3 / 104).',
+            tags: isEn ? ['IEC 61850 GOOSE/MMS', 'PRP / HSR Redundancy', 'DNP3 & SCADA'] : ['IEC 61850 GOOSE/MMS', 'Redundância PRP/HSR', 'DNP3 & SCADA'],
+            href: isEn ? '/en/power-system-automation/' : '/automacao-sistemas-eletricos/',
             icon: (
                 <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -39,20 +41,19 @@ export default function Services({ locale = 'pt' }: ServicesProps) {
         },
         {
             id: 3,
-            title: isEn ? 'AUTOMATION & SCADA' : 'AUTOMAÇÃO E SCADA',
+            title: isEn ? 'COMMISSIONING & FIELD TESTING' : 'COMISSIONAMENTO & ENSAIOS EM CAMPO',
             description: isEn
-                ? 'Real-time supervision, control, and data acquisition systems, intuitive HMIs, and industrial telemetry.'
-                : 'Sistemas de supervisão, controle e aquisição de dados em tempo real, telas intuitivas e telemetria industrial.',
-            tags: isEn ? ['SCADA Screens', 'Historians', 'Telecontrol'] : ['Telas SCADA', 'Historiadores', 'Telecontrole'],
+                ? 'Zero start-up surprises. Calibrated secondary injection with OMICRON CMC sets, functional logic validation, trip matrix tests, and comprehensive FAT/SAT support up to 500 kV.'
+                : 'Energização segura e sem imprevistos. Injeção secundária calibrada com malas OMICRON CMC, validação de lógicas, testes de matriz de trip e suporte integral a TAF/TAC até 500 kV.',
+            tags: isEn ? ['OMICRON CMC 356', 'FAT / SAT Support', 'Trip Matrix Tests'] : ['OMICRON CMC 356', 'Suporte TAF / TAC', 'Matriz de Trip'],
+            href: isEn ? '/en/commissioning-and-field-testing/' : '/comissionamento-e-ensaios-em-campo/',
             icon: (
                 <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                 </svg>
             ),
         },
     ];
-
-    const servicesUrl = isEn ? '/en/services' : '/servicos';
 
     return (
         <section id={isEn ? "services" : "servicos"} className={styles.services}>
@@ -88,7 +89,7 @@ export default function Services({ locale = 'pt' }: ServicesProps) {
                                 ))}
                             </div>
 
-                            <Link href={servicesUrl} className={styles.serviceLink}>
+                            <Link href={service.href} className={styles.serviceLink}>
                                 <span>{isEn ? 'Learn More' : 'Saiba Mais'}</span>
                                 <svg className={styles.arrowIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

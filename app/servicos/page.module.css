@@ -225,6 +225,34 @@
   margin-top: 2px;
 }
 
+.serviceDetailLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  color: #0d3b66;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.serviceDetailLink:hover {
+  color: #f39c12;
+  transform: translateX(4px);
+}
+
+.detailArrowIcon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.serviceDetailLink:hover .detailArrowIcon {
+  transform: translateX(3px);
+}
+
 .cardFooter {
   margin-top: auto;
   display: flex;

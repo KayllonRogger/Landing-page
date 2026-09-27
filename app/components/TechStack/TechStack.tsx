@@ -121,6 +121,23 @@ const techItems: TechItem[] = [
     },
 ];
 
+const metrics = [
+    { value: '+50', label: { pt: 'Subestações & Plantas Atendidas', en: 'Substations & Plants Delivered' } },
+    { value: '500 kV', label: { pt: 'Nível de Tensão de Operação', en: 'Operating Voltage Level' } },
+    { value: '100%', label: { pt: 'Conformidade ONS e Normas', en: 'Grid Code & ONS Compliance' } },
+    { value: 'Brasil', label: { pt: 'Atuação & Mobilização Nacional', en: 'Nationwide Field Mobilization' } },
+];
+
+const certifications = [
+    'CREA-MG',
+    'IEC 61850 (Ed. 1 & 2)',
+    'GOOSE / MMS / SV',
+    'PRP / HSR Redundancy',
+    'ETAP / IEEE 1584',
+    'OMICRON CMC',
+    'NR-10 & SEP',
+];
+
 interface TechStackProps {
     locale?: 'pt' | 'en';
 }
@@ -146,6 +163,31 @@ export default function TechStack({ locale = 'pt' }: TechStackProps) {
                             ? "Comprehensive hands-on expertise in leading electrical industry platforms for protection, automation (IEC 61850), and high-voltage secondary testing."
                             : "Profundo domínio prático nas plataformas líderes do setor elétrico para proteção, automação (IEC 61850) e ensaios secundários de alta tensão."}
                     </p>
+                </div>
+
+                {/* Key Metrics */}
+                <div className={styles.metricsGrid}>
+                    {metrics.map((metric) => (
+                        <div key={metric.value} className={styles.metricCard}>
+                            <div className={styles.metricValue}>{metric.value}</div>
+                            <div className={styles.metricLabel}>{metric.label[locale]}</div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Certifications & Standards */}
+                <div className={styles.certificationsBanner}>
+                    <div className={styles.certTitle}>
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        <span>{isEn ? "Habilitations & Standards:" : "Habilitações & Normas:"}</span>
+                    </div>
+                    <div className={styles.certList}>
+                        {certifications.map((cert) => (
+                            <span key={cert} className={styles.certBadge}>{cert}</span>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Grid */}

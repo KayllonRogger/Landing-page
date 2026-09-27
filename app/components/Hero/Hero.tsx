@@ -33,42 +33,41 @@ export default function Hero({ locale = 'pt' }: HeroProps) {
                 <div className={styles.textContent}>
                     <div className={styles.badge}>
                         <span className={styles.badgeDot}></span>
-                        <span>{isEn ? "HIGH-VOLTAGE & SAS ENGINEERING SOLUTIONS" : "SOLUÇÕES EM ALTA TENSÃO & SAS"}</span>
+                        <span>{isEn ? "PROTECTION • AUTOMATION • IEC 61850 • SCADA • COMMISSIONING" : "PROTEÇÃO • AUTOMAÇÃO • IEC 61850 • SCADA • COMISSIONAMENTO"}</span>
                     </div>
 
                     <h1 className={styles.title}>
-                        KR ENGENHARIA<br />
-                        <span className={styles.titleHighlight}>
-                            {isEn ? "ELECTRICAL, AUTOMATION & SAS" : "ELÉTRICA, AUTOMAÇÃO & SAS"}
-                        </span>
-                    </h1>
-
-                    <h2 className={styles.subtitle}>
                         {isEn ? (
                             <>
-                                INTELLIGENT AUTOMATION FOR<br />
-                                SUBSTATIONS & POWER SYSTEMS.
+                                ELECTRICAL ENGINEERING FOR<br />
+                                <span className={styles.titleHighlight}>CRITICAL POWER SYSTEMS</span>
                             </>
                         ) : (
                             <>
-                                AUTOMAÇÃO INTELIGENTE DE<br />
-                                SUBESTAÇÕES E SISTEMAS DE ENERGIA.
+                                ENGENHARIA ELÉTRICA PARA<br />
+                                <span className={styles.titleHighlight}>SISTEMAS DE POTÊNCIA CRÍTICOS</span>
                             </>
                         )}
+                    </h1>
+
+                    <h2 className={styles.subtitle}>
+                        {isEn
+                            ? "We design, parameterize, test, and commission protection, control, and automation systems for substations, industrial plants, and power generation facilities."
+                            : "Projetamos, parametrizamos, testamos e colocamos em operação sistemas de proteção, controle e automação de subestações, plantas industriais e sistemas de geração."}
                     </h2>
 
                     <p className={styles.description}>
                         {isEn
-                            ? "Integrated engineering for electrical grid reliability, efficiency, and digitalization."
-                            : "Engenharia integrada para a confiabilidade, eficiência e digitalização da rede elétrica."}
+                            ? "Operational risk mitigation, uptime assurance, and 100% compliance with Grid Codes (ONS) and international standards (IEC 61850, IEEE, ABNT)."
+                            : "Mitigação de riscos operacionais, garantia de continuidade operacional e 100% de conformidade com os Procedimentos de Rede do ONS e normas internacionais (IEC 61850, IEEE, ABNT)."}
                     </p>
 
                     <div className={styles.buttons}>
-                        <Link href={isEn ? "/en/services" : "/servicos"} className={styles.btnPrimary}>
-                            {isEn ? "OUR SERVICES" : "NOSSOS SERVIÇOS"}
+                        <Link href={isEn ? "/en/contact" : "/contato"} className={styles.btnPrimary}>
+                            {isEn ? "REQUEST TECHNICAL ANALYSIS" : "SOLICITAR ANÁLISE TÉCNICA"}
                         </Link>
-                        <Link href={isEn ? "/en/contact" : "/contato"} className={styles.btnSecondary}>
-                            {isEn ? "TALK TO A SPECIALIST" : "FALE COM UM ESPECIALISTA"}
+                        <Link href={isEn ? "/en/services" : "/servicos"} className={styles.btnSecondary}>
+                            {isEn ? "VIEW OUR SERVICES" : "CONHECER SERVIÇOS"}
                         </Link>
                     </div>
                 </div>

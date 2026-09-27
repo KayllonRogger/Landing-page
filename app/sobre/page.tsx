@@ -89,6 +89,13 @@ const valuesList = [
     },
 ];
 
+const credentials = [
+    'Registro de Pessoa Jurídica no CREA- nº 141854962-2',
+    'CNPJ: 68.797.626/0001-04 (KR Consultoria e Soluções em Engenharia LTDA)',
+    'Emissão de ART por Obra / Estudo / Comissionamento',
+    'Certificações Profissionais em IEC 61850, OMICRON e ETAP',
+];
+
 export default function SobrePage() {
     const [activeTestimonial, setActiveTestimonial] = useState(0);
     const testimonial = testimonials[activeTestimonial];
@@ -232,6 +239,35 @@ export default function SobrePage() {
                     </div>
                 </section>
                 */}
+
+                {/* Technical Responsibility & Governance */}
+                <section className={styles.leadershipSection}>
+                    <div>
+                        <div className={styles.leadershipBadge}>RESPONSABILIDADE TÉCNICA & GOVERNANÇA</div>
+                        <h2 className={styles.leadershipTitle}>Engenharia com Respaldo Legal e Ético</h2>
+                        <p className={styles.leadershipText}>
+                            Todos os nossos projetos, estudos elétricos e comissionamentos contam com emissão de Anotação de Responsabilidade Técnica (ART) junto ao CREA, assegurando aos nossos clientes a máxima solidez jurídica, conformidade regulatória e conformidade com as normas da ABNT, IEEE, ONS e IEC.
+                        </p>
+                        <div className={styles.creaList}>
+                            {credentials.map((item) => (
+                                <div key={item} className={styles.creaItem}>
+                                    <svg className={styles.creaIcon} fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    <span>{item}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className={styles.leadershipCardRight}>
+                        <div className={styles.leadRole}>DIREÇÃO TÉCNICA & ENGENHARIA</div>
+                        <h3 className={styles.leadName}>Corpo Técnico Especialista</h3>
+                        <p className={styles.leadBio}>
+                            Engenheiros eletricistas especialistas em sistemas de potência e automação digital, dedicados a garantir que cada solução seja robusta, seletiva e resiliente perante as mais severas contingências do sistema elétrico.
+                        </p>
+                    </div>
+                </section>
 
                 {/* CTA Box */}
                 <section className={styles.ctaBanner}>

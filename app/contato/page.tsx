@@ -146,6 +146,23 @@ export default function ContatoPage() {
                                         </span>
                                     </div>
                                 </div>
+
+                                {/* Company Registration */}
+                                <div className={styles.contactItem}>
+                                    <div className={styles.contactIconBox}>
+                                        <svg className={styles.contactIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                    </div>
+                                    <div className={styles.contactDetails}>
+                                        <span className={styles.contactLabel}>Dados Cadastrais & Registro</span>
+                                        <span className={styles.contactText}>
+                                            <strong>CNPJ:</strong> 68.797.626/0001-04<br />
+                                            <strong>Registro CREA:</strong> CREA- nº 141854962-2<br />
+                                            <span style={{ fontSize: '12px', color: '#94a3b8' }}>KR Consultoria e Soluções em Engenharia LTDA</span>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

@@ -6,7 +6,8 @@ import styles from './page.module.css';
 const detailedServices = [
     {
         id: 1,
-        title: 'Estudos de Proteção & Controle',
+        title: 'Estudos de Proteção & Seletividade',
+        href: '/estudos-de-protecao-e-seletividade/',
         description: 'Dimensionamento e parametrização detalhada de relés numéricos para assegurar a rápida eliminação de faltas com máxima seletividade.',
         deliverables: [
             'Estudos de curto-circuito e fluxo de carga',
@@ -24,6 +25,7 @@ const detailedServices = [
     {
         id: 2,
         title: 'Engenharia de Redes & Sistemas SAS',
+        href: '/automacao-sistemas-eletricos/',
         description: 'Projetos completos de arquitetura de automação de subestações baseados em normas internacionais para operação crítica.',
         deliverables: [
             'Projetos de arquitetura IEC 61850 (Ed. 1 e Ed. 2)',
@@ -41,6 +43,7 @@ const detailedServices = [
     {
         id: 3,
         title: 'Sistemas SCADA & Telemetria Industrial',
+        href: '/automacao-sistemas-eletricos/',
         description: 'Desenvolvimento de sistemas supervisórios avançados para operação local e remota com alta disponibilidade e interface moderna.',
         deliverables: [
             'Desenvolvimento de telas HMI e supervisórios locais e remotos',
@@ -58,6 +61,7 @@ const detailedServices = [
     {
         id: 4,
         title: 'Comissionamento & Ensaios em Campo',
+        href: '/comissionamento-e-ensaios-em-campo/',
         description: 'Testes funcionais, injeção de corrente e tensão secundária e validação ponto a ponto para energização segura e conforme.',
         deliverables: [
             'Testes de bancada com caixas de injeção secundária',
@@ -124,6 +128,13 @@ export default function ServicosPage() {
                                     </li>
                                 ))}
                             </ul>
+
+                            <Link href={service.href} className={styles.serviceDetailLink}>
+                                <span>Ver detalhes completos da solução técnica</span>
+                                <svg className={styles.detailArrowIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </Link>
 
                             <div className={styles.cardFooter}>
                                 {service.tags.map((tag) => (

@@ -3,105 +3,201 @@
 import { useState } from 'react';
 import styles from '../../projetos/page.module.css';
 
-const projectsEn = [
+const projects = [
     {
         id: 1,
-        title: '230 kV Digital Substation Modernization',
-        category: 'Automation & SAS',
-        summary: 'Full substation digitalization with numerical IED integration, IEC 61850 protocols, and redundant SCADA supervision.',
-        description:
-            'Comprehensive modernization project deploying digital IEDs, station/process bus, IEC 61850 (GOOSE and MMS) protocols, and high-availability SCADA, expanding real-time operational visibility and situational awareness across the entire substation.',
+        title: '230 kV Substation – MiCOM P-Series IEDs & BCU C264 Integration (Pará)',
+        location: 'Pará, Brazil',
+        category: 'Substations & High Voltage',
+        coverImage: '/projects/para/20260813_145555.jpg',
+        summary: 'Engineering, integration, and commissioning of a 230 kV substation, integrating MiCOM P-series IEDs (transformer, feeder, and line) with the MiCOM C264 Bay Control Unit.',
+        description: 'Specialized engineering services executed for a 230 kV high-voltage substation in Pará, Brazil. The scope encompassed full integration and parameterization of MiCOM P-series numerical relays with the Schneider/Alstom MiCOM C264 Bay Control Unit (BCU), covering transformer differential and overcurrent protection, transmission line protection, feeder bays, horizontal GOOSE interlocking schemes, and substation SCADA telemetry under IEC 61850.',
         specs: [
-            { label: 'Rated Voltage', value: '230 / 138 / 13.8 kV' },
-            { label: 'Standard Applied', value: 'IEC 61850 Ed. 2 / PRP' },
-            { label: 'Protocols', value: 'GOOSE, MMS, DNP3.0' },
-            { label: 'Scope', value: 'Engineering, Parameterization & FAT' },
+            { label: 'Operating Voltage', value: '230 kV / 138 kV / 13.8 kV' },
+            { label: 'Applied Standard', value: 'IEC 61850 Ed. 2 / GOOSE / MMS' },
+            { label: 'IEDs & Control', value: 'MiCOM P-Series & MiCOM C264 BCU' },
+            { label: 'Protection Scope', value: 'Power Transformer, Feeder & Line' },
+            { label: 'Results', value: '100% Validated Interlocking & Telecontrol' },
         ],
         photos: [
             {
-                label: 'Digital Control Panel',
-                caption: 'Cubicle layout with intelligent IEDs and redundant fiber-optic cabling management.',
+                src: '/projects/para/20260813_145555.jpg',
+                label: '230 kV Substation Switchyard',
+                caption: 'Overview of the 230 kV switchyard bay showing circuit breakers, disconnectors, and power transformer during commissioning.',
             },
             {
-                label: 'SCADA Supervision Console',
-                caption: 'High-fidelity operator HMI with dynamic single-line synoptics and alarm logging.',
+                src: '/projects/para/20260715_180937.jpg',
+                label: '230 kV Gantries & Busbars at Dusk',
+                caption: 'High-voltage gantry structures, insulator strings, and substation yard safety signage.',
             },
             {
-                label: 'Field Testing & Secondary Injection',
-                caption: 'Dynamic tripping timing verification and interlocking logic validation.',
+                src: '/projects/para/20260812_155950.jpg',
+                label: 'Schneider PACiS CMT – BCU C264 Management',
+                caption: 'Database configuration and firmware maintenance (Database 1 & 2) of the C264 CPU via Schneider Electric Computer Maintenance Tool (CMT).',
+            },
+            {
+                src: '/projects/para/IMG-20260811-WA0026.jpeg',
+                label: 'IEC 61850 Engineering in Schneider PACiS SCE',
+                caption: 'Data point profiles, GOOSE interlocking logic, and communication mapping for MiCOM IEDs (P141, P142, P643) and C264 BCU.',
+            },
+            {
+                src: '/projects/para/IMG-20260813-WA0011.jpeg',
+                label: 'SCADA / HMI Overall Single-Line Diagram',
+                caption: 'Substation HMI display illustrating the 230 kV transmission line bay, breaker, disconnector, transformer, and 13.8 kV feeders.',
             },
         ],
     },
     {
         id: 2,
-        title: 'Renewable Energy Plant Grid Interconnection',
-        category: 'Renewable Energy',
-        summary: 'Connection and interconnection of large-scale solar and wind generation complexes to medium & high voltage grids.',
-        description:
-            'Electrical interconnection studies, power flow, and transient stability analysis for connecting utility-scale solar and wind plants to the grid, integrating bay protection schemes, power factor / voltage control, and grid operator telemetry.',
+        title: '400 kV Offshore Wind Farm Grid Interconnection Substation (Poland)',
+        location: 'Poland (PSE Transmission Grid)',
+        category: 'Wind & Offshore',
+        coverImage: '/projects/polonia/20260130_130042.jpg',
+        summary: 'Commissioning of a 400 kV extra-high-voltage substation integrating offshore wind farm power into the Polish national transmission grid, featuring GE, ABB IEDs, and BCU C264.',
+        description: 'Commissioning of an extra-high-voltage (400 kV) substation in Poland designed to collect offshore wind generation and feed it into the Polish national transmission grid (PSE). The work included on-site Site Acceptance Testing (SAT), multi-vendor integration of GE and ABB numerical protection IEDs with the MiCOM C264 Bay Control Unit, and validation of IEC 61850 PRP zero-recovery-time redundant networks.',
         specs: [
-            { label: 'Connected Capacity', value: '120 MWp Solar / 80 MW Wind' },
-            { label: 'Point of Interconnection', value: '138 kV Grid Connection' },
-            { label: 'Voltage Control', value: 'Automatic AVR / Q-V Control' },
-            { label: 'Scope', value: 'Grid Interconnection Studies & Commissioning' },
+            { label: 'Operating Voltage', value: '400 kV (Extra High Voltage)' },
+            { label: 'Application', value: 'Offshore Wind Farm Grid Connection' },
+            { label: 'Equipment / IEDs', value: 'GE Multilin, ABB Relion & BCU C264' },
+            { label: 'Protocols & Networks', value: 'IEC 61850 PRP Redundant, GOOSE, MMS' },
+            { label: 'Results', value: '100% Compliance with European Grid Codes' },
         ],
         photos: [
             {
-                label: 'Collector Step-Up Substation',
-                caption: 'Power transformers and medium-to-high voltage interconnection bays.',
+                src: '/projects/polonia/20260130_130042.jpg',
+                label: 'Field Commissioning in Winter Conditions',
+                caption: 'Commissioning engineer on-site inspecting 400 kV substation gantries and surge arresters amidst heavy snow in Poland.',
             },
             {
-                label: 'Bay Protection Panels',
-                caption: 'Multifunction protection relays with directional overcurrent, undervoltage, and overvoltage.',
+                src: '/projects/polonia/20260204_150528.jpg',
+                label: 'GE Multilin & BCU Parameterization in Panel',
+                caption: 'Field parameterization and configuration directly at the protection and control cubicle with GE Multilin IEDs and C264 BCU.',
             },
             {
-                label: 'Grid Code Telemetry Gateway',
-                caption: 'Real-time telemetry and data streaming to the National System Operator.',
+                src: '/projects/polonia/20260311_161711.jpg',
+                label: 'Gas-Insulated Substation (GIS SF6) Hall',
+                caption: 'Indoor SF6 gas-insulated switchgear (GIS) hall, showing encapsulated phases, busducts, and local control cubicles.',
+            },
+            {
+                src: '/projects/polonia/20260330_092427_1.jpg',
+                label: 'Internal Wiring & Control Panel Inspection',
+                caption: 'Verification of terminal blocks, auxiliary relays, miniature circuit breakers, and trip/signaling circuitry.',
+            },
+            {
+                src: '/projects/polonia/20260331_135734.jpg',
+                label: 'Mobile High-Voltage Applied Test System',
+                caption: 'Trailer-mounted high-voltage resonant test set and mobile power generator performing dielectric insulation testing on-site.',
             },
         ],
     },
     {
         id: 3,
-        title: 'Commissioning & Protection Coordination',
-        category: 'Protection & Control',
-        summary: 'High-voltage protection system validation and coordination with dynamic simulation testing.',
-        description:
-            'Specialized technical service for commissioning secondary protection systems, featuring static and dynamic injection testing, selectivity curve coordination, and tripping logic validation, ensuring high operational safety and zero false trips.',
+        title: 'Offshore Wind Service Operation Vessel (SOV) Commissioning (USA)',
+        location: 'East Coast, United States (USA)',
+        category: 'Wind & Offshore',
+        coverImage: '/projects/eua/20250410_083833.jpg',
+        summary: 'Electrical commissioning and automation of a state-of-the-art Service Operation Vessel (SOV) dedicated to offshore wind turbine maintenance in the United States.',
+        description: 'Electrical and industrial automation commissioning of a high-tech Service Operation Vessel (SOV) in the United States. Serving as an offshore logistics and technical hub for continuous maintenance of offshore wind turbines, the project involved comprehensive testing of main switchboards, onboard auxiliary generation, dynamic positioning electrical drives, and safety interlocking systems.',
         specs: [
-            { label: 'Tested Relays', value: 'Distance (21), Differential (87), Overcurrent (50/51)' },
-            { label: 'Test Equipment', value: 'Calibrated Hexaphase Injection Sets' },
-            { label: 'Performance Criteria', value: 'Total Selectivity & High-Speed Tripping' },
-            { label: 'Scope', value: 'On-Site Field Testing & Certified Reports' },
+            { label: 'Application', value: 'Offshore Wind Farm Field Operations (USA)' },
+            { label: 'Vessel Type', value: 'Service Operation Vessel (SOV)' },
+            { label: 'Electrical Scope', value: 'Onboard Generation, Switchboards & Automation' },
+            { label: 'Operational Safety', value: 'Critical Interlocking & Marine Emergency Trips' },
+            { label: 'Results', value: 'Fully Certified Vessel with Continuous Uptime' },
         ],
         photos: [
             {
-                label: 'Secondary Injection Test Bench',
-                caption: 'Automated characteristic curve testing with calibration certificate generation.',
+                src: '/projects/eua/20250410_083833.jpg',
+                label: 'SOV "ECO LIBERTY" (Empire Wind Hybrid Vessel)',
+                caption: 'Exterior view of the plug-in hybrid Service Operation Vessel (SOV) docked at the shipyard, built for offshore wind farm support.',
             },
             {
-                label: 'Coordination & Selectivity Study',
-                caption: 'Time-current curves adjusted for selective and fast fault clearance.',
+                src: '/projects/eua/20250410_091628.jpg',
+                label: 'Secondary Injection with Omicron Test Set on Marine Switchboard',
+                caption: 'Secondary injection testing of Woodward/Symap protection relays mounted on the marine switchboard doors using Omicron equipment.',
             },
             {
-                label: 'Circuit Breaker Timing Inspection',
-                caption: 'Opening, closing, and automatic reclosing sequence verification.',
+                src: '/projects/eua/20250421_222702.jpg',
+                label: 'SMST Walk-to-Work Gangway & Aft Crane at Night',
+                caption: 'Motion-compensated Walk-to-Work (SMST) gangway system and 3D crane on the vessel aft deck for safe turbine access in rough seas.',
+            },
+            {
+                src: '/projects/eua/20250426_054530.jpg',
+                label: 'Superstructure & Gangway Tower at Dawn',
+                caption: 'Deck-level perspective showing the boarding elevator tower, offshore crane, and bridge superstructure.',
+            },
+            {
+                src: '/projects/eua/IMG-20250610-WA0020.jpg',
+                label: 'Engineer Operating Main Marine Switchgear',
+                caption: "Commissioning engineer inspecting and testing circuit breaker controls in the vessel's primary power distribution room.",
+            },
+            {
+                src: '/projects/eua/IMG-20250610-WA0021.jpg',
+                label: 'Main Switchboard (MSB) Room Lineup',
+                caption: 'Longitudinal view of the marine switchgear lineup with insulated safety flooring and marine handrails.',
+            },
+        ],
+    },
+    {
+        id: 4,
+        title: '500 kV Substation – Commissioning & Siemens SIPROTEC 5 IEDs (Espírito Santo)',
+        location: 'Espírito Santo, Brazil',
+        category: 'Substations & High Voltage',
+        coverImage: '/projects/espirito-santo/IMG_20210310_150506.jpg',
+        summary: 'Commissioning of a 500 kV extra-high-voltage substation in Espírito Santo, integrating, parameterizing, and secondary testing new Siemens SIPROTEC 5 digital IEDs.',
+        description: 'Comprehensive electrical commissioning of an extra-high-voltage (500 kV) transmission substation in Espírito Santo, Brazil. The project encompassed engineering parameterization with DIGSI 5 for new Siemens SIPROTEC 5 numerical relays, on-site Site Acceptance Testing (SAT), hexaphase secondary injection with calibrated OMICRON CMC test sets, CT saturation knee-point testing, and trip matrix validation for seamless grid energization.',
+        specs: [
+            { label: 'Operating Voltage', value: '500 kV (Extra High Voltage)' },
+            { label: 'IED Family', value: 'Siemens SIPROTEC 5 (7SA/7SL/7UT/7SJ)' },
+            { label: 'Engineering Software', value: 'Siemens DIGSI 5 & OMICRON Test Universe' },
+            {
+                label: 'Field Testing Scope',
+                value: 'Calibrated Secondary Injection, Trip Matrix & Polarity',
+            },
+            { label: 'Results', value: 'Flawless Grid Energization • Certified Engineering Reports' },
+        ],
+        photos: [
+            {
+                src: '/projects/espirito-santo/IMG_20210310_150506.jpg',
+                label: '500 kV Extra-High-Voltage Switchyard',
+                caption: 'Overview of the 500 kV switchyard bay featuring circuit breakers, instrument transformers, disconnectors with corona rings, and gantries.',
+            },
+            {
+                src: '/projects/espirito-santo/IMG_20201119_102727.jpg',
+                label: 'Communication Rack & RT2 Auxiliary Panel Inspection',
+                caption: 'KR commissioning engineer inspecting telecommunication racks, patch panels, and control wiring adjacent to the AC/DC auxiliary power cubicle.',
+            },
+            {
+                src: '/projects/espirito-santo/IMG_20201007_161729.jpg',
+                label: 'Primary Tests on Current Transformers (CTs)',
+                caption: 'Kelvin test leads connected for transformation ratio, knee-point saturation, and winding resistance testing on instrument transformers.',
+            },
+            {
+                src: '/projects/espirito-santo/IMG_20201123_152227.jpg',
+                label: 'Contact Resistance Testing on High-Voltage Disconnector',
+                caption: 'Micro-ohmmeter measurement of contact resistance on disconnector switch contacts and insulators in assembly workshop.',
+            },
+            {
+                src: '/projects/espirito-santo/IMG-20210222-WA0054.jpg',
+                label: 'Aerial Connection Works on 500 kV Power Transformers',
+                caption: 'Boom lift positioning technician for high-voltage busbar and drop lead connection above massive 500 kV power transformers and blast walls.',
             },
         ],
     },
 ];
 
-const categoriesEn = ['All', 'Automation & SAS', 'Renewable Energy', 'Protection & Control'];
-
 export default function ProjectsPageEn() {
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
     const [openProjectId, setOpenProjectId] = useState<number | null>(null);
 
+    const categories = ['All', 'Substations & High Voltage', 'Wind & Offshore'];
+
     const filteredProjects =
         selectedCategory === 'All'
-            ? projectsEn
-            : projectsEn.filter((p) => p.category === selectedCategory);
+            ? projects
+            : projects.filter((p) => p.category === selectedCategory);
 
-    const project = projectsEn.find((item) => item.id === openProjectId) ?? null;
+    const project = projects.find((item) => item.id === openProjectId) ?? null;
 
     return (
         <main className={styles.page}>
@@ -114,10 +210,10 @@ export default function ProjectsPageEn() {
                         <span>ENGINEERING PORTFOLIO</span>
                     </div>
                     <h1 className={styles.bannerTitle}>
-                        Projects Combining Technical Rigor & Real-World Results
+                        Projects Combining Technical Rigor & Concrete Results
                     </h1>
                     <p className={styles.bannerDescription}>
-                        Explore our proven track record in substation modernization, renewable integration, and protection & control systems.
+                        Explore our track record in commissioning high and extra-high-voltage substations (230 kV to 500 kV), offshore wind farm integration, and multi-vendor SAS engineering.
                     </p>
                 </div>
             </section>
@@ -126,7 +222,7 @@ export default function ProjectsPageEn() {
             <section className={styles.section}>
                 {/* Category Filters */}
                 <div className={styles.filterContainer}>
-                    {categoriesEn.map((cat) => (
+                    {categories.map((cat) => (
                         <button
                             key={cat}
                             type="button"
@@ -142,14 +238,20 @@ export default function ProjectsPageEn() {
                 <div className={styles.cardGrid}>
                     {filteredProjects.map((item) => (
                         <article key={item.id} className={styles.card}>
+                            <div className={styles.cardThumbWrapper}>
+                                <img src={item.coverImage} alt={item.title} className={styles.cardThumb} loading="lazy" />
+                                <span className={styles.cardBadgeOverlay}>{item.category}</span>
+                            </div>
                             <div className={styles.cardHeader}>
-                                <span className={styles.cardBadge}>{item.category}</span>
+                                <span style={{ fontSize: 12, fontWeight: 700, color: '#b8834c', letterSpacing: '0.04em' }}>
+                                    📍 {item.location}
+                                </span>
                             </div>
                             <h3 className={styles.cardTitle}>{item.title}</h3>
                             <p className={styles.cardSummary}>{item.summary}</p>
 
                             <div className={styles.specsPreview}>
-                                {item.specs.slice(0, 2).map((s, idx) => (
+                                {item.specs.slice(0, 3).map((s, idx) => (
                                     <div key={idx} className={styles.specMini}>
                                         <span className={styles.specMiniLabel}>{s.label}:</span>
                                         <span className={styles.specMiniValue}>{s.value}</span>
@@ -162,7 +264,7 @@ export default function ProjectsPageEn() {
                                 className={styles.cardButton}
                                 onClick={() => setOpenProjectId(item.id)}
                             >
-                                <span>View Technical Specifications</span>
+                                <span>View Photos & Technical Specs</span>
                                 <svg className={styles.btnIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                 </svg>
@@ -186,7 +288,7 @@ export default function ProjectsPageEn() {
                         </button>
 
                         <div className={styles.popoverHeader}>
-                            <div className={styles.popoverBadge}>{project.category}</div>
+                            <div className={styles.popoverBadge}>{project.category} • {project.location}</div>
                             <h3 className={styles.popoverTitle}>{project.title}</h3>
                             <p className={styles.popoverText}>{project.description}</p>
                         </div>
@@ -201,20 +303,18 @@ export default function ProjectsPageEn() {
                             ))}
                         </div>
 
-                        {/* Technical Photos / Highlights */}
-                        <div className={styles.photosHeading}>Technical Stages & Deliverables:</div>
+                        {/* Project Photos */}
+                        <div className={styles.photosHeading}>Project Photos & Technical Deliverables:</div>
                         <div className={styles.photosGrid}>
                             {project.photos.map((photo, index) => (
                                 <div key={index} className={styles.photoCard}>
-                                    <div className={styles.photoPreview}>
-                                        <div className={styles.photoIconBadge}>
-                                            <svg className={styles.photoSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                            </svg>
-                                        </div>
-                                        <span className={styles.photoTitle}>{photo.label}</span>
+                                    <div className={styles.photoImgWrapper}>
+                                        <img src={photo.src} alt={photo.label} className={styles.photoImg} loading="lazy" />
                                     </div>
-                                    <p className={styles.photoCaption}>{photo.caption}</p>
+                                    <div className={styles.photoContent}>
+                                        <span className={styles.photoTitle}>{photo.label}</span>
+                                        <p className={styles.photoCaption}>{photo.caption}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -224,4 +324,3 @@ export default function ProjectsPageEn() {
         </main>
     );
 }
-

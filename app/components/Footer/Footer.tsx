@@ -24,6 +24,14 @@ export default function Footer() {
                                 ? 'Integrated engineering for electrical grid reliability, efficiency, and digitalization, specializing in substation automation systems.'
                                 : 'Engenharia integrada para a confiabilidade, eficiência e digitalização da rede elétrica e sistemas de automação de subestações.'}
                         </p>
+                        <div className={styles.companyMeta}>
+                            <p className={styles.companyMetaItem}>
+                                <strong>CNPJ:</strong> 68.797.626/0001-04
+                            </p>
+                            <p className={styles.companyMetaItem}>
+                                <strong>{isEn ? 'CREA License:' : 'Registro CREA:'}</strong> CREA- nº 141854962-2
+                            </p>
+                        </div>
                         <div className={styles.socialLinks}>
                             {/* LinkedIn */}
                             <a
@@ -78,7 +86,22 @@ export default function Footer() {
                             </li>
                             <li className={styles.linksItem}>
                                 <Link href={isEn ? '/en/services' : '/servicos'} className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Services' : 'Serviços'}
+                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Services Catalog' : 'Catálogo de Serviços'}
+                                </Link>
+                            </li>
+                            <li className={styles.linksItem}>
+                                <Link href={isEn ? '/en/protection-and-selectivity-studies/' : '/estudos-de-protecao-e-seletividade/'} className={styles.linksItemLink}>
+                                    <span className={styles.linkArrow}>↳</span> {isEn ? 'Protection & Selectivity' : 'Estudos de Proteção e Seletividade'}
+                                </Link>
+                            </li>
+                            <li className={styles.linksItem}>
+                                <Link href={isEn ? '/en/power-system-automation/' : '/automacao-sistemas-eletricos/'} className={styles.linksItemLink}>
+                                    <span className={styles.linkArrow}>↳</span> {isEn ? 'Power System Automation' : 'Automação de Sistemas Elétricos'}
+                                </Link>
+                            </li>
+                            <li className={styles.linksItem}>
+                                <Link href={isEn ? '/en/commissioning-and-field-testing/' : '/comissionamento-e-ensaios-em-campo/'} className={styles.linksItemLink}>
+                                    <span className={styles.linkArrow}>↳</span> {isEn ? 'Commissioning & Testing' : 'Comissionamento & Ensaios em Campo'}
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
@@ -89,6 +112,11 @@ export default function Footer() {
                             <li className={styles.linksItem}>
                                 <Link href={isEn ? '/en/blog' : '/blog'} className={styles.linksItemLink}>
                                     <span className={styles.linkArrow}>→</span> Blog
+                                </Link>
+                            </li>
+                            <li className={styles.linksItem}>
+                                <Link href={isEn ? '/en/drive' : '/drive'} className={styles.linksItemLink}>
+                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Client Drive & Portal' : 'Drive KR / Área do Cliente'}
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
@@ -146,7 +174,7 @@ export default function Footer() {
                 <div className={styles.divider}>
                     <div className={styles.copyright}>
                         <p className={styles.copyrightText}>
-                            © 2026 KR Consultoria e Soluções em Engenharia LTDA. {isEn ? 'All rights reserved.' : 'Todos os direitos reservados.'}
+                            © 2026 KR Consultoria e Soluções em Engenharia LTDA • CNPJ 68.797.626/0001-04 • CREA- nº 141854962-2. {isEn ? 'All rights reserved.' : 'Todos os direitos reservados.'}
                         </p>
                         <p className={styles.copyrightLinks}>
                             {isEn

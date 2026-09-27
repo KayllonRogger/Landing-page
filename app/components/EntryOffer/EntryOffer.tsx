@@ -17,6 +17,37 @@ export default function EntryOffer({ locale = 'pt' }: EntryOfferProps) {
     const whatsappUrl = `https://wa.me/5531995666963?text=${encodeURIComponent(whatsappMessage)}`;
     const contactUrl = isEn ? '/en/contact' : '/contato';
 
+    const priorityChallenges = [
+        {
+            icon: '⚡',
+            label: isEn ? 'Protection Studies' : 'Estudos de Proteção',
+            message: isEn
+                ? 'Hello, I need technical support for Protection & Selectivity Studies.'
+                : 'Olá, preciso de suporte técnico para Estudos de Proteção e Seletividade.',
+        },
+        {
+            icon: '🌐',
+            label: isEn ? 'IEC 61850 / SAS' : 'Engenharia IEC 61850',
+            message: isEn
+                ? 'Hello, I need engineering support for IEC 61850 & SAS.'
+                : 'Olá, preciso de suporte em Engenharia IEC 61850 e SAS.',
+        },
+        {
+            icon: '🔍',
+            label: isEn ? 'FAT / SAT Support' : 'Suporte TAF / TAC',
+            message: isEn
+                ? 'Hello, I need technical support for Panel FAT / SAT.'
+                : 'Olá, preciso de suporte técnico para TAF / TAC de Painéis.',
+        },
+        {
+            icon: '🏗️',
+            label: isEn ? 'Commissioning' : 'Comissionamento',
+            message: isEn
+                ? 'Hello, I need field support for Substation Commissioning.'
+                : 'Olá, preciso de equipe em campo para Comissionamento de Subestação.',
+        },
+    ];
+
     return (
         <section className={styles.section} id={isEn ? "preliminary-evaluation" : "avaliacao-preliminar"}>
             <div className={styles.container}>
@@ -108,6 +139,36 @@ export default function EntryOffer({ locale = 'pt' }: EntryOfferProps) {
                                 </svg>
                                 <span>{isEn ? "INQUIRE VIA WHATSAPP" : "CONSULTAR VIA WHATSAPP"}</span>
                             </a>
+                        </div>
+
+                        <div>
+                            <span
+                                style={{
+                                    fontSize: 11,
+                                    fontWeight: 700,
+                                    letterSpacing: '0.06em',
+                                    textTransform: 'uppercase',
+                                    color: '#cbd5e1',
+                                    display: 'block',
+                                    marginBottom: 8,
+                                }}
+                            >
+                                {isEn ? 'Or select your specific priority challenge:' : 'Ou selecione seu desafio prioritário:'}
+                            </span>
+                            <div className={styles.problemButtonsList}>
+                                {priorityChallenges.map((challenge) => (
+                                    <a
+                                        key={challenge.label}
+                                        href={`https://wa.me/5531995666963?text=${encodeURIComponent(challenge.message)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.problemBtn}
+                                    >
+                                        <span className={styles.problemBtnIcon}>{challenge.icon}</span>
+                                        <span>{challenge.label}</span>
+                                    </a>
+                                ))}
+                            </div>
                         </div>
 
                         <div className={styles.slaBadge}>

@@ -9,6 +9,7 @@ export const translations = {
                 { href: '/servicos', label: 'SERVIÇOS' },
                 { href: '/projetos', label: 'PROJETOS' },
                 { href: '/blog', label: 'BLOG' },
+                { href: '/drive', label: 'DRIVE' },
                 { href: '/contato', label: 'CONTATO' },
             ],
             en: [
@@ -17,6 +18,7 @@ export const translations = {
                 { href: '/en/services', label: 'SERVICES' },
                 { href: '/en/projects', label: 'PROJECTS' },
                 { href: '/en/blog', label: 'BLOG' },
+                { href: '/en/drive', label: 'DRIVE' },
                 { href: '/en/contact', label: 'CONTACT' },
             ],
         },
