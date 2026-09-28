@@ -116,3 +116,7 @@
   }
 }
 
+
+:global(body.kr-modal-open) .container {
+  display: none;
+}

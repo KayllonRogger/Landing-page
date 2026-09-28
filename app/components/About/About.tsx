@@ -2,7 +2,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import s from '../Section/Section.module.css';
 import styles from './About.module.css';
+import { COMPANY } from '@/lib/company';
 
 interface AboutProps {
     locale?: 'pt' | 'en';
@@ -10,110 +12,79 @@ interface AboutProps {
 
 export default function About({ locale = 'pt' }: AboutProps) {
     const isEn = locale === 'en';
-    const aboutUrl = isEn ? '/en/about' : '/sobre';
+
+    const points = isEn
+        ? [
+              {
+                  title: 'One point of contact',
+                  text: 'KR is the commercial point of contact and coordinates the delivery. When studies involve partners, who prepares, reviews, approves, and executes each stage is set in the proposal.',
+              },
+              {
+                  title: 'Brazil and abroad',
+                  text: 'Field experience in Brazil, the United States, and Poland, with fluent English. International mobilization is assessed according to scope and schedule.',
+              },
+          ]
+        : [
+              {
+                  title: 'Uma interface técnica e comercial',
+                  text: 'A KR é a interface comercial e coordena a entrega. Quando os estudos envolvem parceiros, quem elabora, revisa, aprova e executa cada etapa é definido na proposta.',
+              },
+              {
+                  title: 'Brasil e exterior',
+                  text: 'Experiência de campo no Brasil, nos Estados Unidos e na Polônia, com inglês fluente. A mobilização internacional é avaliada conforme escopo e agenda.',
+              },
+          ];
 
     return (
-        <section id={isEn ? "about" : "sobre"} className={styles.about}>
-            <div className={styles.container}>
-                {/* Left - Image with Modern Tech Frame */}
-                <div className={styles.imageWrapper}>
-                    <div className={styles.imageCard}>
-                        <Image
-                            src="/Image/20260130_130042.jpg"
-                            alt={isEn ? "Field engineer at high-voltage substation" : "Engenheiro em campo na subestação"}
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 480px"
-                            className={styles.imagePhoto}
-                        />
-                        <div className={styles.imageOverlay}></div>
-                        <div className={styles.floatingBadge}>
-                            <div className={styles.badgePulse}></div>
-                            <div>
-                                <p className={styles.badgeTitle}>{isEn ? "FIELD EXPERTISE" : "ATUAÇÃO EM CAMPO"}</p>
-                                <p className={styles.badgeSub}>{isEn ? "Substation & High-Voltage Specialists" : "Especialistas em SE & Alta Tensão"}</p>
-                            </div>
-                        </div>
-                    </div>
+        <section id={isEn ? 'about' : 'sobre'} className={s.section} aria-labelledby="sobre-title">
+            <div className={`${s.container} ${styles.layout}`}>
+                <div className={styles.imageCard}>
+                    <Image
+                        src="/Image/20260130_130042.jpg"
+                        alt={isEn ? '400 kV substation yard in winter, Poland' : 'Pátio de subestação de 400 kV no inverno, na Polônia'}
+                        fill
+                        sizes="(max-width: 900px) 100vw, 440px"
+                        className={styles.image}
+                    />
                 </div>
 
-                {/* Right - Content */}
-                <div className={styles.content}>
-                    <div className={styles.badge}>
-                        <span className={styles.badgeDot}></span>
-                        <span>{isEn ? "ABOUT KR ENGENHARIA" : "SOBRE A KR ENGENHARIA"}</span>
-                    </div>
-
-                    <h2 className={styles.title}>
-                        {isEn ? "EXCELLENCE & INNOVATION IN POWER SYSTEMS" : "EXCELÊNCIA & INOVAÇÃO EM ENERGIA"}
+                <div>
+                    <p className={s.eyebrow}>{isEn ? 'About KR' : 'Sobre a KR'}</p>
+                    <h2 id="sobre-title" className={s.title}>
+                        {isEn ? 'Kayllon Rogger Nunes and KR Engenharia' : 'Kayllon Rogger Nunes e a KR Engenharia'}
                     </h2>
-
-                    <p className={styles.description}>
+                    <p className={s.lead}>
                         {isEn
-                            ? "KR Engenharia combines solid technical foundations and hands-on expertise to transform complex power system challenges into safe, sustainable, and digital operations."
-                            : "A KR Engenharia combina sólida formação técnica e experiência prática para transformar desafios complexos de sistemas de potência em operações seguras, sustentáveis e digitais."}
+                            ? 'KR Engenharia is the trade name of KR Consultoria e Soluções em Engenharia LTDA, based in Belo Horizonte, Brazil. It brings together Kayllon Rogger Nunes’s experience in substations, industrial facilities, mining, and offshore applications, connecting studies, settings, logic, integration, and field verification.'
+                            : 'KR Engenharia é o nome comercial da KR Consultoria e Soluções em Engenharia LTDA, com escritório em Belo Horizonte (MG). A empresa reúne a experiência de Kayllon Rogger Nunes em subestações, indústrias, mineração e aplicações offshore, conectando estudos, ajustes, lógicas, integração e verificação em campo.'}
                     </p>
 
-                    <div className={styles.features}>
-                        <div className={styles.featureItem}>
-                            <div className={styles.featureIcon}>
-                                <svg className={styles.featureIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
+                    <div className={styles.points}>
+                        {points.map((point) => (
+                            <div key={point.title} className={styles.point}>
+                                <h3 className={styles.pointTitle}>{point.title}</h3>
+                                <p className={styles.pointText}>{point.text}</p>
                             </div>
-                            <div className={styles.featureContent}>
-                                <h3 className={styles.featureTitle}>
-                                    {isEn ? "APPLIED TECHNICAL EXPERTISE" : "EXPERIÊNCIA TÉCNICA APLICADA"}
-                                </h3>
-                                <p className={styles.featureDescription}>
-                                    {isEn
-                                        ? "Deep proficiency in electrical engineering, protection studies, and integrated substation automation."
-                                        : "Domínio em engenharia elétrica, estudos de proteção e sistemas integrados de automação de subestações."}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className={styles.featureItem}>
-                            <div className={styles.featureIcon}>
-                                <svg className={styles.featureIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                </svg>
-                            </div>
-                            <div className={styles.featureContent}>
-                                <h3 className={styles.featureTitle}>
-                                    {isEn ? "REGULATORY RIGOR & IEC 61850" : "RIGOR NORMATIVO & IEC 61850"}
-                                </h3>
-                                <p className={styles.featureDescription}>
-                                    {isEn
-                                        ? "Engineering fully compliant with state-of-the-art standards and rigorous international electrical codes."
-                                        : "Projetos 100% alinhados com o estado da arte e as mais exigentes normas internacionais do setor elétrico."}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className={styles.featureItem}>
-                            <div className={styles.featureIcon}>
-                                <svg className={styles.featureIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
-                            </div>
-                            <div className={styles.featureContent}>
-                                <h3 className={styles.featureTitle}>
-                                    {isEn ? "STRATEGIC PARTNERSHIP" : "PARCERIA ESTRATÉGICA"}
-                                </h3>
-                                <p className={styles.featureDescription}>
-                                    {isEn
-                                        ? "Working side-by-side with our clients from project conception to on-site testing and energization."
-                                        : "Atuação lado a lado com o cliente, da concepção do projeto ao comissionamento e testes de campo."}
-                                </p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
 
-                    <Link href={aboutUrl} className={styles.ctaButton}>
-                        <span>{isEn ? "LEARN MORE ABOUT US" : "CONHEÇA MAIS SOBRE NÓS"}</span>
-                        <svg className={styles.btnArrow} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
+                    <dl className={styles.registry}>
+                        <div>
+                            <dt>{isEn ? 'Legal name' : 'Razão social'}</dt>
+                            <dd>{COMPANY.legalName}</dd>
+                        </div>
+                        <div>
+                            <dt>CNPJ</dt>
+                            <dd>{COMPANY.cnpj}</dd>
+                        </div>
+                        <div>
+                            <dt>{isEn ? 'CREA registration' : 'Registro no CREA'}</dt>
+                            <dd>{isEn ? `No. ${COMPANY.crea}` : `nº ${COMPANY.crea}`}</dd>
+                        </div>
+                    </dl>
+
+                    <Link href={isEn ? '/en/about' : '/sobre'} className={s.btnSecondary}>
+                        {isEn ? 'More about KR' : 'Conheça a KR'}
                     </Link>
                 </div>
             </div>

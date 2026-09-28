@@ -3,18 +3,20 @@ import ServiceLanding from '../../components/ServiceLanding';
 import { commissioningEn } from '@/lib/services/content';
 
 export const metadata: Metadata = {
-    title: 'Commissioning & Field Testing | KR Engenharia',
+    title: 'Protection Testing & Commissioning',
     description:
-        'Substation commissioning up to 500 kV, calibrated secondary injection with OMICRON CMC sets, trip matrix validation, FAT/SAT, and energization support.',
+        'Relay settings, panel testing, and commissioning of protection systems on ABB, Schneider Electric, SEL, and Siemens platforms, plus commissioning experience involving GE IEDs.',
     keywords: [
+        'Protection Commissioning',
+        'Protection Panel Testing',
+        'FAT SAT',
+        'Relay Settings',
+        'ABB Relion',
+        'GE',
+        'Schneider Electric MiCOM',
+        'SEL',
+        'Siemens SIPROTEC',
         'Substation Commissioning',
-        'Field Testing High Voltage',
-        'OMICRON CMC Secondary Injection',
-        'Trip Matrix Functional Tests',
-        'FAT Factory Acceptance Testing',
-        'SAT Site Acceptance Testing',
-        'Protective Relay Testing',
-        'High Voltage Energization Support',
     ],
     alternates: {
         canonical: '/en/commissioning-and-field-testing/',
@@ -24,9 +26,9 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'Commissioning & Field Testing | KR Engenharia',
+        title: 'Protection Testing & Commissioning | KR Engenharia',
         description:
-            'Comprehensive secondary injection with OMICRON CMC test sets, trip matrix verification, and energization support up to 500 kV.',
+            'Relay settings, panel testing, and commissioning of protection systems, with scope and deliverables defined before mobilization.',
         url: '/en/commissioning-and-field-testing/',
         siteName: 'KR Engenharia',
         locale: 'en_US',
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
                 url: '/og-image.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Commissioning and Field Testing - KR Engenharia',
+                alt: 'Protection Testing & Commissioning - KR Engenharia',
             },
         ],
     },

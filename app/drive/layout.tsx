@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Portal do Cliente | KR Engenharia",
+  title: "Portal do Cliente",
   description: "Ambiente protegido com isolamento por empresa para compartilhamento seguro de documentos e relatórios técnicos.",
   robots: {
     index: false,

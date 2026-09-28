@@ -3,17 +3,16 @@ import ServiceLanding from '../../components/ServiceLanding';
 import { protectionStudiesEn } from '@/lib/services/content';
 
 export const metadata: Metadata = {
-    title: 'Protection & Selectivity Studies | KR Engenharia',
+    title: 'Protection & Selectivity Studies',
     description:
-        'Short-circuit calculations, load flow, protection coordination, and relay parameterization in ETAP, arc flash (IEEE 1584), and grid code compliance.',
+        'Protection, coordination, selectivity, short-circuit, and load flow studies integrated with relay settings and testing. Transient studies assessed according to technical need.',
     keywords: [
         'Protection and Selectivity Studies',
-        'Relay Coordination Curves',
-        'ETAP Short Circuit Calculations',
-        'Relay Parameterization',
-        'Arc Flash IEEE 1584',
-        'Grid Code Compliance',
-        'Substation Protection Engineering',
+        'Protection Coordination',
+        'Short Circuit Studies',
+        'Load Flow',
+        'Relay Settings Table',
+        'Protection Relay Settings',
     ],
     alternates: {
         canonical: '/en/protection-and-selectivity-studies/',
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Protection & Selectivity Studies | KR Engenharia',
         description:
-            'Analytical short-circuit simulation, ETAP coordination curves, and multi-vendor numerical relay parameterization.',
+            'Protection criteria, coordination, short-circuit, and load flow connected to settings implementation and testing.',
         url: '/en/protection-and-selectivity-studies/',
         siteName: 'KR Engenharia',
         locale: 'en_US',

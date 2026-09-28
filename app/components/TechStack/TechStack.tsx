@@ -1,141 +1,98 @@
 'use client';
 
+import s from '../Section/Section.module.css';
 import styles from './TechStack.module.css';
 
-interface TechItem {
-    id: string;
+type L = { pt: string; en: string };
+
+interface Vendor {
     brand: string;
-    category: { pt: string; en: string };
-    models: string[];
-    description: { pt: string; en: string };
-    highlight?: boolean;
-    icon: React.ReactNode;
+    platforms: L;
+    reference: L;
 }
 
-const techItems: TechItem[] = [
+// Alphabetical order; every vendor gets the same card layout and weight.
+const vendors: Vendor[] = [
     {
-        id: 'etap',
-        brand: 'ETAP',
-        category: { pt: 'Software de Engenharia', en: 'Power System Software' },
-        models: ['Short-Circuit', 'Load Flow', 'Coordination', 'Arc Flash'],
-        description: {
-            pt: 'Simulações de transitórios, parametrização analítica e seletividade rigorosa para plantas industriais e concessionárias.',
-            en: 'Transient simulations, analytical parameterization, and rigorous selectivity for industrial plants and utilities.',
+        brand: 'ABB',
+        platforms: { pt: 'Relion séries 615, 650 e 670', en: 'Relion 615, 650, and 670 series' },
+        reference: {
+            pt: 'Comissionamento em conexão eólica offshore de 400 kV na Polônia.',
+            en: 'Commissioning at a 400 kV offshore wind connection in Poland.',
         },
-        icon: (
-            <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-        ),
     },
     {
-        id: 'sel',
-        brand: 'SEL',
-        category: { pt: 'Proteção & Automação', en: 'Protection & Automation' },
-        models: ['SEL-700 Series', 'SEL-400 Series', 'SEL-2000 Gateways'],
-        description: {
-            pt: 'Schweitzer Engineering Laboratories: relés de alta velocidade, lógicas Mirrored Bits, IEC 61850 e automação em subestações.',
-            en: 'Schweitzer Engineering Laboratories: high-speed relays, Mirrored Bits logic, IEC 61850, and substation automation.',
+        brand: 'GE',
+        platforms: { pt: 'IEDs GE em comissionamento', en: 'GE IEDs in commissioning' },
+        reference: {
+            pt: 'Comissionamento envolvendo IEDs GE em conexão eólica offshore de 400 kV na Polônia.',
+            en: 'Commissioning involving GE IEDs at a 400 kV offshore wind connection in Poland.',
         },
-        icon: (
-            <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-        ),
     },
     {
-        id: 'siemens',
-        brand: 'Siemens',
-        category: { pt: 'Famílias de IEDs', en: 'Numerical IED Families' },
-        models: ['SIPROTEC 4', 'SIPROTEC 5', 'DIGSI 4 / 5', 'Reyrolle'],
-        description: {
-            pt: 'Engenharia completa, parametrização avançada de IEDs numéricos, controle de bay e barramentos de processo/estação.',
-            en: 'Comprehensive engineering, advanced numerical IED parameterization, bay control, and station/process bus integration.',
-        },
-        icon: (
-            <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-            </svg>
-        ),
-    },
-    {
-        id: 'schneider',
         brand: 'Schneider Electric',
-        category: { pt: 'Relés de Proteção', en: 'Protection Relays' },
-        models: ['Easergy P3', 'Easergy P5', 'MiCOM Series'],
-        description: {
-            pt: 'Proteção seletiva para alimentadores, transformadores e motores industriais com suporte total a protocolos IEC 61850 e Modbus.',
-            en: 'Selective protection for feeders, transformers, and industrial motors with full support for IEC 61850 and Modbus protocols.',
+        platforms: { pt: 'Easergy, MiCOM linha P e BCU C264', en: 'Easergy, MiCOM P-series, and C264 BCU' },
+        reference: {
+            pt: 'Integração e comissionamento de MiCOM linha P e BCU C264 em subestação de 230 kV no Pará.',
+            en: 'Integration and commissioning of MiCOM P-series IEDs and a C264 BCU at a 230 kV substation in Pará, Brazil.',
         },
-        icon: (
-            <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 004 11m0 0a8 8 0 008 8" />
-            </svg>
-        ),
     },
     {
-        id: 'omicron',
-        brand: 'OMICRON',
-        category: { pt: 'Caixas de Teste Secundário', en: 'Secondary Injection Test Sets' },
-        models: ['CMC 356', 'CMC 500', 'Test Universe', 'RelaySimTest'],
-        description: {
-            pt: 'Injeção de corrente e tensão secundária hexafásica calibrada, validação automatizada de curvas dinâmicas e testes funcionais.',
-            en: 'Calibrated hexaphase secondary current and voltage injection, automated dynamic curve validation, and functional testing.',
+        brand: 'SEL',
+        platforms: { pt: 'SEL-751, SEL-787 e SEL-2414', en: 'SEL-751, SEL-787, and SEL-2414' },
+        reference: {
+            pt: 'Parametrização, testes em TAF e lógica de transferência em retrofit de subestação de mineração em Minas Gerais.',
+            en: 'Settings, FAT testing, and transfer logic in a mining substation retrofit in Minas Gerais, Brazil.',
         },
-        icon: (
-            <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-        ),
     },
     {
-        id: 'doble',
-        brand: 'Doble Engineering',
-        category: { pt: 'Ensaios & Diagnóstico', en: 'Testing & Diagnostics' },
-        models: ['Insulation Testing', 'Equipment Diagnostics'],
-        description: {
-            pt: 'Metodologia e equipamentos para verificação de integridade operacional, comissionamento e testes de bancada em campo.',
-            en: 'Methodology and testing tools for operational integrity verification, commissioning, and on-site field tests.',
+        brand: 'Siemens',
+        platforms: { pt: 'SIPROTEC 5 com DIGSI 5', en: 'SIPROTEC 5 with DIGSI 5' },
+        reference: {
+            pt: 'Integração, parametrização e ensaios em subestação de 500 kV no Espírito Santo.',
+            en: 'Integration, settings, and testing at a 500 kV substation in Espírito Santo, Brazil.',
         },
-        icon: (
-            <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-            </svg>
-        ),
-    },
-    {
-        id: 'hitachi',
-        brand: 'Hitachi Energy',
-        category: { pt: 'IEDs Linha 670 / 650', en: '670 / 650 Series IEDs' },
-        models: ['RET (Transformer)', 'RED (Differential)', 'REL (Line)', 'REF (Feeder)'],
-        description: {
-            pt: 'Configuração em PCM600, proteção de grandes geradores, transformadores elevadores e linhas de transmissão de extra alta tensão.',
-            en: 'PCM600 engineering, protection for major generation plants, step-up transformers, and EHV transmission lines.',
-        },
-        highlight: true,
-        icon: (
-            <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-        ),
     },
 ];
 
-const metrics = [
-    { value: '+50', label: { pt: 'Subestações & Plantas Atendidas', en: 'Substations & Plants Delivered' } },
-    { value: '500 kV', label: { pt: 'Nível de Tensão de Operação', en: 'Operating Voltage Level' } },
-    { value: '100%', label: { pt: 'Conformidade ONS e Normas', en: 'Grid Code & ONS Compliance' } },
-    { value: 'Brasil', label: { pt: 'Atuação & Mobilização Nacional', en: 'Nationwide Field Mobilization' } },
+const groups: { title: L; items: L[]; note?: L }[] = [
+    {
+        title: { pt: 'Comunicação e integração', en: 'Communication and integration' },
+        items: [
+            { pt: 'IEC 61850', en: 'IEC 61850' },
+            { pt: 'Mensagens GOOSE', en: 'GOOSE messaging' },
+            { pt: 'MMS', en: 'MMS' },
+            { pt: 'Integração de pontos ao supervisório', en: 'SCADA point integration' },
+            { pt: 'Seletividade lógica', en: 'Logic selectivity' },
+        ],
+    },
+    {
+        title: { pt: 'Ferramentas de engenharia e ensaio', en: 'Engineering and test tools' },
+        items: [
+            { pt: 'DIGSI 4', en: 'DIGSI 4' },
+            { pt: 'DIGSI 5', en: 'DIGSI 5' },
+            { pt: 'IEC 61850 System Configurator', en: 'IEC 61850 System Configurator' },
+            { pt: 'PCM600', en: 'PCM600' },
+            { pt: 'EnerVista', en: 'EnerVista' },
+            { pt: 'Easergy Studio', en: 'Easergy Studio' },
+            { pt: 'PACiS SCE / CAT', en: 'PACiS SCE / CAT' },
+            { pt: 'acSELerator QuickSet', en: 'acSELerator QuickSet' },
+            { pt: 'acSELerator Architect', en: 'acSELerator Architect' },
+            { pt: 'IEDScout', en: 'IEDScout' },
+            { pt: 'OMICRON Test Universe', en: 'OMICRON Test Universe' },
+        ],
+        note: {
+            pt: 'O instrumental de ensaio é fornecido pelo contratante ou previsto por locação, conforme a proposta.',
+            en: 'Test equipment is supplied by the client or planned as a rental, as set in the proposal.',
+        },
+    },
 ];
 
-const certifications = [
-    'CREA-MG',
-    'IEC 61850 (Ed. 1 & 2)',
-    'GOOSE / MMS / SV',
-    'PRP / HSR Redundancy',
-    'ETAP / IEEE 1584',
-    'OMICRON CMC',
-    'NR-10 & SEP',
+const facts: { value: L; label: L }[] = [
+    { value: { pt: '500 kV', en: '500 kV' }, label: { pt: 'Maior tensão em comissionamento', en: 'Highest commissioning voltage' } },
+    { value: { pt: '3 países', en: '3 countries' }, label: { pt: 'Brasil, Estados Unidos e Polônia', en: 'Brazil, United States, and Poland' } },
+    { value: { pt: '5 fabricantes', en: '5 vendors' }, label: { pt: 'de IEDs com experiência de campo', en: 'of IEDs with hands-on experience' } },
+    { value: { pt: 'Inglês fluente', en: 'Fluent English' }, label: { pt: 'Atuação em projetos internacionais', en: 'Work on international projects' } },
 ];
 
 interface TechStackProps {
@@ -146,97 +103,62 @@ export default function TechStack({ locale = 'pt' }: TechStackProps) {
     const isEn = locale === 'en';
 
     return (
-        <section className={styles.techSection} id={isEn ? "technology" : "tecnologias"}>
-            <div className={styles.techPattern}></div>
-            <div className={styles.container}>
-                {/* Header */}
-                <div className={styles.header}>
-                    <div className={styles.badge}>
-                        <span className={styles.badgeDot}></span>
-                        <span>{isEn ? "MULTI-VENDOR TECHNICAL EXPERTISE" : "DOMÍNIO TÉCNICO MULTIMARCA"}</span>
-                    </div>
-                    <h2 className={styles.title}>
-                        {isEn ? "Technology Stack & Specialized Equipment" : "Pilha Tecnológica & Equipamentos Especializados"}
+        <section className={s.sectionAlt} id={isEn ? 'expertise' : 'competencias'} aria-labelledby="competencias-title">
+            <div className={s.container}>
+                <div className={s.header}>
+                    <p className={s.eyebrow}>{isEn ? 'Multi-vendor expertise' : 'Competências multimarcas'}</p>
+                    <h2 id="competencias-title" className={s.title}>
+                        {isEn ? 'Protection and control platforms' : 'Plataformas de proteção e controle'}
                     </h2>
-                    <p className={styles.description}>
+                    <p className={s.lead}>
                         {isEn
-                            ? "Comprehensive hands-on expertise in leading electrical industry platforms for protection, automation (IEC 61850), and high-voltage secondary testing."
-                            : "Profundo domínio prático nas plataformas líderes do setor elétrico para proteção, automação (IEC 61850) e ensaios secundários de alta tensão."}
+                            ? 'Relay settings, testing, and commissioning on ABB, Schneider Electric, SEL, and Siemens platforms, plus commissioning experience involving GE IEDs.'
+                            : 'Parametrização, testes e comissionamento em plataformas ABB, Schneider Electric, SEL e Siemens, além de experiência em comissionamento envolvendo IEDs GE.'}
                     </p>
                 </div>
 
-                {/* Key Metrics */}
-                <div className={styles.metricsGrid}>
-                    {metrics.map((metric) => (
-                        <div key={metric.value} className={styles.metricCard}>
-                            <div className={styles.metricValue}>{metric.value}</div>
-                            <div className={styles.metricLabel}>{metric.label[locale]}</div>
+                <dl className={styles.facts}>
+                    {facts.map((fact) => (
+                        <div key={fact.value.pt} className={styles.fact}>
+                            <dt className={styles.factValue}>{fact.value[locale]}</dt>
+                            <dd className={styles.factLabel}>{fact.label[locale]}</dd>
+                        </div>
+                    ))}
+                </dl>
+
+                <h3 className={styles.groupHeading}>{isEn ? 'IED vendors' : 'Fabricantes de IEDs'}</h3>
+                <ul className={styles.vendorGrid}>
+                    {vendors.map((vendor) => (
+                        <li key={vendor.brand} className={styles.vendorCard}>
+                            <h4 className={styles.vendorName}>{vendor.brand}</h4>
+                            <p className={styles.vendorPlatforms}>{vendor.platforms[locale]}</p>
+                            <p className={styles.vendorReference}>
+                                <span className={styles.vendorReferenceLabel}>{isEn ? 'Field reference' : 'Referência de campo'}</span>
+                                {vendor.reference[locale]}
+                            </p>
+                        </li>
+                    ))}
+                </ul>
+
+                <div className={styles.groupRow}>
+                    {groups.map((group) => (
+                        <div key={group.title.pt} className={styles.groupCard}>
+                            <h3 className={styles.groupTitle}>{group.title[locale]}</h3>
+                            <ul className={styles.chipList}>
+                                {group.items.map((item) => (
+                                    <li key={item.pt} className={styles.chip}>{item[locale]}</li>
+                                ))}
+                            </ul>
+                            {group.note && <p className={styles.groupNote}>{group.note[locale]}</p>}
                         </div>
                     ))}
                 </div>
 
-                {/* Certifications & Standards */}
-                <div className={styles.certificationsBanner}>
-                    <div className={styles.certTitle}>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                        <span>{isEn ? "Habilitations & Standards:" : "Habilitações & Normas:"}</span>
-                    </div>
-                    <div className={styles.certList}>
-                        {certifications.map((cert) => (
-                            <span key={cert} className={styles.certBadge}>{cert}</span>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Grid */}
-                <div className={styles.grid}>
-                    {techItems.map((item) => (
-                        <article
-                            key={item.id}
-                            className={`${styles.card} ${item.highlight ? styles.cardHighlight : ''}`}
-                        >
-                            <div className={styles.cardTop}>
-                                <span className={styles.categoryTag}>{item.category[locale]}</span>
-                                <div className={styles.iconBox}>{item.icon}</div>
-                            </div>
-
-                            <h3 className={styles.brandName}>{item.brand}</h3>
-
-                            <div className={styles.modelsList}>
-                                {item.models.map((model, idx) => (
-                                    <span
-                                        key={idx}
-                                        className={idx === 0 ? styles.modelBadgeAccent : styles.modelBadge}
-                                    >
-                                        {model}
-                                    </span>
-                                ))}
-                            </div>
-
-                            <p className={styles.cardDescription}>{item.description[locale]}</p>
-                        </article>
-                    ))}
-                </div>
-
-                {/* Bottom Trust Note */}
-                <div className={styles.bottomNote}>
-                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="text-amber-500">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span className={styles.bottomNoteText}>
-                        {isEn ? (
-                            <>
-                                Integration and commissioning capability with <span className={styles.bottomNoteHighlight}>multi-vendor interoperability</span> under IEC 61850 (Ed. 1 & 2), IEEE, and grid code standards.
-                            </>
-                        ) : (
-                            <>
-                                Capacidade de integração e comissionamento com <span className={styles.bottomNoteHighlight}>interoperabilidade multimarca</span> sob as normas IEC 61850 (Ed. 1 e Ed. 2), IEEE e ONS.
-                            </>
-                        )}
-                    </span>
-                </div>
+                <p className={styles.disclaimer}>
+                    {isEn
+                        ? 'The brands listed describe professional experience. They do not represent authorized service agreements, manufacturer certifications, or partnerships.'
+                        : 'As marcas citadas descrevem experiência profissional. Não representam assistência técnica autorizada, certificação de fabricante nem parceria.'}
+                </p>
             </div>
         </section>
     );

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import DocumentLanguage from "../components/DocumentLanguage/DocumentLanguage";
 
-const EN_TITLE = "KR Engenharia - Substation Automation & Power Systems";
+const EN_TITLE = "KR Engenharia - Multi-Vendor Protection and Automation Engineering";
 const EN_DESCRIPTION =
-  "Intelligent substation automation and electrical power systems engineering. Reliability, efficiency, and digital transformation of the electric grid. CNPJ: 68.797.626/0001-04 • CREA- No. 141854962-2.";
+  "Protection and automation engineering with multi-vendor experience: relay settings, testing, and commissioning on ABB, Schneider Electric, SEL, and Siemens platforms, plus commissioning experience involving GE IEDs. Electrical studies and retrofits.";
 
 export const metadata: Metadata = {
   title: {
@@ -11,16 +12,19 @@ export const metadata: Metadata = {
   },
   description: EN_DESCRIPTION,
   keywords: [
-    "Substation Automation",
-    "Power Systems Engineering",
-    "SAS",
-    "SCADA",
-    "IEC 61850",
-    "Relay Protection",
+    "Protection Engineering",
+    "Relay Settings",
+    "Protection Testing",
     "Substation Commissioning",
-    "MiCOM",
-    "SIPROTEC",
-    "BCU C264",
+    "Electrical Studies",
+    "Selectivity Studies",
+    "IEC 61850",
+    "ABB Relion",
+    "GE",
+    "Schneider Electric MiCOM",
+    "SEL",
+    "Siemens SIPROTEC",
+    "Protection Retrofit",
   ],
   alternates: {
     canonical: "/en/",
@@ -51,11 +55,16 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: EN_TITLE,
     description:
-      "Intelligent substation automation and electrical power systems engineering. CNPJ: 68.797.626/0001-04 • CREA- No. 141854962-2.",
+      "Electrical studies, relay settings, testing, and commissioning of protection systems on ABB, GE, Schneider Electric, SEL, and Siemens platforms.",
     images: ["/og-image.jpg"],
   },
 };
 
 export default function EnLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <div lang="en-US">
+      <DocumentLanguage lang="en-US" />
+      {children}
+    </div>
+  );
 }

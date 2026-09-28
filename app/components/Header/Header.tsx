@@ -49,6 +49,7 @@ export default function Header() {
     const router = useRouter();
 
     const isEn = pathname.startsWith('/en');
+    const currentPath = pathname.length > 1 ? pathname.replace(/\/$/, '') : pathname;
     const locale = isEn ? 'en' : 'pt';
     const navLinks = translations.header.nav[locale];
 
@@ -63,19 +64,19 @@ export default function Header() {
               {
                   href: '/en/protection-and-selectivity-studies',
                   title: 'Protection & Selectivity Studies',
-                  subtitle: 'Short-circuit, coordination, selectivity & Arc Flash (ETAP / PTW / ATP)',
+                  subtitle: 'Protection, coordination, short circuit, and load flow connected to implementation',
                   icon: studiesIcon,
               },
               {
                   href: '/en/power-system-automation',
-                  title: 'Power System Automation',
-                  subtitle: 'IEC 61850, DNP3, Modbus, SCADA, Gateways & IED engineering',
+                  title: 'Protection & Automation Retrofit',
+                  subtitle: 'IED integration, IEC 61850 (GOOSE / MMS), and point integration with SCADA',
                   icon: automationIcon,
               },
               {
                   href: '/en/commissioning-and-field-testing',
-                  title: 'Commissioning & Field Testing',
-                  subtitle: 'Secondary injection, relays, transformers & commissioning test sets',
+                  title: 'Protection Testing & Commissioning',
+                  subtitle: 'Settings, panel testing, and commissioning on ABB, Schneider Electric, SEL, and Siemens IEDs',
                   icon: commissioningIcon,
               },
           ]
@@ -83,19 +84,19 @@ export default function Header() {
               {
                   href: '/estudos-de-protecao-e-seletividade',
                   title: 'Estudos de Proteção e Seletividade',
-                  subtitle: 'Curto-circuito, coordenação, seletividade e Arc Flash (ETAP / PTW / ATP)',
+                  subtitle: 'Proteção, coordenação, curto-circuito e fluxo de potência conectados à implementação',
                   icon: studiesIcon,
               },
               {
                   href: '/automacao-sistemas-eletricos',
-                  title: 'Automação de Sistemas Elétricos',
-                  subtitle: 'IEC 61850, DNP3, Modbus, SCADA, Gateways e parametrização',
+                  title: 'Retrofit de Proteção & Automação',
+                  subtitle: 'Integração de IEDs, IEC 61850 (GOOSE / MMS) e pontos no supervisório',
                   icon: automationIcon,
               },
               {
                   href: '/comissionamento-e-ensaios-em-campo',
-                  title: 'Comissionamento & Ensaios em Campo',
-                  subtitle: 'Ensaios secundários e primários, IEDs e caixas de calibração',
+                  title: 'Testes de Proteção & Comissionamento',
+                  subtitle: 'Parametrização, testes de painéis e comissionamento em IEDs ABB, Schneider Electric, SEL e Siemens',
                   icon: commissioningIcon,
               },
           ];
@@ -103,7 +104,7 @@ export default function Header() {
     const isServicesLink = (href: string) => href === '/servicos' || href === '/en/services';
 
     const isServicesActive = (href: string) => {
-        if (!isServicesLink(href)) return pathname === href;
+        if (!isServicesLink(href)) return currentPath === href;
         return [...SERVICE_ROUTES_PT, ...SERVICE_ROUTES_EN].some((route) => pathname.startsWith(route));
     };
 
@@ -144,10 +145,11 @@ export default function Header() {
 
     return (
         <header className={styles.header}>
+            <a href="#conteudo" className="kr-skip-link">{isEn ? 'Skip to content' : 'Pular para o conteúdo'}</a>
             <div className={styles.container}>
                 {/* Logo */}
                 <Link href={isEn ? '/en' : '/'} className={styles.logo} onClick={closeMenu}>
-                    <img src="/logo.svg" alt="KR Engenharia Logo" className={styles.logoBadge} />
+                    <img src="/logo.svg" alt="" className={styles.logoBadge} />
                     <div className={styles.logoText}>
                         <span className={styles.logoMain}>KR ENGENHARIA</span>
                         <span className={styles.logoSub}>{translations.header.tagline[locale]}</span>
@@ -155,7 +157,7 @@ export default function Header() {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className={styles.nav}>
+                <nav className={styles.nav} aria-label={isEn ? 'Main navigation' : 'Navegação principal'}>
                     {navLinks.map((link) => {
                         if (isServicesLink(link.href)) {
                             const isActive = isServicesActive(link.href);
@@ -207,19 +209,20 @@ export default function Header() {
                                             className={styles.dropdownFooterLink}
                                             onClick={() => setIsServicesDropdownOpen(false)}
                                         >
-                                            <span>{isEn ? 'View all services & scope →' : 'Ver todos os serviços e escopos →'}</span>
+                                            <span>{isEn ? 'View all services →' : 'Ver todos os serviços →'}</span>
                                         </Link>
                                     </div>
                                 </div>
                             );
                         }
 
-                        const isActive = pathname === link.href;
+                        const isActive = currentPath === link.href;
                         return (
                             <Link
                                 key={link.href}
                                 href={link.href}
                                 className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
+                                aria-current={isActive ? 'page' : undefined}
                             >
                                 {link.label}
                                 {isActive && <span className={styles.activeIndicator}></span>}
@@ -275,7 +278,7 @@ export default function Header() {
                     <button
                         className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerActive : ''}`}
                         onClick={() => setIsMenuOpen((prev) => !prev)}
-                        aria-label="Abrir menu de navegação"
+                        aria-label={isEn ? (isMenuOpen ? 'Close navigation menu' : 'Open navigation menu') : (isMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação')}
                         aria-expanded={isMenuOpen}
                     >
                         <span className={styles.hamburgerLine}></span>
@@ -353,13 +356,13 @@ export default function Header() {
                                             href={link.href}
                                             className={styles.mobileSubmenuItem}
                                             style={{
-                                                background: 'rgba(243, 156, 18, 0.08)',
+                                                background: 'rgba(200, 122, 40, 0.08)',
                                                 borderLeft: '3px solid var(--primary-orange)',
                                             }}
                                             onClick={closeMenu}
                                         >
-                                            <span className={styles.mobileSubmenuTitle} style={{ color: 'var(--primary-orange)' }}>
-                                                {isEn ? '→ Full Services Catalog & Scope' : '→ Catálogo Completo & Escopo'}
+                                            <span className={styles.mobileSubmenuTitle} style={{ color: 'var(--primary-blue)' }}>
+                                                {isEn ? '→ Full service catalog' : '→ Catálogo completo de serviços'}
                                             </span>
                                         </Link>
                                     </div>
@@ -368,12 +371,13 @@ export default function Header() {
                         );
                     }
 
-                    const isActive = pathname === link.href;
+                    const isActive = currentPath === link.href;
                     return (
                         <Link
                             key={link.href}
                             href={link.href}
                             className={`${styles.mobileNavLink} ${isActive ? styles.mobileNavLinkActive : ''}`}
+                            aria-current={isActive ? 'page' : undefined}
                             onClick={closeMenu}
                         >
                             {link.label}

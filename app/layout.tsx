@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 const SITE_URL = "https://krconsultoria.com.br";
-const DEFAULT_TITLE = "KR Engenharia - Automação de Subestações & Sistemas de Energia";
+const DEFAULT_TITLE = "KR Engenharia - Engenharia de Proteção e Automação Multimarcas";
 const DEFAULT_DESCRIPTION =
-  "Automação inteligente de subestações e sistemas de energia. Engenharia integrada para confiabilidade, eficiência e digitalização da rede elétrica. CNPJ: 68.797.626/0001-04 • CREA- nº 141854962-2.";
+  "Engenharia de proteção e automação com experiência multimarcas: parametrização, testes e comissionamento em plataformas ABB, Schneider Electric, SEL e Siemens, além de experiência em comissionamento envolvendo IEDs GE. Estudos elétricos e retrofit.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -30,16 +30,19 @@ export const metadata: Metadata = {
   description: DEFAULT_DESCRIPTION,
   authors: [{ name: "KR Consultoria e Soluções em Engenharia LTDA" }],
   keywords: [
-    "Automação de Subestações",
-    "Sistemas de Energia",
-    "SAS",
-    "SCADA",
-    "IEC 61850",
-    "Proteção de Sistemas Elétricos",
+    "Engenharia de Proteção",
+    "Parametrização de Relés",
+    "Testes de Proteção",
     "Comissionamento de Subestações",
-    "MiCOM",
-    "SIPROTEC",
-    "BCU C264",
+    "Estudos Elétricos",
+    "Estudos de Seletividade",
+    "IEC 61850",
+    "ABB Relion",
+    "GE",
+    "Schneider Electric MiCOM",
+    "SEL",
+    "Siemens SIPROTEC",
+    "Retrofit de Proteção",
   ],
   creator: "KR Engenharia",
   publisher: "KR Engenharia",
@@ -76,7 +79,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: DEFAULT_TITLE,
     description:
-      "Automação inteligente de subestações e sistemas de energia. CNPJ: 68.797.626/0001-04 • CREA- nº 141854962-2.",
+      "Estudos elétricos, parametrização, testes e comissionamento de sistemas de proteção em plataformas ABB, GE, Schneider Electric, SEL e Siemens.",
     images: ["/og-image.jpg"],
   },
 };
@@ -90,7 +93,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <GeoDetector />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="conteudo" className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />
       </body>

@@ -3,18 +3,18 @@ import ServiceLanding from '../../components/ServiceLanding';
 import { automationEn } from '@/lib/services/content';
 
 export const metadata: Metadata = {
-    title: 'Power System Automation & IEC 61850 | KR Engenharia',
+    title: 'Protection & Automation Retrofit',
     description:
-        'Substation automation systems (SAS), IEC 61850 (GOOSE, MMS, SV), zero-loss PRP/HSR redundancy, utility telecontrol (DNP3, IEC 60870-5-104), and SCADA.',
+        'Technical support for protection and automation retrofits: IED integration, IEC 61850 communication (GOOSE and MMS), SCADA point integration, and approved logic.',
     keywords: [
-        'Power System Automation',
-        'Substation Automation Systems SAS',
-        'IEC 61850 Engineering',
-        'GOOSE Interlocking Messages',
-        'PRP HSR Redundancy',
-        'DNP3 IEC 60870-5-104 Telecontrol',
-        'Substation SCADA Systems',
-        'Bay Controller Units BCU C264 SIPROTEC',
+        'Protection Retrofit',
+        'Automation Retrofit',
+        'IEC 61850',
+        'GOOSE MMS',
+        'IED Integration',
+        'SCADA Integration',
+        'Automatic Load Transfer',
+        'ABB Relion GE MiCOM SEL SIPROTEC',
     ],
     alternates: {
         canonical: '/en/power-system-automation/',
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'Power System Automation & IEC 61850 | KR Engenharia',
+        title: 'Protection & Automation Retrofit | KR Engenharia',
         description:
-            'Complete SAS architectures, multi-vendor IEC 61850 integration, industrial communication protocols, and SCADA solutions.',
+            'IED integration, IEC 61850 (GOOSE and MMS), SCADA point integration, and implementation of approved logic.',
         url: '/en/power-system-automation/',
         siteName: 'KR Engenharia',
         locale: 'en_US',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
                 url: '/og-image.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Power System Automation - KR Engenharia',
+                alt: 'Protection & Automation Retrofit - KR Engenharia',
             },
         ],
     },

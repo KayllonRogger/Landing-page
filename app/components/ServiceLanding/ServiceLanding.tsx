@@ -61,9 +61,11 @@ function buildJsonLd(content: ServiceLandingContent) {
 
 export default function ServiceLanding({ content }: ServiceLandingProps) {
     const { breadcrumb, hero, overview, capabilities, gallery, faq, cta } = content;
+    // Cards without an approved photo are shown as text cards; keep the whole row consistent.
+    const galleryTextOnly = gallery.items.some((item) => !item.image);
 
     return (
-        <main className={styles.page}>
+        <div className={styles.page}>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd(content)) }}
@@ -212,16 +214,22 @@ export default function ServiceLanding({ content }: ServiceLandingProps) {
                 <div className={styles.galleryGrid}>
                     {gallery.items.map((item, idx) => (
                         <article key={idx} className={styles.galleryCard}>
-                            <div className={styles.galleryImageWrap}>
-                                <img
-                                    src={item.image}
-                                    alt={item.alt}
-                                    className={styles.galleryImage}
-                                    style={item.imageStyle}
-                                    loading="lazy"
-                                />
-                                <span className={styles.galleryCategoryTag}>{item.category}</span>
-                            </div>
+                            {galleryTextOnly ? (
+                                <div className={styles.galleryTextHeader}>
+                                    <span>{item.category}</span>
+                                </div>
+                            ) : (
+                                <div className={styles.galleryImageWrap}>
+                                    <img
+                                        src={item.image}
+                                        alt={item.alt}
+                                        className={styles.galleryImage}
+                                        style={item.imageStyle}
+                                        loading="lazy"
+                                    />
+                                    <span className={styles.galleryCategoryTag}>{item.category}</span>
+                                </div>
+                            )}
                             <div className={styles.galleryBody}>
                                 <h3 className={styles.galleryTitle}>{item.title}</h3>
                                 <p className={styles.galleryDescription}>{item.description}</p>
@@ -264,6 +272,6 @@ export default function ServiceLanding({ content }: ServiceLandingProps) {
                     </div>
                 </div>
             </section>
-        </main>
+        </div>
     );
 }

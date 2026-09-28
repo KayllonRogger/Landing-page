@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Client Portal | KR Engenharia",
+  title: "Client Portal",
   description: "Secure enterprise workspace for technical engineering documentation and reports.",
   robots: {
     index: false,

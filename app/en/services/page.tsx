@@ -6,16 +6,16 @@ import styles from '../../servicos/page.module.css';
 const detailedServicesEn = [
     {
         id: 1,
-        title: 'Protection & Selectivity Studies',
+        title: 'Electrical Studies',
         href: '/en/protection-and-selectivity-studies/',
-        description: 'Comprehensive dimensioning and parameterization of numerical relays to ensure rapid fault clearing with maximum selectivity.',
+        description: 'Protection, coordination, and selectivity, short circuit, load flow, and transient studies, with type and scope defined by the technical need. KR is the commercial point of contact and coordinates the delivery, including when partners are involved.',
         deliverables: [
-            'Short-circuit and load-flow simulation studies',
-            'Protection coordination and selectivity curve setting',
-            'Parameterization and relay configuration files (CID/ICD/RVD)',
-            'CT and VT saturation and burden validation',
+            'Protection, coordination, and selectivity criteria',
+            'Short circuit and load flow',
+            'Calculation report, curves, and settings table',
+            'Transient studies according to technical need',
         ],
-        tags: ['Digital Protection', 'Selectivity', 'Transient Analysis'],
+        tags: ['Selectivity', 'Short Circuit', 'Load Flow'],
         icon: (
             <svg className={styles.cardIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -24,16 +24,16 @@ const detailedServicesEn = [
     },
     {
         id: 2,
-        title: 'Network Engineering & SAS Systems',
-        href: '/en/power-system-automation/',
-        description: 'Complete substation automation architecture engineering based on global standards for mission-critical operations.',
+        title: 'Protection Settings & Testing',
+        href: '/en/commissioning-and-field-testing/',
+        description: 'Implementation of approved settings and functional testing of protection systems on ABB, Schneider Electric, SEL, and Siemens platforms, including panel testing during FAT.',
         deliverables: [
-            'IEC 61850 architecture design (Ed. 1 and Ed. 2)',
-            'GOOSE, MMS, and Sampled Values message configuration',
-            'Ring network topologies with PRP/HSR and RSTP redundancy',
-            'Multi-vendor gateway and numerical IED integration engineering',
+            'Settings based on client-approved values',
+            'Panel testing and FAT with agreed procedures',
+            'Logic selectivity and contracted logic testing',
+            'Test records and open items with owners',
         ],
-        tags: ['IEC 61850', 'Industrial Networks', 'Digital Substation'],
+        tags: ['Multi-Vendor IEDs', 'FAT', 'Logic Selectivity'],
         icon: (
             <svg className={styles.cardIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -42,16 +42,16 @@ const detailedServicesEn = [
     },
     {
         id: 3,
-        title: 'SCADA Systems & Industrial Telemetry',
-        href: '/en/power-system-automation/',
-        description: 'Development of advanced supervisory control systems for local and remote operation with high availability and modern HMIs.',
+        title: 'Commissioning & Field Support',
+        href: '/en/commissioning-and-field-testing/',
+        description: 'Support for commissioning teams, by scope or period, in Brazil or abroad, with experience on projects involving ABB, GE, Schneider Electric, SEL, and Siemens IEDs.',
         deliverables: [
-            'Local and remote HMI & supervisory screen development',
-            'Control center integration via DNP3.0 / IEC 60870-5-104',
-            'Alarm management, oscillography, and event historians',
-            'Interlocking logic and automated load restoration schemes',
+            'Functional testing and field verification',
+            'Support during site acceptance testing (SAT)',
+            'As-built documentation updates when contracted',
+            'Work in English on international projects',
         ],
-        tags: ['SCADA', 'DNP3.0 / 104', 'Telecontrol'],
+        tags: ['Commissioning', 'SAT', 'Brazil and Abroad'],
         icon: (
             <svg className={styles.cardIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
@@ -60,16 +60,16 @@ const detailedServicesEn = [
     },
     {
         id: 4,
-        title: 'Commissioning & Field Testing',
-        href: '/en/commissioning-and-field-testing/',
-        description: 'Functional tests, calibrated secondary current/voltage injection, and point-to-point validation for safe energization.',
+        title: 'Protection & Automation Retrofit',
+        href: '/en/power-system-automation/',
+        description: 'Technical support for retrofits and shutdown preparation: IED integration, IEC 61850 communication, and approved automation logic.',
         deliverables: [
-            'Secondary injection bench testing with OMICRON / Doble',
-            'Point-to-point end-to-end telemetry validation (FAT / SAT)',
-            'Circuit breaker trip timing and safety interlocking tests',
-            'On-site technical support during initial energization',
+            'IED integration and IEC 61850 communication (GOOSE and MMS)',
+            'Point integration with SCADA',
+            'Implementation of approved logic, such as automatic transfer',
+            'Planning of interfaces and the intervention window',
         ],
-        tags: ['FAT / SAT Testing', 'Commissioning', 'Secondary Injection'],
+        tags: ['Retrofit', 'IEC 61850', 'Shutdowns'],
         icon: (
             <svg className={styles.cardIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -80,20 +80,20 @@ const detailedServicesEn = [
 
 export default function ServicesPageEn() {
     return (
-        <main className={styles.page}>
+        <div className={styles.page}>
             {/* Hero Banner */}
             <section className={styles.heroBanner}>
                 <div className={styles.bannerPattern}></div>
                 <div className={styles.bannerContainer}>
                     <div className={styles.badge}>
                         <span className={styles.badgeDot}></span>
-                        <span>SERVICES CATALOG</span>
+                        <span>SERVICES</span>
                     </div>
                     <h1 className={styles.bannerTitle}>
-                        Specialized Engineering for Substations & Power Systems
+                        Studies, protection, automation, and commissioning
                     </h1>
                     <p className={styles.bannerDescription}>
-                        We operate with regulatory rigor, intelligent automation, and high-precision commissioning to guarantee energy reliability and safety.
+                        Hire a specific stage or an integrated package. KR is the commercial point of contact and coordinates the delivery; who prepares, reviews, approves, and executes each stage is set in the proposal.
                     </p>
                 </div>
             </section>
@@ -102,9 +102,9 @@ export default function ServicesPageEn() {
             <section className={styles.section}>
                 <div className={styles.sectionHeader}>
                     <div className={styles.badgeLight}>
-                        <span>OUR CAPABILITIES</span>
+                        <span>WHAT KR DOES</span>
                     </div>
-                    <h2 className={styles.sectionTitle}>End-to-End Technical Engineering Solutions</h2>
+                    <h2 className={styles.sectionTitle}>Stages you can hire</h2>
                     <div className={styles.titleDivider}></div>
                 </div>
 
@@ -117,7 +117,7 @@ export default function ServicesPageEn() {
                             </div>
                             <p className={styles.cardDescription}>{service.description}</p>
 
-                            <h4 className={styles.deliverablesHeading}>Key Deliverables:</h4>
+                            <h4 className={styles.deliverablesHeading}>Typical deliverables:</h4>
                             <ul className={styles.deliverablesList}>
                                 {service.deliverables.map((item, idx) => (
                                     <li key={idx} className={styles.deliverableItem}>
@@ -130,7 +130,7 @@ export default function ServicesPageEn() {
                             </ul>
 
                             <Link href={service.href} className={styles.serviceDetailLink}>
-                                <span>View full technical engineering solution</span>
+                                <span>View service details</span>
                                 <svg className={styles.detailArrowIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                 </svg>
@@ -149,17 +149,17 @@ export default function ServicesPageEn() {
                 <section className={styles.ctaBanner}>
                     <div className={styles.ctaPattern}></div>
                     <div className={styles.ctaContent}>
-                        <h3 className={styles.ctaTitle}>Need a technical proposal or scope analysis?</h3>
+                        <h3 className={styles.ctaTitle}>Shall we talk about your need?</h3>
                         <p className={styles.ctaSubtitle}>
-                            Discuss your preliminary scope with our engineers and receive a precise solution tailored to your project.
+                            Describe the type of installation, the equipment involved, and the planned window.
                         </p>
                         <Link href="/en/contact" className={styles.ctaActionBtn}>
-                            REQUEST TECHNICAL PROPOSAL / SCOPE ANALYSIS
+                            Request a technical call
                         </Link>
                     </div>
                 </section>
             </section>
-        </main>
+        </div>
     );
 }
 

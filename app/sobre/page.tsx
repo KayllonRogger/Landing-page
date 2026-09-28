@@ -1,42 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 import styles from './page.module.css';
-
-const testimonials = [
-    {
-        name: 'André Ferreira',
-        role: 'Diretor de Operações',
-        company: 'Energia Sul LTDA',
-        quote:
-            'O trabalho da KR Engenharia trouxe estabilidade e clareza técnica sem precedentes para nossa subestação. A equipe entregou cada etapa com precisão cirúrgica e comunicação transparente.',
-        initials: 'AF',
-    },
-    {
-        name: 'Marina Costa',
-        role: 'Gerente de Automação',
-        company: 'Grid Control Engenharia',
-        quote:
-            'O projeto foi entregue com excelência normativa rigorosa e uma visão sistêmica que superou nossas expectativas. Recomendo para qualquer projeto de alta complexidade e criticidade.',
-        initials: 'MC',
-    },
-    {
-        name: 'Fábio Lima',
-        role: 'Engenheiro Chefe',
-        company: 'Renova Energia',
-        quote:
-            'A transparência e o rigor técnico foram decisivos para avançarmos com total confiança. A KR apresentou soluções de ponta e arquiteturas modernas para nossos sistemas.',
-        initials: 'FL',
-    },
-];
 
 const valuesList = [
     {
         id: 1,
-        title: 'Segurança & Confiabilidade Inegociáveis',
-        text: 'No nosso setor, não existe margem para "tentativa e erro". Um projeto de automação ou proteção mal executado pode resultar em blecautes, danos a equipamentos milionários ou riscos à vida.',
-        highlight: 'Nosso compromisso primário é garantir que cada lógica de seletividade, relé configurado e descarte de cargas atue com precisão cirúrgica.',
+        title: 'Segurança antes da energização',
+        text: 'Proteção mal ajustada ou mal testada pode causar desligamentos indevidos, danos a equipamentos e riscos às pessoas.',
+        highlight: 'Ajustes aprovados, procedimentos de teste e critérios de aceite são acordados antes da execução. A entrega documental não substitui a autorização operacional de energização.',
         icon: (
             <svg className={styles.valueIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -45,9 +17,9 @@ const valuesList = [
     },
     {
         id: 2,
-        title: 'Rigor Normativo & IEC 61850',
-        text: 'A engenharia de potência é regida por padrões internacionais rigorosos. Não entregamos apenas o que funciona: entregamos o que está perfeitamente alinhado com o estado da arte global.',
-        highlight: 'O domínio profundo de normas como IEC 61850, IEEE e ONS é o nosso padrão básico, refletindo engenharia limpa e documentação irrepreensível.',
+        title: 'Escopo claro desde o início',
+        text: 'Cada demanda começa pelo tipo de instalação, pelos equipamentos envolvidos, pelas versões e pela janela prevista.',
+        highlight: 'A proposta define quem elabora, revisa, aprova e executa cada etapa, além de fornecimentos, exclusões e critérios de aceite.',
         icon: (
             <svg className={styles.valueIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -56,9 +28,9 @@ const valuesList = [
     },
     {
         id: 3,
-        title: 'Visão Sistêmica & Integração Inteligente',
-        text: 'Não vendemos apenas painéis elétricos ou horas de programação em CLPs; entregamos inteligência operacional integrada para tomada de decisão em tempo real.',
-        highlight: 'Desenhamos arquiteturas onde a automação e a proteção convergem para gerar confiabilidade, eficiência energética e estabilidade contínua.',
+        title: 'Experiência apresentada com precisão',
+        text: 'A trajetória profissional é descrita pelo que foi feito, com quais equipamentos e em qual papel.',
+        highlight: 'Casos de campo não são apresentados como contratos diretos da KR, e as marcas citadas não indicam parceria ou certificação de fabricante.',
         icon: (
             <svg className={styles.valueIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -67,54 +39,40 @@ const valuesList = [
     },
     {
         id: 4,
-        title: 'Transparência & Parceria Estratégica',
-        text: 'Projetos de SEP e automação envolvem alto investimento e criticidade (Capex/Opex). O cliente precisa confiar plenamente em quem está com a mão no painel.',
-        highlight: 'Atuamos como parceiros estratégicos, desde o estudo de viabilidade até o comissionamento final em campo, com clareza e previsibilidade.',
+        title: 'Estudos integrados à verificação',
+        text: 'Estudos elétricos fundamentam decisões de proteção e operação. Quando integrados à parametrização e aos testes, conectam a análise do sistema à verificação em campo.',
+        highlight: 'A KR é a interface comercial e coordena a entrega dos estudos, inclusive quando há atuação de parceiros. Quem elabora, revisa, aprova e executa cada etapa é definido na proposta.',
         icon: (
             <svg className={styles.valueIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
         ),
     },
-    {
-        id: 5,
-        title: 'Inovação & Atualização Contínua',
-        text: 'A tecnologia no setor elétrico evolui a passos largos. Mantemos nossa equipe em constante aprimoramento técnico e certificações internacionais.',
-        highlight: 'Buscamos sempre as melhores topologias de rede, transceptores ultra rápidos e softwares analíticos de ponta para otimizar os resultados.',
-        icon: (
-            <svg className={styles.valueIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-        ),
-    },
 ];
 
 const credentials = [
-    'Registro de Pessoa Jurídica no CREA- nº 141854962-2',
-    'CNPJ: 68.797.626/0001-04 (KR Consultoria e Soluções em Engenharia LTDA)',
-    'Emissão de ART por Obra / Estudo / Comissionamento',
-    'Certificações Profissionais em IEC 61850, OMICRON e ETAP',
+    'Razão social: KR Consultoria e Soluções em Engenharia LTDA',
+    'CNPJ: 68.797.626/0001-04',
+    'Registro no CREA: nº 141854962-2',
+    'Escritório em Belo Horizonte – MG',
 ];
 
 export default function SobrePage() {
-    const [activeTestimonial, setActiveTestimonial] = useState(0);
-    const testimonial = testimonials[activeTestimonial];
-
     return (
-        <main className={styles.page}>
+        <div className={styles.page}>
             {/* Top Hero Banner */}
             <section className={styles.heroBanner}>
                 <div className={styles.bannerPattern}></div>
                 <div className={styles.bannerContainer}>
                     <div className={styles.badge}>
                         <span className={styles.badgeDot}></span>
-                        <span>QUEM SOMOS</span>
+                        <span>SOBRE A KR</span>
                     </div>
                     <h1 className={styles.bannerTitle}>
                         KR Engenharia
                     </h1>
                     <p className={styles.bannerDescription}>
-                        Excelência técnica, confiabilidade inegociável e inovação contínua na engenharia elétrica e automação de subestações.
+                        KR Engenharia é o nome comercial da KR Consultoria e Soluções em Engenharia LTDA. Engenharia de proteção e automação com experiência multimarcas: estudos elétricos, parametrização, testes e comissionamento.
                     </p>
                 </div>
             </section>
@@ -123,9 +81,9 @@ export default function SobrePage() {
             <section className={styles.section}>
                 <div className={styles.sectionHeader}>
                     <div className={styles.badgeLight}>
-                        <span>NOSSOS PILARES</span>
+                        <span>COMO TRABALHAMOS</span>
                     </div>
-                    <h2 className={styles.sectionTitle}>Princípios que Guiavam Nossa Atuação</h2>
+                    <h2 className={styles.sectionTitle}>Princípios que orientam a nossa atuação</h2>
                     <div className={styles.titleDivider}></div>
                 </div>
 
@@ -153,9 +111,9 @@ export default function SobrePage() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
-                        <h3 className={styles.panelTitle}>Nossa Missão</h3>
+                        <h3 className={styles.panelTitle}>Nossa missão</h3>
                         <p className={styles.panelText}>
-                            Elevar a excelência da engenharia elétrica e automação para projetos críticos, entregando soluções seguras, alinhadas a normas internacionais e focadas em resultados reais.
+                            Apoiar empresas de engenharia, integradoras e equipes de manutenção em estudos, parametrização, testes e comissionamento de sistemas de proteção, com escopo e responsabilidades bem definidos.
                         </p>
                     </div>
 
@@ -165,9 +123,9 @@ export default function SobrePage() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
-                        <h3 className={styles.panelTitleDark}>Nosso Método</h3>
+                        <h3 className={styles.panelTitleDark}>Nosso método</h3>
                         <p className={styles.panelTextDark}>
-                            Priorizamos comunicação clara, análises técnicas profundas e decisões baseadas em dados, garantindo que cada etapa seja transparente e com valor perceptível.
+                            Conversa técnica para entender a necessidade, levantamento dos dados de entrada e proposta com escopo, premissas, exclusões e marcos verificáveis.
                         </p>
                     </div>
 
@@ -177,76 +135,20 @@ export default function SobrePage() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                             </svg>
                         </div>
-                        <h3 className={styles.panelTitle}>Entregas com Impacto</h3>
+                        <h3 className={styles.panelTitle}>Onde atuamos</h3>
                         <p className={styles.panelText}>
-                            Nossa equipe atua desde a viabilidade técnica até o comissionamento final em campo, com foco em mitigação de riscos e alta disponibilidade operacional.
+                            Estudos elétricos, reforço em testes de painéis e comissionamento, retrofit de proteção e automação, preparação de paradas e implementação de ajustes aprovados.
                         </p>
                     </div>
                 </div>
 
-                {/* Depoimentos: Temporariamente ocultos até o recebimento de depoimentos de clientes reais */}
-                {/* 
-                <section className={styles.testimonialsSection}>
-                    <div className={styles.testimonialsHeader}>
-                        <div className={styles.badgeLight}>
-                            <span>DEPOIMENTOS</span>
-                        </div>
-                        <h2 className={styles.testimonialsTitle}>O Que Nossos Clientes Dizem</h2>
-                    </div>
-
-                    <div className={styles.testimonialCard}>
-                        <div className={styles.quoteIcon}>“</div>
-                        <div className={styles.testimonialTop}>
-                            <div className={styles.avatar}>{testimonial.initials}</div>
-                            <div>
-                                <p className={styles.testimonialName}>{testimonial.name}</p>
-                                <p className={styles.testimonialRole}>{testimonial.role} • {testimonial.company}</p>
-                            </div>
-                        </div>
-                        <p className={styles.testimonialText}>
-                            “{testimonial.quote}”
-                        </p>
-                        <div className={styles.testimonialFooter}>
-                            <div className={styles.testimonialDots}>
-                                {testimonials.map((_, idx) => (
-                                    <button
-                                        key={idx}
-                                        onClick={() => setActiveTestimonial(idx)}
-                                        className={`${styles.testDot} ${idx === activeTestimonial ? styles.testDotActive : ''}`}
-                                        aria-label={`Ver depoimento ${idx + 1}`}
-                                    />
-                                ))}
-                            </div>
-                            <div className={styles.testimonialControls}>
-                                <button
-                                    type="button"
-                                    className={styles.controlButton}
-                                    onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                                    aria-label="Depoimento anterior"
-                                >
-                                    ❮
-                                </button>
-                                <button
-                                    type="button"
-                                    className={styles.controlButton}
-                                    onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
-                                    aria-label="Próximo depoimento"
-                                >
-                                    ❯
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                */}
-
                 {/* Technical Responsibility & Governance */}
                 <section className={styles.leadershipSection}>
                     <div>
-                        <div className={styles.leadershipBadge}>RESPONSABILIDADE TÉCNICA & GOVERNANÇA</div>
-                        <h2 className={styles.leadershipTitle}>Engenharia com Respaldo Legal e Ético</h2>
+                        <div className={styles.leadershipBadge}>REGISTRO E RESPONSABILIDADE TÉCNICA</div>
+                        <h2 className={styles.leadershipTitle}>Dados cadastrais</h2>
                         <p className={styles.leadershipText}>
-                            Todos os nossos projetos, estudos elétricos e comissionamentos contam com emissão de Anotação de Responsabilidade Técnica (ART) junto ao CREA, assegurando aos nossos clientes a máxima solidez jurídica, conformidade regulatória e conformidade com as normas da ABNT, IEEE, ONS e IEC.
+                            A KR Consultoria e Soluções em Engenharia LTDA possui registro no CREA. Os responsáveis técnicos e a documentação exigida para cada escopo e local de execução são definidos na proposta, antes da mobilização.
                         </p>
                         <div className={styles.creaList}>
                             {credentials.map((item) => (
@@ -261,10 +163,10 @@ export default function SobrePage() {
                     </div>
 
                     <div className={styles.leadershipCardRight}>
-                        <div className={styles.leadRole}>DIREÇÃO TÉCNICA & ENGENHARIA</div>
-                        <h3 className={styles.leadName}>Corpo Técnico Especialista</h3>
+                        <div className={styles.leadRole}>ENGENHARIA E ATENDIMENTO TÉCNICO</div>
+                        <h3 className={styles.leadName}>Eng. Kayllon Rogger Nunes</h3>
                         <p className={styles.leadBio}>
-                            Engenheiros eletricistas especialistas em sistemas de potência e automação digital, dedicados a garantir que cada solução seja robusta, seletiva e resiliente perante as mais severas contingências do sistema elétrico.
+                            Experiência em parametrização, testes e comissionamento em subestações de 230 kV a 500 kV, indústrias, mineração e aplicações offshore, no Brasil, nos Estados Unidos e na Polônia. Atuação com plataformas ABB, Schneider Electric, SEL e Siemens e em comissionamento envolvendo IEDs GE. Inglês fluente.
                         </p>
                     </div>
                 </section>
@@ -273,16 +175,16 @@ export default function SobrePage() {
                 <section className={styles.ctaBanner}>
                     <div className={styles.ctaPattern}></div>
                     <div className={styles.ctaContent}>
-                        <h3 className={styles.ctaTitle}>Pronto para elevar o nível do seu projeto elétrico?</h3>
+                        <h3 className={styles.ctaTitle}>Vamos conversar sobre a sua demanda?</h3>
                         <p className={styles.ctaSubtitle}>
-                            Fale com nossa equipe técnica e receba uma avaliação detalhada para seu sistema de energia.
+                            Descreva o tipo de instalação, os equipamentos envolvidos e a janela prevista.
                         </p>
                         <Link href="/contato" className={styles.ctaActionBtn}>
-                            FALE COM UM ESPECIALISTA
+                            Solicitar conversa técnica
                         </Link>
                     </div>
                 </section>
             </section>
-        </main>
+        </div>
     );
 }

@@ -10,7 +10,7 @@ const articles = [
         excerpt: 'Como a substituição de quilômetros de cabos de cobre por fibra óptica e barramento de processo eleva a confiabilidade e reduz custos de O&M.',
         category: 'Subestação Digital',
         readTime: '6 min de leitura',
-        date: '15 de Agosto, 2026',
+        date: 'Em preparação',
         icon: (
             <svg className={styles.articleIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -23,7 +23,7 @@ const articles = [
         excerpt: 'Análise de estabilidade de tensão, impacto no fator de potência e requisitos regulatórios do ONS para conexão segura de renováveis.',
         category: 'Energias Renováveis',
         readTime: '8 min de leitura',
-        date: '02 de Agosto, 2026',
+        date: 'Em preparação',
         icon: (
             <svg className={styles.articleIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -36,7 +36,7 @@ const articles = [
         excerpt: 'Melhores práticas na parametrização de relés numéricos para evitar desligamentos desnecessários em plantas industriais contínuas.',
         category: 'Proteção & Controle',
         readTime: '5 min de leitura',
-        date: '20 de Julho, 2026',
+        date: 'Em preparação',
         icon: (
             <svg className={styles.articleIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -47,7 +47,7 @@ const articles = [
 
 export default function BlogPage() {
     return (
-        <main className={styles.page}>
+        <div className={styles.page}>
             {/* Hero Banner */}
             <section className={styles.heroBanner}>
                 <div className={styles.bannerPattern}></div>
@@ -57,10 +57,10 @@ export default function BlogPage() {
                         <span>CONHECIMENTO TÉCNICO</span>
                     </div>
                     <h1 className={styles.bannerTitle}>
-                        Artigos & Novidades em Engenharia Elétrica
+                        Artigos técnicos
                     </h1>
                     <p className={styles.bannerDescription}>
-                        Insights práticos, tendências normativas e análises aprofundadas sobre automação de subestações, proteção e sistemas de energia.
+                        Conteúdos sobre proteção, automação e comissionamento de sistemas elétricos, em preparação.
                     </p>
                 </div>
             </section>
@@ -69,16 +69,16 @@ export default function BlogPage() {
             <section className={styles.section}>
                 <div className={styles.sectionHeader}>
                     <div className={styles.badgeLight}>
-                        <span>PUBLICAÇÕES RECENTES</span>
+                        <span>EM PREPARAÇÃO</span>
                     </div>
-                    <h2 className={styles.sectionTitle}>Artigos em Destaque</h2>
+                    <h2 className={styles.sectionTitle}>Próximos artigos</h2>
                     <div className={styles.titleDivider}></div>
                 </div>
 
                 {/* Coming Soon Wrapper */}
                 <div className={styles.comingSoonWrapper}>
                     {/* Blurred article grid (still preserved in DOM, but visually blurred) */}
-                    <div className={styles.gridBlurred}>
+                    <div className={styles.gridBlurred} aria-hidden="true" inert>
                         <div className={styles.grid}>
                             {articles.map((art) => (
                                 <article key={art.id} className={styles.articleCard}>
@@ -117,12 +117,12 @@ export default function BlogPage() {
                                 </svg>
                             </div>
                             <span className={styles.comingSoonBadge}>EM BREVE</span>
-                            <h3 className={styles.comingSoonTitle}>Nossos Artigos Técnicos Chegam em Breve</h3>
+                            <h3 className={styles.comingSoonTitle}>Os artigos técnicos ainda não foram publicados</h3>
                             <p className={styles.comingSoonText}>
                                 Estamos preparando análises aprofundadas, tutoriais práticos e novidades sobre engenharia elétrica, automação de subestações e proteção de sistemas de potência.
                             </p>
                             <Link href="/contato" className={styles.comingSoonBtn}>
-                                NOTIFIQUE-ME QUANDO PUBLICARMOS
+                                Falar com a KR enquanto isso
                             </Link>
                         </div>
                     </div>
@@ -132,16 +132,16 @@ export default function BlogPage() {
                 <section className={styles.newsletterBanner}>
                     <div className={styles.newsletterPattern}></div>
                     <div className={styles.newsletterContent}>
-                        <h3 className={styles.newsletterTitle}>Mantenha-se Atualizado com Nossos Artigos</h3>
+                        <h3 className={styles.newsletterTitle}>Tem uma dúvida técnica agora?</h3>
                         <p className={styles.newsletterSubtitle}>
-                            Acompanhe análises e conteúdos técnicos exclusivos sobre o setor elétrico e automação de potência.
+                            Enquanto os artigos não são publicados, descreva a sua demanda e combinamos uma conversa técnica.
                         </p>
                         <Link href="/contato" className={styles.ctaActionBtn}>
-                            SOLICITAR PROPOSTA TÉCNICA / ANÁLISE DE ESCOPO
+                            Solicitar conversa técnica
                         </Link>
                     </div>
                 </section>
             </section>
-        </main>
+        </div>
     );
 }

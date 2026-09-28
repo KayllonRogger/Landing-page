@@ -6,7 +6,7 @@
 }
 
 .heroBanner {
-  background: linear-gradient(135deg, #06182c 0%, #0a2540 50%, #0d3b66 100%);
+  background: linear-gradient(135deg, #06182c 0%, #0a2540 50%, #0c233c 100%);
   position: relative;
   overflow: hidden;
   padding: 80px 24px 70px;
@@ -34,12 +34,12 @@
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
-  background: rgba(243, 156, 18, 0.15);
-  border: 1px solid rgba(243, 156, 18, 0.4);
+  background: rgba(200, 122, 40, 0.15);
+  border: 1px solid rgba(200, 122, 40, 0.4);
   border-radius: 9999px;
   color: var(--primary-orange);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -54,7 +54,7 @@
 
 .bannerTitle {
   font-size: 36px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
   margin-bottom: 16px;
   letter-spacing: -0.02em;
@@ -91,11 +91,11 @@
   display: inline-flex;
   padding: 6px 16px;
   border-radius: 9999px;
-  background: rgba(13, 59, 102, 0.08);
-  border: 1px solid rgba(13, 59, 102, 0.15);
+  background: rgba(12, 35, 60, 0.08);
+  border: 1px solid rgba(12, 35, 60, 0.15);
   color: var(--primary-blue);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -103,7 +103,7 @@
 
 .sectionTitle {
   font-size: 32px;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--primary-blue);
   letter-spacing: -0.02em;
   margin-bottom: 16px;
@@ -154,13 +154,13 @@
 
 .articleCard:hover {
   transform: translateY(-8px);
-  border-color: rgba(243, 156, 18, 0.3);
-  box-shadow: 0 20px 45px rgba(13, 59, 102, 0.1);
+  border-color: rgba(200, 122, 40, 0.3);
+  box-shadow: 0 20px 45px rgba(12, 35, 60, 0.1);
 }
 
 .articleBanner {
   height: 160px;
-  background: linear-gradient(135deg, #06182c 0%, #0d3b66 100%);
+  background: linear-gradient(135deg, #06182c 0%, #0c233c 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -172,7 +172,7 @@
   width: 56px;
   height: 56px;
   border-radius: 16px;
-  background: rgba(243, 156, 18, 0.2);
+  background: rgba(200, 122, 40, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,10 +199,10 @@
 }
 
 .categoryBadge {
-  background: rgba(13, 59, 102, 0.08);
+  background: rgba(12, 35, 60, 0.08);
   color: var(--primary-blue);
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   padding: 4px 12px;
   border-radius: 9999px;
   text-transform: uppercase;
@@ -217,7 +217,7 @@
 
 .articleTitle {
   font-size: 19px;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--primary-blue);
   margin-bottom: 12px;
   line-height: 1.35;
@@ -263,21 +263,20 @@
 }
 
 .readLink:hover {
-  color: #d35400;
+  color: #a8621c;
 }
 
 .readLink:hover .arrowIcon {
-  transform: translateX(4px);
 }
 
 .newsletterBanner {
-  background: linear-gradient(135deg, #06182c 0%, #0a2540 50%, #0d3b66 100%);
+  background: linear-gradient(135deg, #06182c 0%, #0a2540 50%, #0c233c 100%);
   border-radius: 24px;
   padding: 60px 32px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(13, 59, 102, 0.15);
+  box-shadow: 0 20px 50px rgba(12, 35, 60, 0.15);
 }
 
 .newsletterPattern {
@@ -297,7 +296,7 @@
 
 .newsletterTitle {
   font-size: 28px;
-  font-weight: 800;
+  font-weight: 700;
   color: white;
   margin-bottom: 16px;
   letter-spacing: -0.01em;
@@ -317,23 +316,24 @@
 }
 
 .ctaActionBtn {
-  background: linear-gradient(135deg, var(--primary-orange) 0%, #e67e22 100%);
-  color: white;
-  padding: 14px 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 24px;
   border-radius: 8px;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.04em;
+  background: var(--primary-orange-dark);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
   text-decoration: none;
-  display: inline-block;
-  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
 .ctaActionBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(243, 156, 18, 0.55);
-  filter: brightness(1.05);
+  background: #8f5317;
+  color: #fff;
 }
 
 /* ========== Coming Soon Overlay ========== */
@@ -364,10 +364,10 @@
 .comingSoonContent {
   text-align: center;
   background: white;
-  border: 1px solid rgba(13, 59, 102, 0.1);
+  border: 1px solid rgba(12, 35, 60, 0.1);
   border-radius: 28px;
   padding: 48px 40px;
-  box-shadow: 0 24px 60px rgba(13, 59, 102, 0.12);
+  box-shadow: 0 24px 60px rgba(12, 35, 60, 0.12);
   max-width: 560px;
   width: 100%;
   display: flex;
@@ -380,31 +380,29 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(13, 59, 102, 0.08) 0%, rgba(243, 156, 18, 0.15) 100%);
+  background: linear-gradient(135deg, rgba(12, 35, 60, 0.08) 0%, rgba(200, 122, 40, 0.15) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--primary-orange);
   margin-bottom: 4px;
-  box-shadow: 0 0 20px rgba(243, 156, 18, 0.15);
 }
 
 .comingSoonBadge {
   display: inline-flex;
   padding: 6px 18px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, var(--primary-orange) 0%, #e67e22 100%);
-  color: white;
+  background: var(--primary-orange-dark);
+  color: #fff;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
 }
 
 .comingSoonTitle {
   font-size: 22px;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--primary-blue);
   line-height: 1.35;
   letter-spacing: -0.01em;
@@ -430,17 +428,14 @@
   border-radius: 8px;
   font-weight: 700;
   font-size: 12.5px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   text-decoration: none;
   display: inline-block;
-  box-shadow: 0 6px 18px rgba(13, 59, 102, 0.25);
+  box-shadow: 0 6px 18px rgba(12, 35, 60, 0.25);
   margin-top: 4px;
   transition: all 0.3s ease;
 }
 
 .comingSoonBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(13, 59, 102, 0.35);
+  box-shadow: 0 8px 24px rgba(12, 35, 60, 0.35);
   filter: brightness(1.08);
 }

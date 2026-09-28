@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  background: linear-gradient(135deg, #06182c 0%, #0a2540 50%, #0d3b66 100%);
+  background: linear-gradient(135deg, #06182c 0%, #0a2540 50%, #0c233c 100%);
   color: white;
   padding: 80px 24px 40px;
   position: relative;
@@ -61,14 +61,14 @@
 
 .columnTitle {
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.01em;
   color: white;
 }
 
 .columnHeading {
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 24px;
   color: var(--primary-orange);
   letter-spacing: 0.1em;
@@ -136,8 +136,6 @@
   background-color: var(--primary-orange);
   border-color: var(--primary-orange);
   color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(243, 156, 18, 0.35);
 }
 
 .linksList {
@@ -168,11 +166,9 @@
 
 .linksItemLink:hover {
   color: white;
-  transform: translateX(4px);
 }
 
 .linksItemLink:hover .linkArrow {
-  transform: translateX(3px);
 }
 
 .contactItem {

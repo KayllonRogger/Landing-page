@@ -3,18 +3,16 @@ import ServiceLanding from '../components/ServiceLanding';
 import { protectionStudiesPt } from '@/lib/services/content';
 
 export const metadata: Metadata = {
-    title: 'Estudos de Proteção e Seletividade | KR Engenharia',
+    title: 'Estudos de Proteção e Seletividade',
     description:
-        'Estudos de curto-circuito, fluxo de potência, coordenação e seletividade de relés em ETAP, arc flash (IEEE 1584) e conformidade ONS para subestações e indústrias.',
+        'Estudos de proteção, coordenação, seletividade, curto-circuito e fluxo de potência integrados à parametrização e aos testes. Transitórios avaliados conforme a necessidade técnica.',
     keywords: [
         'Estudos de Proteção e Seletividade',
-        'Curvas de Coordenação e Seletividade',
-        'Estudos de Curto-Circuito ETAP',
+        'Coordenação de Proteção',
+        'Estudos de Curto-Circuito',
+        'Fluxo de Potência',
+        'Tabela de Ajustes de Relés',
         'Parametrização de Relés de Proteção',
-        'Arc Flash IEEE 1584',
-        'Conformidade ONS Procedimentos de Rede',
-        'Proteção de Transformadores e Geradores',
-        'SEL DIGSI SIPROTEC MiCOM',
     ],
     alternates: {
         canonical: '/estudos-de-protecao-e-seletividade/',
@@ -26,7 +24,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Estudos de Proteção e Seletividade | KR Engenharia',
         description:
-            'Estudos de curto-circuito, fluxo de potência, coordenação e parametrização de relés digitais em ETAP com conformidade ONS.',
+            'Critérios de proteção, coordenação, curto-circuito e fluxo de potência conectados à implementação dos ajustes e aos testes.',
         url: '/estudos-de-protecao-e-seletividade/',
         siteName: 'KR Engenharia',
         locale: 'pt_BR',

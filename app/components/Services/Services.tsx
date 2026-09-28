@@ -1,103 +1,111 @@
 'use client';
 
 import Link from 'next/link';
+import s from '../Section/Section.module.css';
 import styles from './Services.module.css';
 
 interface ServicesProps {
     locale?: 'pt' | 'en';
 }
 
+const SERVICES = {
+    pt: [
+        {
+            title: 'Estudos elétricos',
+            description: 'Proteção, coordenação e seletividade, curto-circuito e fluxo de potência. Transitórios com modalidade e escopo definidos conforme a necessidade técnica.',
+            deliverables: ['Memória de cálculo e curvas', 'Tabela de ajustes', 'Premissas documentadas'],
+            href: '/estudos-de-protecao-e-seletividade/',
+        },
+        {
+            title: 'Parametrização e testes',
+            description: 'Implementação de ajustes e lógicas aprovados em IEDs multimarcas e testes de painéis em TAF, com procedimentos e critérios de aceite acordados.',
+            deliverables: ['Arquivos de configuração', 'Testes de seletividade lógica', 'Relatório e pendências'],
+            href: '/comissionamento-e-ensaios-em-campo/',
+        },
+        {
+            title: 'Comissionamento',
+            description: 'Reforço para equipes de comissionamento, por escopo ou período, no Brasil e no exterior: verificação de proteção, integração e lógicas em campo.',
+            deliverables: ['Testes funcionais em campo', 'Apoio ao TAC', 'As-built quando contratado'],
+            href: '/comissionamento-e-ensaios-em-campo/',
+        },
+        {
+            title: 'Retrofit e automação',
+            description: 'Integração de IEDs em IEC 61850 (GOOSE e MMS), pontos no supervisório e lógicas aprovadas, como transferência automática de carga.',
+            deliverables: ['Configuração de comunicação', 'Testes ponto a ponto', 'Lógicas documentadas'],
+            href: '/automacao-sistemas-eletricos/',
+        },
+    ],
+    en: [
+        {
+            title: 'Electrical studies',
+            description: 'Protection, coordination, and selectivity, short circuit, and load flow. Transient studies with type and scope defined by the technical need.',
+            deliverables: ['Calculation report and curves', 'Settings table', 'Documented assumptions'],
+            href: '/en/protection-and-selectivity-studies/',
+        },
+        {
+            title: 'Settings and testing',
+            description: 'Implementation of approved settings and logic on multi-vendor IEDs, and panel testing during FAT with agreed procedures and acceptance criteria.',
+            deliverables: ['Configuration files', 'Logic selectivity tests', 'Report and open items'],
+            href: '/en/commissioning-and-field-testing/',
+        },
+        {
+            title: 'Commissioning',
+            description: 'Support for commissioning teams, by scope or period, in Brazil and abroad: field verification of protection, integration, and logic.',
+            deliverables: ['Field functional tests', 'SAT support', 'As-built when contracted'],
+            href: '/en/commissioning-and-field-testing/',
+        },
+        {
+            title: 'Retrofit and automation',
+            description: 'IED integration over IEC 61850 (GOOSE and MMS), SCADA points, and approved logic such as automatic load transfer.',
+            deliverables: ['Communication configuration', 'Point-to-point tests', 'Documented logic'],
+            href: '/en/power-system-automation/',
+        },
+    ],
+};
+
 export default function Services({ locale = 'pt' }: ServicesProps) {
     const isEn = locale === 'en';
-
-    const services = [
-        {
-            id: 1,
-            title: isEn ? 'PROTECTION & SELECTIVITY STUDIES' : 'ESTUDOS DE PROTEÇÃO & SELETIVIDADE',
-            description: isEn
-                ? 'Mitigate outage risks and ensure asset integrity. Analytical short-circuit calculations, coordination curves, and IED parameterization in ETAP.'
-                : 'Mitigue riscos de desligamentos intempestivos e proteja ativos críticos. Cálculos analíticos de curto-circuito, curvas de coordenação e parametrização de IEDs em ETAP.',
-            tags: isEn ? ['ETAP Analysis', 'Coordination Curves', 'ONS Compliance'] : ['Estudos ETAP', 'Curvas de Coordenação', 'Conformidade ONS'],
-            href: isEn ? '/en/protection-and-selectivity-studies/' : '/estudos-de-protecao-e-seletividade/',
-            icon: (
-                <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-            ),
-        },
-        {
-            id: 2,
-            title: isEn ? 'POWER SYSTEM AUTOMATION & IEC 61850' : 'AUTOMAÇÃO DE SISTEMAS ELÉTRICOS & IEC 61850',
-            description: isEn
-                ? 'End-to-end substation automation (SAS). High-speed GOOSE messaging, zero-loss PRP/HSR redundancy, SCADA HMIs, and utility protocols (DNP3, IEC 60870-5-104).'
-                : 'Engenharia completa de automação de subestações (SAS). Mensagens GOOSE ultrarrápidas, redes redundantes PRP/HSR, supervisórios SCADA e telecontrole ONS (DNP3 / 104).',
-            tags: isEn ? ['IEC 61850 GOOSE/MMS', 'PRP / HSR Redundancy', 'DNP3 & SCADA'] : ['IEC 61850 GOOSE/MMS', 'Redundância PRP/HSR', 'DNP3 & SCADA'],
-            href: isEn ? '/en/power-system-automation/' : '/automacao-sistemas-eletricos/',
-            icon: (
-                <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-            ),
-        },
-        {
-            id: 3,
-            title: isEn ? 'COMMISSIONING & FIELD TESTING' : 'COMISSIONAMENTO & ENSAIOS EM CAMPO',
-            description: isEn
-                ? 'Zero start-up surprises. Calibrated secondary injection with OMICRON CMC sets, functional logic validation, trip matrix tests, and comprehensive FAT/SAT support up to 500 kV.'
-                : 'Energização segura e sem imprevistos. Injeção secundária calibrada com malas OMICRON CMC, validação de lógicas, testes de matriz de trip e suporte integral a TAF/TAC até 500 kV.',
-            tags: isEn ? ['OMICRON CMC 356', 'FAT / SAT Support', 'Trip Matrix Tests'] : ['OMICRON CMC 356', 'Suporte TAF / TAC', 'Matriz de Trip'],
-            href: isEn ? '/en/commissioning-and-field-testing/' : '/comissionamento-e-ensaios-em-campo/',
-            icon: (
-                <svg className={styles.iconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                </svg>
-            ),
-        },
-    ];
+    const services = SERVICES[locale];
 
     return (
-        <section id={isEn ? "services" : "servicos"} className={styles.services}>
-            <div className={styles.container}>
-                {/* Section Header */}
-                <div className={styles.header}>
-                    <div className={styles.badge}>
-                        <span className={styles.badgeDot}></span>
-                        <span>{isEn ? 'TECHNICAL EXPERTISE' : 'EXPERTISE TÉCNICA'}</span>
+        <section id={isEn ? 'services' : 'servicos'} className={s.section} aria-labelledby="servicos-title">
+            <div className={s.container}>
+                <div className={styles.headerRow}>
+                    <div className={s.header}>
+                        <p className={s.eyebrow}>{isEn ? 'Services' : 'Serviços'}</p>
+                        <h2 id="servicos-title" className={s.title}>
+                            {isEn ? 'What you can hire' : 'O que você pode contratar'}
+                        </h2>
+                        <p className={s.lead}>
+                            {isEn
+                                ? 'Hire a single stage or an integrated package, from studies to field verification. KR is your commercial point of contact and coordinates the delivery; who prepares, reviews, approves, and executes each stage is set in the proposal.'
+                                : 'Contrate uma etapa isolada ou um pacote integrado, dos estudos à verificação em campo. A KR é a interface comercial e coordena a entrega; quem elabora, revisa, aprova e executa cada etapa é definido na proposta.'}
+                        </p>
                     </div>
-                    <h2 className={styles.title}>{isEn ? 'OUR SERVICES' : 'NOSSOS SERVIÇOS'}</h2>
-                    <p className={styles.headerDescription}>
-                        {isEn
-                            ? 'Integrated engineering solutions for maximum reliability, safety, and power system digitalization.'
-                            : 'Soluções integradas de engenharia para máxima confiabilidade, segurança e digitalização do seu sistema de potência.'}
-                    </p>
-                    <div className={styles.divider}></div>
+                    <Link href={isEn ? '/en/services' : '/servicos'} className={s.btnSecondary}>
+                        {isEn ? 'Full service catalog' : 'Catálogo completo'}
+                    </Link>
                 </div>
 
-                {/* Services Grid */}
-                <div className={styles.grid}>
-                    {services.map((service) => (
-                        <div key={service.id} className={styles.serviceCard}>
-                            <div className={styles.cardHeader}>
-                                <div className={styles.iconBox}>{service.icon}</div>
-                            </div>
-                            <h3 className={styles.serviceTitle}>{service.title}</h3>
-                            <p className={styles.serviceDescription}>{service.description}</p>
-
-                            <div className={styles.tagList}>
-                                {service.tags.map((tag) => (
-                                    <span key={tag} className={styles.tag}>{tag}</span>
+                <ul className={styles.grid}>
+                    {services.map((service, index) => (
+                        <li key={service.title} className={styles.card}>
+                            <span className={styles.number} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                            <h3 className={styles.cardTitle}>{service.title}</h3>
+                            <p className={styles.cardText}>{service.description}</p>
+                            <ul className={styles.deliverables} aria-label={isEn ? 'Typical deliverables' : 'Entregáveis típicos'}>
+                                {service.deliverables.map((d) => (
+                                    <li key={d}>{d}</li>
                                 ))}
-                            </div>
-
-                            <Link href={service.href} className={styles.serviceLink}>
-                                <span>{isEn ? 'Learn More' : 'Saiba Mais'}</span>
-                                <svg className={styles.arrowIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
+                            </ul>
+                            <Link href={service.href} className={styles.cardLink}>
+                                {isEn ? 'Service details' : 'Detalhes do serviço'}
+                                <span className="sr-only">: {service.title}</span>
+                                <span aria-hidden="true"> →</span>
                             </Link>
-                        </div>
+                        </li>
                     ))}
-                </div>
+                </ul>
             </div>
         </section>
     );

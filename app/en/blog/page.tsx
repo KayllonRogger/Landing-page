@@ -10,7 +10,7 @@ const articlesEn = [
         excerpt: 'How replacing copper control cables with optical fibers and process bus architectures elevates reliability and cuts lifecycle O&M costs.',
         category: 'Digital Substation',
         readTime: '6 min read',
-        date: 'August 15, 2026',
+        date: 'In preparation',
         icon: (
             <svg className={styles.articleIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -23,7 +23,7 @@ const articlesEn = [
         excerpt: 'Voltage stability analysis, reactive power compensation, and transmission operator grid code compliance for renewable connections.',
         category: 'Renewable Energy',
         readTime: '8 min read',
-        date: 'August 02, 2026',
+        date: 'In preparation',
         icon: (
             <svg className={styles.articleIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -36,7 +36,7 @@ const articlesEn = [
         excerpt: 'Best practices for numerical relay parameterization to eliminate unnecessary plant-wide outages during downstream motor and feeder faults.',
         category: 'Protection & Control',
         readTime: '5 min read',
-        date: 'July 20, 2026',
+        date: 'In preparation',
         icon: (
             <svg className={styles.articleIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -47,7 +47,7 @@ const articlesEn = [
 
 export default function BlogPageEn() {
     return (
-        <main className={styles.page}>
+        <div className={styles.page}>
             {/* Hero Banner */}
             <section className={styles.heroBanner}>
                 <div className={styles.bannerPattern}></div>
@@ -57,10 +57,10 @@ export default function BlogPageEn() {
                         <span>TECHNICAL KNOWLEDGE</span>
                     </div>
                     <h1 className={styles.bannerTitle}>
-                        Technical Articles & Electrical Engineering Insights
+                        Technical articles
                     </h1>
                     <p className={styles.bannerDescription}>
-                        Practical insights, international standards, and in-depth analyses on substation automation, protection, and power systems.
+                        Content on protection, automation, and commissioning of electrical systems, in preparation.
                     </p>
                 </div>
             </section>
@@ -69,16 +69,16 @@ export default function BlogPageEn() {
             <section className={styles.section}>
                 <div className={styles.sectionHeader}>
                     <div className={styles.badgeLight}>
-                        <span>RECENT PUBLICATIONS</span>
+                        <span>IN PREPARATION</span>
                     </div>
-                    <h2 className={styles.sectionTitle}>Featured Technical Papers</h2>
+                    <h2 className={styles.sectionTitle}>Upcoming articles</h2>
                     <div className={styles.titleDivider}></div>
                 </div>
 
                 {/* Coming Soon Wrapper */}
                 <div className={styles.comingSoonWrapper}>
                     {/* Blurred article grid (still preserved in DOM) */}
-                    <div className={styles.gridBlurred}>
+                    <div className={styles.gridBlurred} aria-hidden="true" inert>
                         <div className={styles.grid}>
                             {articlesEn.map((art) => (
                                 <article key={art.id} className={styles.articleCard}>
@@ -117,12 +117,12 @@ export default function BlogPageEn() {
                                 </svg>
                             </div>
                             <span className={styles.comingSoonBadge}>COMING SOON</span>
-                            <h3 className={styles.comingSoonTitle}>Our Technical Articles Are Coming Soon</h3>
+                            <h3 className={styles.comingSoonTitle}>Our technical articles have not been published yet</h3>
                             <p className={styles.comingSoonText}>
                                 We are preparing in-depth technical analyses, practical tutorials, and whitepapers on electrical engineering, substation automation, and power system protection.
                             </p>
                             <Link href="/en/contact" className={styles.comingSoonBtn}>
-                                NOTIFY ME WHEN PUBLISHED
+                                Talk to KR in the meantime
                             </Link>
                         </div>
                     </div>
@@ -132,17 +132,17 @@ export default function BlogPageEn() {
                 <section className={styles.newsletterBanner}>
                     <div className={styles.newsletterPattern}></div>
                     <div className={styles.newsletterContent}>
-                        <h3 className={styles.newsletterTitle}>Stay Updated with Our Technical Publications</h3>
+                        <h3 className={styles.newsletterTitle}>Have a technical question now?</h3>
                         <p className={styles.newsletterSubtitle}>
-                            Follow exclusive engineering insights on the power sector and substation automation.
+                            While the articles are not yet published, describe your need and we will set up a technical call.
                         </p>
                         <Link href="/en/contact" className={styles.ctaActionBtn}>
-                            REQUEST TECHNICAL PROPOSAL / SCOPE ANALYSIS
+                            Request a technical call
                         </Link>
                     </div>
                 </section>
             </section>
-        </main>
+        </div>
     );
 }
 

@@ -16,20 +16,21 @@ export default function Footer() {
                     {/* Column 1 - Company Info */}
                     <div className={styles.column}>
                         <div className={styles.logoRow}>
-                            <img src="/logo.svg" alt="KR Engenharia" className={styles.logoImg} />
-                            <h3 className={styles.columnTitle}>KR ENGENHARIA</h3>
+                            <img src="/logo.svg" alt="" className={styles.logoImg} />
+                            <p className={styles.columnTitle}>KR ENGENHARIA</p>
                         </div>
                         <p className={styles.columnDescription}>
                             {isEn
-                                ? 'Integrated engineering for electrical grid reliability, efficiency, and digitalization, specializing in substation automation systems.'
-                                : 'Engenharia integrada para a confiabilidade, eficiência e digitalização da rede elétrica e sistemas de automação de subestações.'}
+                                ? 'Protection and automation engineering with multi-vendor experience: electrical studies, relay settings, testing, and commissioning.'
+                                : 'Engenharia de proteção e automação com experiência multimarcas: estudos elétricos, parametrização, testes e comissionamento.'}
                         </p>
                         <div className={styles.companyMeta}>
+                            <p className={styles.companyMetaItem}>KR Consultoria e Soluções em Engenharia LTDA</p>
                             <p className={styles.companyMetaItem}>
                                 <strong>CNPJ:</strong> 68.797.626/0001-04
                             </p>
                             <p className={styles.companyMetaItem}>
-                                <strong>{isEn ? 'CREA License:' : 'Registro CREA:'}</strong> CREA- nº 141854962-2
+                                <strong>{isEn ? 'CREA registration:' : 'Registro no CREA:'}</strong> {isEn ? 'No.' : 'nº'} 141854962-2
                             </p>
                         </div>
                         <div className={styles.socialLinks}>
@@ -72,7 +73,7 @@ export default function Footer() {
 
                     {/* Column 2 - Quick Links */}
                     <div className={styles.column}>
-                        <h4 className={styles.columnHeading}>{isEn ? 'QUICK LINKS' : 'LINKS RÁPIDOS'}</h4>
+                        <h2 className={styles.columnHeading}>{isEn ? 'Pages' : 'Páginas'}</h2>
                         <ul className={styles.linksList}>
                             <li className={styles.linksItem}>
                                 <Link href={isEn ? '/en' : '/'} className={styles.linksItemLink}>
@@ -81,27 +82,27 @@ export default function Footer() {
                             </li>
                             <li className={styles.linksItem}>
                                 <Link href={isEn ? '/en/about' : '/sobre'} className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>→</span> {isEn ? 'About Us' : 'Sobre Nós'}
+                                    <span className={styles.linkArrow}>→</span> {isEn ? 'About' : 'Sobre'}
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
                                 <Link href={isEn ? '/en/services' : '/servicos'} className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Services Catalog' : 'Catálogo de Serviços'}
+                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Services' : 'Serviços'}
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
                                 <Link href={isEn ? '/en/protection-and-selectivity-studies/' : '/estudos-de-protecao-e-seletividade/'} className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>↳</span> {isEn ? 'Protection & Selectivity' : 'Estudos de Proteção e Seletividade'}
+                                    <span className={styles.linkArrow}>↳</span> {isEn ? 'Protection & Selectivity Studies' : 'Estudos de Proteção e Seletividade'}
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
                                 <Link href={isEn ? '/en/power-system-automation/' : '/automacao-sistemas-eletricos/'} className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>↳</span> {isEn ? 'Power System Automation' : 'Automação de Sistemas Elétricos'}
+                                    <span className={styles.linkArrow}>↳</span> {isEn ? 'Protection & Automation Retrofit' : 'Retrofit de Proteção & Automação'}
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
                                 <Link href={isEn ? '/en/commissioning-and-field-testing/' : '/comissionamento-e-ensaios-em-campo/'} className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>↳</span> {isEn ? 'Commissioning & Testing' : 'Comissionamento & Ensaios em Campo'}
+                                    <span className={styles.linkArrow}>↳</span> {isEn ? 'Protection Testing & Commissioning' : 'Testes de Proteção & Comissionamento'}
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
@@ -116,12 +117,12 @@ export default function Footer() {
                             </li>
                             <li className={styles.linksItem}>
                                 <Link href={isEn ? '/en/drive' : '/drive'} className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Client Drive & Portal' : 'Drive KR / Área do Cliente'}
+                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Client area' : 'Área do cliente'}
                                 </Link>
                             </li>
                             <li className={styles.linksItem}>
                                 <Link href={isEn ? '/en/contact' : '/contato'} className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Technical Proposal & Contact' : 'Proposta Técnica & Contato'}
+                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Contact' : 'Contato'}
                                 </Link>
                             </li>
                         </ul>
@@ -129,7 +130,7 @@ export default function Footer() {
 
                     {/* Column 3 - Contact */}
                     <div className={styles.column}>
-                        <h4 className={styles.columnHeading}>{isEn ? 'CONTACT & LOCATION' : 'CONTATO & LOCALIZAÇÃO'}</h4>
+                        <h2 className={styles.columnHeading}>{isEn ? 'Contact' : 'Contato'}</h2>
                         <div className={styles.contactItem}>
                             <div className={styles.contactItemGroup}>
                                 <p className={styles.contactLabel}>
@@ -141,7 +142,7 @@ export default function Footer() {
                                 </p>
                                 <p className={styles.contactValue}>
                                     Rua Rio Grande do Norte, 1436, sala 813, Funcionários<br />
-                                    Belo Horizonte, Minas Gerais, Brazil
+                                    {isEn ? 'Belo Horizonte, Minas Gerais, Brazil' : 'Belo Horizonte, Minas Gerais, Brasil'}
                                 </p>
                             </div>
                             <div className={styles.contactItemGroup}>
@@ -174,12 +175,12 @@ export default function Footer() {
                 <div className={styles.divider}>
                     <div className={styles.copyright}>
                         <p className={styles.copyrightText}>
-                            © 2026 KR Consultoria e Soluções em Engenharia LTDA • CNPJ 68.797.626/0001-04 • CREA- nº 141854962-2. {isEn ? 'All rights reserved.' : 'Todos os direitos reservados.'}
+                            © 2026 KR Consultoria e Soluções em Engenharia LTDA (KR Engenharia) • CNPJ 68.797.626/0001-04. {isEn ? 'All rights reserved.' : 'Todos os direitos reservados.'}
                         </p>
                         <p className={styles.copyrightLinks}>
                             {isEn
-                                ? 'Electrical Engineering • Substation Automation Systems (SAS) • SCADA'
-                                : 'Engenharia Elétrica • Sistemas de Automação de Subestações (SAS) • SCADA'}
+                                ? 'Studies • Protection • Automation • Commissioning'
+                                : 'Estudos • Proteção • Automação • Comissionamento'}
                         </p>
                     </div>
                 </div>

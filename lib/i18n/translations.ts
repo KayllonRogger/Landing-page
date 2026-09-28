@@ -4,35 +4,33 @@ export const translations = {
     header: {
         nav: {
             pt: [
-                { href: '/', label: 'INÍCIO' },
-                { href: '/sobre', label: 'SOBRE NÓS' },
-                { href: '/servicos', label: 'SERVIÇOS' },
-                { href: '/projetos', label: 'PROJETOS' },
-                { href: '/blog', label: 'BLOG' },
-                { href: '/drive', label: 'DRIVE' },
-                { href: '/contato', label: 'CONTATO' },
+                { href: '/', label: 'Início' },
+                { href: '/sobre', label: 'Sobre' },
+                { href: '/servicos', label: 'Serviços' },
+                { href: '/projetos', label: 'Projetos' },
+                { href: '/blog', label: 'Blog' },
+                { href: '/drive', label: 'Área do cliente' },
             ],
             en: [
-                { href: '/en', label: 'HOME' },
-                { href: '/en/about', label: 'ABOUT US' },
-                { href: '/en/services', label: 'SERVICES' },
-                { href: '/en/projects', label: 'PROJECTS' },
-                { href: '/en/blog', label: 'BLOG' },
-                { href: '/en/drive', label: 'DRIVE' },
-                { href: '/en/contact', label: 'CONTACT' },
+                { href: '/en', label: 'Home' },
+                { href: '/en/about', label: 'About' },
+                { href: '/en/services', label: 'Services' },
+                { href: '/en/projects', label: 'Projects' },
+                { href: '/en/blog', label: 'Blog' },
+                { href: '/en/drive', label: 'Client area' },
             ],
         },
         cta: {
-            pt: 'PROPOSTA TÉCNICA / ESCOPO',
-            en: 'TECHNICAL PROPOSAL / SCOPE',
+            pt: 'Solicitar conversa técnica',
+            en: 'Request a technical call',
         },
         mobileCta: {
-            pt: 'SOLICITAR PROPOSTA TÉCNICA / ANÁLISE DE ESCOPO',
-            en: 'REQUEST TECHNICAL PROPOSAL / SCOPE ANALYSIS',
+            pt: 'Solicitar conversa técnica',
+            en: 'Request a technical call',
         },
         tagline: {
-            pt: 'Engenharia Elétrica & SAS',
-            en: 'Electrical Engineering & SAS',
+            pt: 'Proteção • Automação • Comissionamento',
+            en: 'Protection • Automation • Commissioning',
         },
     },
     hero: {
@@ -279,8 +277,8 @@ export const translations = {
             en: 'Request Submitted Successfully!',
         },
         successText: {
-            pt: 'Recebemos sua mensagem em contato@krconsultoria.com. Nossos engenheiros especialistas entrarão em contato em breve através do e-mail ou telefone informado.',
-            en: 'We received your message at contato@krconsultoria.com. Our engineering specialists will contact you shortly via the email or phone provided.',
+            pt: 'A mensagem será preparada para contato@krconsultoria.com.br e só será enviada quando você confirmar no seu aplicativo de e-mail.',
+            en: 'The message will be prepared for contato@krconsultoria.com.br and will only be sent after you confirm it in your email app.',
         },
         resetBtn: {
             pt: 'Enviar Outra Mensagem',
@@ -332,4 +330,3 @@ export const translations = {
         },
     },
 };
-

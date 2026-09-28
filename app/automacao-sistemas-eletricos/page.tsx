@@ -3,18 +3,18 @@ import ServiceLanding from '../components/ServiceLanding';
 import { automationPt } from '@/lib/services/content';
 
 export const metadata: Metadata = {
-    title: 'Automação de Sistemas Elétricos & IEC 61850 | KR Engenharia',
+    title: 'Retrofit de Proteção & Automação',
     description:
-        'Engenharia de automação de subestações SAS, IEC 61850 (GOOSE, MMS, SV), redundância PRP/HSR, telecontrole ONS (DNP3, IEC 60870-5-104) e sistemas SCADA.',
+        'Apoio técnico em retrofits de proteção e automação: integração de IEDs, comunicação IEC 61850 (GOOSE e MMS), integração de pontos ao supervisório e lógicas aprovadas.',
     keywords: [
-        'Automação de Sistemas Elétricos',
-        'Automação de Subestações IEC 61850',
-        'Sistemas SAS Subestações',
-        'Mensagens GOOSE Intertravamento',
-        'Redundância PRP HSR',
-        'Telecontrole ONS DNP3 IEC 60870-5-104',
-        'Sistemas SCADA Subestação',
-        'Unidade de Bay BCU C264 SIPROTEC SEL',
+        'Retrofit de Proteção',
+        'Retrofit de Automação',
+        'IEC 61850',
+        'GOOSE MMS',
+        'Integração de IEDs',
+        'Integração ao Supervisório',
+        'Transferência Automática de Carga',
+        'ABB Relion GE MiCOM SEL SIPROTEC',
     ],
     alternates: {
         canonical: '/automacao-sistemas-eletricos/',
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'Automação de Sistemas Elétricos & IEC 61850 | KR Engenharia',
+        title: 'Retrofit de Proteção & Automação | KR Engenharia',
         description:
-            'Projetos completos de SAS, integração IEC 61850 (GOOSE/MMS), protocolos de telecontrole DNP3/104 e supervisórios SCADA.',
+            'Integração de IEDs, IEC 61850 (GOOSE e MMS), integração de pontos ao supervisório e implementação de lógicas aprovadas.',
         url: '/automacao-sistemas-eletricos/',
         siteName: 'KR Engenharia',
         locale: 'pt_BR',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
                 url: '/og-image.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Automação de Sistemas Elétricos - KR Engenharia',
+                alt: 'Retrofit de Proteção & Automação - KR Engenharia',
             },
         ],
     },
