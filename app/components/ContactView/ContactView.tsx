@@ -111,6 +111,10 @@ const COPY = {
     },
 };
 
+// `next dev` serves app/api/contact/route.ts; the static export on the Apache/PHP
+// host uses public/api/contact.php instead.
+const CONTACT_ENDPOINT = process.env.NODE_ENV === 'development' ? '/api/contact/' : '/api/contact.php';
+
 const EMPTY: Record<Field, string> = {
     name: '',
     company: '',
@@ -163,13 +167,15 @@ export default function ContactView({ locale }: { locale: Locale }) {
 
         setStatus({ kind: 'submitting' });
         try {
-            const response = await fetch('/api/contact', {
+            const response = await fetch(CONTACT_ENDPOINT, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
                 body: JSON.stringify({ ...values, locale }),
             });
-            const result = await response.json() as { error?: string };
-            if (!response.ok) throw new Error(result.error || t.failed);
+            // A missing endpoint returns the site's HTML error page; never show a JSON parser error.
+            const isJson = response.headers.get('content-type')?.includes('application/json');
+            const result = isJson ? await response.json().catch(() => null) as { success?: boolean; error?: string } | null : null;
+            if (!response.ok || !result?.success) throw new Error(result?.error || t.failed);
             setStatus({ kind: 'success' });
             setValues(EMPTY);
         } catch (error) {

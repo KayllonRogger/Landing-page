@@ -183,8 +183,14 @@ export const projects: Project[] = [
                 'Implementation of the automatic load transfer logic between transformers',
             ],
         },
-        coverImage: null,
-        photos: [],
+        coverImage: '/projects/mineracao/sel-751-painel.jpg',
+        photos: [
+            { src: '/projects/mineracao/sel-751-painel.jpg', label: { pt: 'SEL-751 instalado em painel de proteção', en: 'SEL-751 installed in a protection panel' } },
+            { src: '/projects/mineracao/sel-787.jpg', label: { pt: 'SEL-787, proteção de transformador', en: 'SEL-787 transformer protection relay' } },
+            { src: '/projects/mineracao/sel-751-bancada.jpg', label: { pt: 'Relés SEL-751 preparados para parametrização e testes', en: 'SEL-751 relays prepared for settings and testing' } },
+            { src: '/projects/mineracao/taf-paineis.jpg', label: { pt: 'Testes de painéis em TAF', en: 'Panel testing during FAT' } },
+            { src: '/projects/mineracao/oscilografia-sel.jpg', label: { pt: 'Oscilografia de evento registrada por relé SEL-751', en: 'Event oscillography recorded by an SEL-751 relay' } },
+        ],
     },
     {
         slug: 'embarcacao-apoio-offshore-eua',
