@@ -49,11 +49,9 @@ export default function Privacidade() {
             <section style={secao}>
                 <h2 style={titulo}>Atendimento automático no WhatsApp</h2>
                 <p>
-                    O número comercial da KR ({COMPANY.phoneDisplay}) pode ser atendido primeiro por um assistente
-                    virtual. Ele usa a API do WhatsApp Business da Meta para receber e enviar mensagens e o modelo de
-                    inteligência artificial Claude, da Anthropic, para escrever as respostas. O assistente só responde
-                    sobre os serviços da KR, não envia preços nem fecha negócios e passa a conversa para uma pessoa da
-                    equipe quando necessário. Você pode pedir para falar com uma pessoa a qualquer momento.
+                    Nosso WhatsApp comercial pode ser atendido primeiro por um assistente virtual, que usa a API do
+                    WhatsApp Business (Meta) e a inteligência artificial Claude (Anthropic). Você pode pedir para falar
+                    com uma pessoa a qualquer momento.
                 </p>
             </section>
 
