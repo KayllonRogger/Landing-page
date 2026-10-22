@@ -125,6 +125,11 @@ export default function Footer() {
                                     <span className={styles.linkArrow}>→</span> {isEn ? 'Contact' : 'Contato'}
                                 </Link>
                             </li>
+                            <li className={styles.linksItem}>
+                                <Link href="/privacidade" className={styles.linksItemLink}>
+                                    <span className={styles.linkArrow}>→</span> {isEn ? 'Privacy (PT)' : 'Privacidade'}
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
