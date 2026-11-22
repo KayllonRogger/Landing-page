@@ -90,7 +90,7 @@ const groups: { title: L; items: L[]; note?: L }[] = [
 
 const facts: { value: L; label: L }[] = [
     { value: { pt: '500 kV', en: '500 kV' }, label: { pt: 'Maior tensão em comissionamento', en: 'Highest commissioning voltage' } },
-    { value: { pt: '3 países', en: '3 countries' }, label: { pt: 'Brasil, Estados Unidos e Polônia', en: 'Brazil, United States, and Poland' } },
+    { value: { pt: '5 países', en: '5 countries' }, label: { pt: 'Brasil, Estados Unidos, Canadá, Chile e Polônia', en: 'Brazil, United States, Canada, Chile, and Poland' } },
     { value: { pt: '5 fabricantes', en: '5 vendors' }, label: { pt: 'de IEDs com experiência de campo', en: 'of IEDs with hands-on experience' } },
     { value: { pt: 'Inglês fluente', en: 'Fluent English' }, label: { pt: 'Atuação em projetos internacionais', en: 'Work on international projects' } },
 ];

@@ -6,7 +6,7 @@
 export type Locale = 'pt' | 'en';
 type L = { pt: string; en: string };
 
-export type ProjectCategory = 'substations' | 'offshore' | 'mining';
+export type ProjectCategory = 'substations' | 'offshore' | 'mining' | 'fat' | 'datacenter';
 
 export interface Project {
     slug: string;
@@ -27,6 +27,8 @@ export const categoryLabels: Record<ProjectCategory | 'all', L> = {
     substations: { pt: 'Subestações', en: 'Substations' },
     offshore: { pt: 'Offshore', en: 'Offshore' },
     mining: { pt: 'Mineração', en: 'Mining' },
+    fat: { pt: 'Comissionamento e TAF', en: 'Commissioning and FAT' },
+    datacenter: { pt: 'Data center', en: 'Data center' },
 };
 
 export const projects: Project[] = [
@@ -232,6 +234,56 @@ export const projects: Project[] = [
             { src: '/projects/eua/IMG-20250610-WA0021.jpg', label: { pt: 'Corredor do quadro elétrico principal', en: 'Main switchboard room' } },
         ],
     },
+    {
+        slug: 'comissionamento-taf-canada',
+        category: 'fat',
+        title: { pt: 'Comissionamento e TAF', en: 'Commissioning and FAT' },
+        location: { pt: 'Canadá', en: 'Canada' },
+        headline: {
+            pt: 'Comissionamento e teste de aceitação em fábrica (TAF) de sistemas elétricos.',
+            en: 'Commissioning and factory acceptance testing (FAT) of electrical systems.',
+        },
+        context: {
+            pt: 'Projeto no Canadá, com atuação em inglês.',
+            en: 'Project in Canada, carried out in English.',
+        },
+        technologies: ['TAF', 'Comissionamento'],
+        participation: {
+            pt: 'Comissionamento e testes de aceitação em fábrica.',
+            en: 'Commissioning and factory acceptance testing.',
+        },
+        activities: {
+            pt: ['Teste de aceitação em fábrica (TAF)', 'Comissionamento em campo'],
+            en: ['Factory acceptance testing (FAT)', 'Field commissioning'],
+        },
+        coverImage: null,
+        photos: [],
+    },
+    {
+        slug: 'data-center-chile',
+        category: 'datacenter',
+        title: { pt: 'Data center', en: 'Data center' },
+        location: { pt: 'Chile', en: 'Chile' },
+        headline: {
+            pt: 'Atuação em engenharia elétrica em data center no Chile.',
+            en: 'Electrical engineering work at a data center in Chile.',
+        },
+        context: {
+            pt: 'Data center no Chile.',
+            en: 'Data center in Chile.',
+        },
+        technologies: ['Data center', 'Sistemas elétricos'],
+        participation: {
+            pt: 'Engenharia elétrica em data center.',
+            en: 'Electrical engineering at a data center.',
+        },
+        activities: {
+            pt: ['Sistemas elétricos de data center'],
+            en: ['Data center electrical systems'],
+        },
+        coverImage: null,
+        photos: [],
+    },
 ];
 
 const TECH_EN: Record<string, string> = {
@@ -241,6 +293,9 @@ const TECH_EN: Record<string, string> = {
     'Geração de bordo': 'Onboard generation',
     'Distribuição elétrica': 'Power distribution',
     'Automação': 'Automation',
+    'TAF': 'FAT',
+    'Comissionamento': 'Commissioning',
+    'Sistemas elétricos': 'Electrical systems',
 };
 
 export function techLabel(tech: string, locale: Locale) {

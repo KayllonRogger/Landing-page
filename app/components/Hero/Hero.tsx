@@ -22,7 +22,7 @@ const COPY = {
         secondaryCta: 'Ver serviços',
         contactHref: '/contato',
         servicesHref: '#servicos',
-        facts: ['Subestações até 500 kV', 'Brasil, EUA e Polônia', 'IEC 61850 · GOOSE e MMS'],
+        facts: ['Subestações até 500 kV', 'Brasil, EUA, Canadá, Chile e Polônia', 'IEC 61850 · GOOSE e MMS'],
         factsLabel: 'Destaques da experiência',
     },
     en: {
@@ -38,7 +38,7 @@ const COPY = {
         secondaryCta: 'View services',
         contactHref: '/en/contact',
         servicesHref: '#services',
-        facts: ['Substations up to 500 kV', 'Brazil, USA, and Poland', 'IEC 61850 · GOOSE and MMS'],
+        facts: ['Substations up to 500 kV', 'Brazil, USA, Canada, Chile, and Poland', 'IEC 61850 · GOOSE and MMS'],
         factsLabel: 'Experience highlights',
     },
 };

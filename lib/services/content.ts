@@ -760,7 +760,7 @@ export const commissioningPt: ServiceLandingContent = {
         trustBadges: [
             'ABB, GE, Schneider Electric, SEL e Siemens',
             'Experiência em subestações até 500 kV',
-            'Brasil, EUA e Polônia',
+            'Brasil, EUA, Canadá, Chile e Polônia',
             'Inglês fluente',
         ],
         primaryCta: { label: 'Solicitar conversa técnica', href: '/contato' },
@@ -899,7 +899,7 @@ export const commissioningPt: ServiceLandingContent = {
             },
             {
                 question: 'Vocês atuam fora do Brasil?',
-                answer: 'Sim. Há experiência em projetos nos Estados Unidos e na Polônia, com inglês fluente. Requisitos de mobilização internacional são definidos caso a caso na proposta.',
+                answer: 'Sim. Há experiência em projetos nos Estados Unidos, no Canadá, no Chile e na Polônia, com inglês fluente. Requisitos de mobilização internacional são definidos caso a caso na proposta.',
             },
         ],
     },
@@ -930,7 +930,7 @@ export const commissioningEn: ServiceLandingContent = {
         trustBadges: [
             'ABB, GE, Schneider Electric, SEL, and Siemens',
             'Experience at substations up to 500 kV',
-            'Brazil, USA, and Poland',
+            'Brazil, USA, Canada, Chile, and Poland',
             'Fluent English',
         ],
         primaryCta: { label: 'Request a technical call', href: '/en/contact' },
@@ -1069,7 +1069,7 @@ export const commissioningEn: ServiceLandingContent = {
             },
             {
                 question: 'Do you work outside Brazil?',
-                answer: 'Yes. There is experience on projects in the United States and Poland, with fluent English. International mobilization requirements are defined case by case in the proposal.',
+                answer: 'Yes. There is experience on projects in the United States, Canada, Chile, and Poland, with fluent English. International mobilization requirements are defined case by case in the proposal.',
             },
         ],
     },

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Projetos e Experiência de Campo",
   description:
-    "Casos da trajetória profissional de Kayllon Rogger Nunes: subestações de 230 a 500 kV, indústrias, retrofit SEL em mineração e aplicações offshore no Brasil, nos EUA e na Polônia, com IEDs ABB, GE, Schneider Electric, SEL e Siemens.",
+    "Casos da trajetória profissional de Kayllon Rogger Nunes: subestações de 230 a 500 kV, indústrias, retrofit SEL em mineração, aplicações offshore, TAF e data center no Brasil, nos EUA, no Canadá, no Chile e na Polônia, com IEDs ABB, GE, Schneider Electric, SEL e Siemens.",
   alternates: {
     canonical: "/projetos/",
     languages: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Projetos e Experiência de Campo | KR Engenharia",
     description:
-      "Casos da trajetória profissional de Kayllon Rogger Nunes: subestações de 230 a 500 kV, indústrias, retrofit SEL em mineração e aplicações offshore no Brasil, nos EUA e na Polônia, com IEDs ABB, GE, Schneider Electric, SEL e Siemens.",
+      "Casos da trajetória profissional de Kayllon Rogger Nunes: subestações de 230 a 500 kV, indústrias, retrofit SEL em mineração, aplicações offshore, TAF e data center no Brasil, nos EUA, no Canadá, no Chile e na Polônia, com IEDs ABB, GE, Schneider Electric, SEL e Siemens.",
     url: "/projetos/",
     siteName: "KR Engenharia",
     locale: "pt_BR",

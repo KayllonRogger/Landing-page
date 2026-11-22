@@ -21,7 +21,7 @@ export default function About({ locale = 'pt' }: AboutProps) {
               },
               {
                   title: 'Brazil and abroad',
-                  text: 'Field experience in Brazil, the United States, and Poland, with fluent English. International mobilization is assessed according to scope and schedule.',
+                  text: 'Field experience in Brazil, the United States, Canada, Chile, and Poland, with fluent English. International mobilization is assessed according to scope and schedule.',
               },
           ]
         : [
@@ -31,7 +31,7 @@ export default function About({ locale = 'pt' }: AboutProps) {
               },
               {
                   title: 'Brasil e exterior',
-                  text: 'Experiência de campo no Brasil, nos Estados Unidos e na Polônia, com inglês fluente. A mobilização internacional é avaliada conforme escopo e agenda.',
+                  text: 'Experiência de campo no Brasil, nos Estados Unidos, no Canadá, no Chile e na Polônia, com inglês fluente. A mobilização internacional é avaliada conforme escopo e agenda.',
               },
           ];
 

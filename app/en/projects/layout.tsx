@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Projects and Field Experience",
   description:
-    "Cases from Kayllon Rogger Nunes's professional career: 230 to 500 kV substations, industrial facilities, an SEL retrofit in mining, and offshore applications in Brazil, the USA, and Poland, with ABB, GE, Schneider Electric, SEL, and Siemens IEDs.",
+    "Cases from Kayllon Rogger Nunes's professional career: 230 to 500 kV substations, industrial facilities, an SEL retrofit in mining, offshore applications, FAT, and data center work in Brazil, the USA, Canada, Chile, and Poland, with ABB, GE, Schneider Electric, SEL, and Siemens IEDs.",
   alternates: {
     canonical: "/en/projects/",
     languages: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Projects and Field Experience | KR Engenharia",
     description:
-      "Cases from Kayllon Rogger Nunes's professional career: 230 to 500 kV substations, industrial facilities, an SEL retrofit in mining, and offshore applications in Brazil, the USA, and Poland, with ABB, GE, Schneider Electric, SEL, and Siemens IEDs.",
+      "Cases from Kayllon Rogger Nunes's professional career: 230 to 500 kV substations, industrial facilities, an SEL retrofit in mining, offshore applications, FAT, and data center work in Brazil, the USA, Canada, Chile, and Poland, with ABB, GE, Schneider Electric, SEL, and Siemens IEDs.",
     url: "/en/projects/",
     siteName: "KR Engenharia",
     locale: "en_US",

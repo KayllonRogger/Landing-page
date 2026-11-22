@@ -166,7 +166,7 @@ export default function AboutUsPageEn() {
                         <div className={styles.leadRole}>ENGINEERING AND TECHNICAL CONTACT</div>
                         <h3 className={styles.leadName}>Eng. Kayllon Rogger Nunes</h3>
                         <p className={styles.leadBio}>
-                            Experience in relay settings, testing, and commissioning at 230 kV to 500 kV substations, industrial facilities, mining sites, and offshore applications in Brazil, the United States, and Poland. Work with ABB, Schneider Electric, SEL, and Siemens platforms and commissioning involving GE IEDs. Fluent English.
+                            Experience in relay settings, testing, and commissioning at 230 kV to 500 kV substations, industrial facilities, mining sites, and offshore applications in Brazil, the United States, and Poland, plus commissioning and FAT in Canada and data center work in Chile. Work with ABB, Schneider Electric, SEL, and Siemens platforms and commissioning involving GE IEDs. Fluent English.
                         </p>
                     </div>
                 </section>

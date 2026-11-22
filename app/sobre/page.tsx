@@ -166,7 +166,7 @@ export default function SobrePage() {
                         <div className={styles.leadRole}>ENGENHARIA E ATENDIMENTO TÉCNICO</div>
                         <h3 className={styles.leadName}>Eng. Kayllon Rogger Nunes</h3>
                         <p className={styles.leadBio}>
-                            Experiência em parametrização, testes e comissionamento em subestações de 230 kV a 500 kV, indústrias, mineração e aplicações offshore, no Brasil, nos Estados Unidos e na Polônia. Atuação com plataformas ABB, Schneider Electric, SEL e Siemens e em comissionamento envolvendo IEDs GE. Inglês fluente.
+                            Experiência em parametrização, testes e comissionamento em subestações de 230 kV a 500 kV, indústrias, mineração e aplicações offshore, no Brasil, nos Estados Unidos e na Polônia, além de comissionamento e TAF no Canadá e atuação em data center no Chile. Atuação com plataformas ABB, Schneider Electric, SEL e Siemens e em comissionamento envolvendo IEDs GE. Inglês fluente.
                         </p>
                     </div>
                 </section>

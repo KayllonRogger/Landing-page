@@ -45,7 +45,7 @@ const COPY = {
     },
 };
 
-const FILTERS: (ProjectCategory | 'all')[] = ['all', 'substations', 'offshore', 'mining'];
+const FILTERS: (ProjectCategory | 'all')[] = ['all', 'substations', 'offshore', 'mining', 'fat', 'datacenter'];
 
 export default function ProjectsView({ locale }: { locale: Locale }) {
     const t = COPY[locale];
