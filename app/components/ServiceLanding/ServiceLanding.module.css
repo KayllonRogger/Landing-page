@@ -698,3 +698,371 @@
 .requirementsList li::marker {
   color: var(--primary-orange);
 }
+
+/* ------------------------------------------------------------------
+   Refinement (round 2): fewer borders, shadows and badges; grouped
+   content with progressive disclosure; method as a step flow; FAQ as
+   an accordion. Overrides the earlier rules above.
+   ------------------------------------------------------------------ */
+
+.pillarCard,
+.pillarCard:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.galleryCard,
+.galleryCard:hover {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  background: transparent;
+}
+
+.galleryImageWrap {
+  border-radius: 4px;
+}
+
+.galleryBody {
+  padding: 18px 0 0;
+}
+
+.galleryEyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a5a22;
+  margin-bottom: 6px;
+}
+
+.galleryMeta {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* Groups (e.g. three categories of investigation) */
+.groupList {
+  list-style: none;
+  border-top: 1px solid #d5dde7;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.group {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
+  padding: 32px 0;
+  border-bottom: 1px solid #d5dde7;
+}
+
+@media (max-width: 480px) {
+  .group {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 8px;
+  }
+}
+
+.groupNumber {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: var(--primary-orange-dark);
+  padding-top: 6px;
+}
+
+.groupTitle {
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 1.3;
+  color: #0c233c;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .groupTitle {
+    font-size: 26px;
+  }
+}
+
+.groupText {
+  max-width: 680px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #475569;
+}
+
+.groupPillar {
+  padding: 16px 0;
+  border-top: 1px solid #e2e8f0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.groupPillar:first-child {
+  border-top: 0;
+}
+
+.groupPillarTitle {
+  font-size: 16px;
+  font-weight: 650;
+  color: #0c233c;
+  margin-bottom: 4px;
+}
+
+.groupPillarDeliverables {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.groupPillarDeliverables strong {
+  font-weight: 600;
+  color: #334155;
+}
+
+/* Progressive disclosure (native <details>) */
+.disclosure {
+  margin-top: 14px;
+}
+
+.disclosureSummary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #8a5a22;
+}
+
+.disclosureSummary::-webkit-details-marker {
+  display: none;
+}
+
+.disclosureSummary::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.disclosure[open] > .disclosureSummary::after {
+  content: '−';
+}
+
+.disclosureSummary:hover {
+  color: #0c233c;
+}
+
+.disclosureBody {
+  margin-top: 8px;
+}
+
+/* Method as a flow: horizontal on desktop, vertical on mobile */
+.methodBox {
+  margin: 56px 0 0;
+  padding: 40px;
+  border-radius: 6px;
+  background: #0a2540;
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .methodBox {
+    padding: 28px 20px;
+  }
+}
+
+.methodFlow {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  counter-reset: none;
+}
+
+@media (min-width: 900px) {
+  .methodFlow {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+.methodStep {
+  position: relative;
+  padding: 0 0 24px 44px;
+}
+
+/* Connector line between steps */
+.methodStep::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 34px;
+  bottom: 4px;
+  width: 1px;
+  background: rgba(226, 168, 104, 0.45);
+}
+
+.methodStep:last-child::before {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .methodStep {
+    padding: 48px 0 0;
+  }
+
+  .methodStep::before {
+    left: 40px;
+    right: -16px;
+    top: 15px;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+}
+
+.methodNumber {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 31px;
+  border: 1px solid #e2a868;
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: #e2a868;
+}
+
+.methodTitle {
+  font-size: 17px;
+  font-weight: 650;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.methodText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+/* Requirements: plain columns with a top rule, no filled cards */
+.requirementsCard {
+  background: transparent;
+  border: 0;
+  border-top: 2px solid var(--primary-orange);
+  border-radius: 0;
+  padding: 20px 0 0;
+}
+
+.requirementsSummary {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.requirementsCard .disclosure .requirementsList {
+  margin-top: 10px;
+}
+
+/* FAQ accordion */
+.faqList {
+  max-width: 860px;
+  margin: 0 auto;
+  border-top: 1px solid #d5dde7;
+}
+
+.faqItem {
+  border-bottom: 1px solid #d5dde7;
+}
+
+.faqItem .faqQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  padding: 16px 0;
+  margin: 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faqItem .faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem .faqQuestion h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  color: #06182c;
+}
+
+.faqItem .faqQuestion::after {
+  content: '+';
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: var(--primary-orange-dark);
+}
+
+.faqItem[open] .faqQuestion::after {
+  content: '−';
+}
+
+.faqItem .faqAnswer {
+  max-width: 720px;
+  padding: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* Refinamento visual (incremento C): rótulos discretos em vez de pílulas,
+   sem barra decorativa e sem caixa em volta da visão geral. */
+.badge,
+.badgeLight {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+.badge {
+  color: #e2a868;
+}
+
+.badgeLight {
+  color: var(--primary-orange-dark);
+}
+
+.badgeDot {
+  display: none;
+}
+
+.titleDivider {
+  display: none;
+}
+
+.overviewGrid {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  gap: 32px 64px;
+}

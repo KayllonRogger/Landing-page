@@ -8,7 +8,10 @@ import { translations } from '@/lib/i18n/translations';
 import { englishRoute, portugueseRoute } from '@/lib/routes';
 import { catalog, type ServiceKey } from '@/lib/services/catalog';
 
-const SERVICE_ROUTES = ['/servicos', '/en/services', ...catalog.flatMap((service) => [service.href.pt, service.href.en])]
+// Diagnosis has its own top-level menu item, so it does not light up "Serviços".
+const SERVICE_ROUTES = ['/servicos', '/en/services', ...catalog
+    .filter((service) => service.key !== 'diagnostico-falhas')
+    .flatMap((service) => [service.href.pt, service.href.en])]
     .map((route) => route.replace(/\/$/, ''));
 
 const studiesIcon = (

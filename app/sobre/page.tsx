@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import TechStack from '../components/TechStack';
 import styles from './page.module.css';
 
 const valuesList = [
@@ -76,6 +77,9 @@ export default function SobrePage() {
                     </p>
                 </div>
             </section>
+
+            {/* Multi-vendor expertise (moved from the home page) */}
+            <TechStack />
 
             {/* Core Values Section */}
             <section className={styles.section}>

@@ -34,6 +34,12 @@ export interface ServiceLandingContent {
         subtitle: string;
         deliverablesLabel: string;
         pillars: { title: string; description: string; deliverables: string[] }[];
+        /** Optional: groups the pillars into a few categories; pillar details become expandable. */
+        groups?: { title: string; description: string; pillars: number[] }[];
+        /** Optional: method shown as a step flow instead of the techSpecs tag box. */
+        method?: { title: string; subtitle: string; steps: { title: string; text: string }[] };
+        /** Label of the expandable details in groups. */
+        detailsLabel?: string;
         techSpecs: { title: string; subtitle: string; tags: string[] };
     };
     gallery: {
@@ -55,7 +61,9 @@ export interface ServiceLandingContent {
         badge: string;
         title: string;
         subtitle: string;
-        columns: { title: string; items: string[] }[];
+        /** With `summary`, the column shows the summary and the full list is expandable. */
+        columns: { title: string; summary?: string; items: string[] }[];
+        detailsLabel?: string;
     };
     faq: {
         badge: string;
@@ -1289,30 +1297,24 @@ export const faultDiagnosisPt: ServiceLandingContent = {
     hero: {
         badge: 'DIAGNÓSTICO • OSCILOGRAFIA • INVESTIGAÇÃO',
         title: 'Diagnóstico e Investigação de Falhas',
-        description: 'Análise técnica de atuações indevidas, falhas de comando e trip e inconsistências de parametrização em sistemas de proteção e controle, a partir das evidências disponíveis: oscilografias, registros de eventos, ajustes e documentação.',
-        trustBadges: [
-            'Oscilografias e registros de eventos',
-            'Experiência multimarcas em IEDs',
-            'Método e premissas documentados',
-            'Conclusões limitadas às evidências',
-        ],
+        description: 'Investigação de atuações indevidas, falhas de trip e inconsistências de ajuste, a partir de oscilografias, registros de eventos e documentação.',
+        trustBadges: [],
         primaryCta: { label: 'Solicitar avaliação técnica', href: '/contato/?servico=diagnostico-falhas' },
         secondaryCta: { label: 'Ver Todos os Serviços', href: '/servicos' },
     },
     overview: {
         challenge: {
             title: 'O Problema',
-            text: 'Um disjuntor abriu sem causa aparente, uma proteção atuou fora da zona esperada ou um comando de trip não foi executado. Sem uma análise estruturada, a instalação volta a operar com a mesma incerteza, e a ocorrência pode se repetir.',
+            text: 'Um disjuntor abriu sem causa aparente, a proteção atuou fora da zona esperada ou um trip não foi executado. Sem análise, a instalação volta a operar com a mesma incerteza.',
         },
         solution: {
             title: 'Como a KR Investiga',
-            text: 'Reconstruímos a sequência da ocorrência a partir dos registros dos IEDs e da documentação, levantamos hipóteses técnicas e verificamos cada uma contra as evidências. Quando contratados, testes complementares em bancada ou em campo ajudam a confirmar ou descartar hipóteses.',
+            text: 'Reconstruímos a sequência da ocorrência a partir dos registros dos IEDs e verificamos cada hipótese contra as evidências.',
         },
         highlights: [
-            'Análise de oscilografias (COMTRADE) e registros sequenciais de eventos.',
-            'Conferência de ajustes, lógicas e esquemas contra a documentação vigente.',
-            'Hipóteses classificadas pelo grau de evidência que as sustenta.',
-            'Relatório técnico com recomendações e próximos passos.',
+            'Oscilografias (COMTRADE) e registros sequenciais de eventos.',
+            'Hipóteses classificadas pelo grau de evidência.',
+            'Relatório com recomendações e próximos passos.',
         ],
     },
     capabilities: {
@@ -1376,6 +1378,34 @@ export const faultDiagnosisPt: ServiceLandingContent = {
                 ],
             },
         ],
+        detailsLabel: 'Ver atividades e entregáveis',
+        groups: [
+            {
+                title: 'Atuações e falhas de proteção',
+                description: 'Trips sem falta aparente, atuações fora da zona esperada e verificação dos circuitos de corrente, tensão e disparo contra a documentação.',
+                pillars: [1, 3],
+            },
+            {
+                title: 'Comando, trip e intertravamentos',
+                description: 'Comandos não executados ou com atraso, circuitos de disparo, supervisão do trip, intertravamentos e seletividade lógica.',
+                pillars: [2, 5],
+            },
+            {
+                title: 'Oscilografias, parametrização e integração',
+                description: 'Leitura de registros de perturbação e comparação entre os ajustes aplicados, o estudo vigente e os arquivos de configuração.',
+                pillars: [0, 4],
+            },
+        ],
+        method: {
+            title: 'Metodologia de Análise',
+            subtitle: 'Quatro etapas, ajustadas ao escopo contratado',
+            steps: [
+                { title: 'Entendimento da ocorrência', text: 'Relato da operação, equipamentos envolvidos e o que se espera da análise.' },
+                { title: 'Coleta de evidências', text: 'Oscilografias, eventos, ajustes, diagramas e intervenções recentes.' },
+                { title: 'Análise técnica', text: 'Linha do tempo, hipóteses e verificação; testes em bancada ou campo, se contratados.' },
+                { title: 'Relatório e recomendações', text: 'Conclusões com grau de evidência, limitações e próximos passos.' },
+            ],
+        },
         techSpecs: {
             title: 'Metodologia de Análise',
             subtitle: 'Cinco etapas, ajustadas ao escopo contratado',
@@ -1390,11 +1420,13 @@ export const faultDiagnosisPt: ServiceLandingContent = {
     },
     requirements: {
         badge: 'PREMISSAS',
-        title: 'Dados, Entregáveis & Limites da Análise',
+        title: 'Dados, Entregáveis & Limites',
         subtitle: 'O que define a profundidade e a confiabilidade das conclusões',
+        detailsLabel: 'Ver lista completa',
         columns: [
             {
-                title: 'Documentação e Dados Necessários',
+                title: 'Documentação necessária',
+                summary: 'Oscilografias, ajustes aplicados, diagramas e o relato da ocorrência.',
                 items: [
                     'Oscilografias e registros de eventos dos IEDs envolvidos, de preferência em COMTRADE',
                     'Arquivos de ajustes e de configuração aplicados',
@@ -1405,7 +1437,8 @@ export const faultDiagnosisPt: ServiceLandingContent = {
                 ],
             },
             {
-                title: 'Entregáveis Técnicos',
+                title: 'Entregáveis técnicos',
+                summary: 'Relatório com linha do tempo, hipóteses avaliadas e recomendações.',
                 items: [
                     'Relatório técnico da ocorrência',
                     'Linha do tempo e análise das grandezas registradas',
@@ -1415,7 +1448,8 @@ export const faultDiagnosisPt: ServiceLandingContent = {
                 ],
             },
             {
-                title: 'Limitações e Premissas',
+                title: 'Limitações',
+                summary: 'A causa raiz não é garantida: as conclusões dependem das evidências e do escopo contratado.',
                 items: [
                     'A identificação da causa raiz não é garantida: depende das evidências disponíveis e do escopo contratado',
                     'As conclusões são classificadas como confirmadas, prováveis ou não conclusivas',
@@ -1507,30 +1541,24 @@ export const faultDiagnosisEn: ServiceLandingContent = {
     hero: {
         badge: 'DIAGNOSIS • OSCILLOGRAPHY • INVESTIGATION',
         title: 'Fault Diagnosis & Investigation',
-        description: 'Technical analysis of unwanted operations, trip or command failures, and settings inconsistencies in protection and control systems, based on the evidence available: oscillography, event records, settings, and documentation.',
-        trustBadges: [
-            'Oscillography and event records',
-            'Multi-vendor IED experience',
-            'Documented method and assumptions',
-            'Conclusions limited to the evidence',
-        ],
+        description: 'Investigation of unwanted operations, trip failures, and settings inconsistencies, based on oscillography, event records, and documentation.',
+        trustBadges: [],
         primaryCta: { label: 'Request a technical assessment', href: '/en/contact/?servico=diagnostico-falhas' },
         secondaryCta: { label: 'View All Services', href: '/en/services' },
     },
     overview: {
         challenge: {
             title: 'The Problem',
-            text: 'A breaker opened with no apparent cause, a protection function operated outside its expected zone, or a trip command was not executed. Without a structured analysis, the plant goes back into service with the same uncertainty, and the event may happen again.',
+            text: 'A breaker opened with no apparent cause, protection operated outside its expected zone, or a trip was not executed. Without analysis, the plant goes back into service with the same uncertainty.',
         },
         solution: {
             title: 'How KR Investigates',
-            text: 'We rebuild the sequence of the event from IED records and documentation, raise technical hypotheses, and check each one against the evidence. When contracted, additional bench or field tests help confirm or rule out hypotheses.',
+            text: 'We rebuild the sequence of the event from IED records and check each hypothesis against the evidence.',
         },
         highlights: [
-            'Analysis of oscillography (COMTRADE) and sequence-of-events records.',
-            'Review of settings, logic, and schemes against current documentation.',
-            'Hypotheses ranked by the level of evidence behind them.',
-            'Technical report with recommendations and next steps.',
+            'Oscillography (COMTRADE) and sequence-of-events records.',
+            'Hypotheses ranked by level of evidence.',
+            'Report with recommendations and next steps.',
         ],
     },
     capabilities: {
@@ -1594,6 +1622,34 @@ export const faultDiagnosisEn: ServiceLandingContent = {
                 ],
             },
         ],
+        detailsLabel: 'View activities and deliverables',
+        groups: [
+            {
+                title: 'Protection operations and failures',
+                description: 'Trips with no apparent fault, operations outside the expected zone, and checks of current, voltage, and trip circuits against the drawings.',
+                pillars: [1, 3],
+            },
+            {
+                title: 'Command, trip, and interlocking',
+                description: 'Commands not executed or delayed, trip circuits, trip circuit supervision, interlocking, and logic selectivity.',
+                pillars: [2, 5],
+            },
+            {
+                title: 'Oscillography, settings, and integration',
+                description: 'Reading disturbance records and comparing applied settings with the current study and configuration files.',
+                pillars: [0, 4],
+            },
+        ],
+        method: {
+            title: 'Analysis Method',
+            subtitle: 'Four stages, adjusted to the contracted scope',
+            steps: [
+                { title: 'Understanding the event', text: 'Operations account, equipment involved, and what the analysis must answer.' },
+                { title: 'Evidence collection', text: 'Oscillography, events, settings, drawings, and recent interventions.' },
+                { title: 'Technical analysis', text: 'Timeline, hypotheses, and verification; bench or field tests if contracted.' },
+                { title: 'Report and recommendations', text: 'Conclusions with level of evidence, limitations, and next steps.' },
+            ],
+        },
         techSpecs: {
             title: 'Analysis Method',
             subtitle: 'Five stages, adjusted to the contracted scope',
@@ -1608,11 +1664,13 @@ export const faultDiagnosisEn: ServiceLandingContent = {
     },
     requirements: {
         badge: 'ASSUMPTIONS',
-        title: 'Data, Deliverables & Limits of the Analysis',
+        title: 'Data, Deliverables & Limits',
         subtitle: 'What determines how deep and how reliable the conclusions can be',
+        detailsLabel: 'View full list',
         columns: [
             {
-                title: 'Documentation and Data Needed',
+                title: 'Documentation needed',
+                summary: 'Oscillography, applied settings, drawings, and an account of the event.',
                 items: [
                     'Oscillography and event records from the IEDs involved, preferably in COMTRADE',
                     'Applied settings and configuration files',
@@ -1623,7 +1681,8 @@ export const faultDiagnosisEn: ServiceLandingContent = {
                 ],
             },
             {
-                title: 'Technical Deliverables',
+                title: 'Technical deliverables',
+                summary: 'A report with timeline, hypotheses assessed, and recommendations.',
                 items: [
                     'Technical report on the event',
                     'Timeline and analysis of the recorded quantities',
@@ -1633,7 +1692,8 @@ export const faultDiagnosisEn: ServiceLandingContent = {
                 ],
             },
             {
-                title: 'Limitations and Assumptions',
+                title: 'Limitations',
+                summary: 'The root cause is not guaranteed: conclusions depend on the evidence and the contracted scope.',
                 items: [
                     'Identifying the root cause is not guaranteed: it depends on the evidence available and the contracted scope',
                     'Conclusions are classified as confirmed, probable, or inconclusive',

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from '../../servicos/page.module.css';
+import HowItWorks from '../HowItWorks/HowItWorks';
 import { catalog, contactHref, type Locale, type ServiceKey } from '@/lib/services/catalog';
 
 const ICON_PATHS: Record<ServiceKey, string> = {
@@ -113,6 +114,12 @@ export default function ServicesCatalog({ locale }: { locale: Locale }) {
                     ))}
                 </div>
 
+            </section>
+
+            {/* How hiring works (moved from the home page) */}
+            <HowItWorks locale={locale} />
+
+            <section className={styles.section}>
                 <section className={styles.ctaBanner}>
                     <div className={styles.ctaPattern}></div>
                     <div className={styles.ctaContent}>

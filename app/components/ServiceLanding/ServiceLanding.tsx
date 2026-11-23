@@ -109,6 +109,7 @@ export default function ServiceLanding({ content }: ServiceLandingProps) {
                         </Link>
                     </div>
 
+                    {hero.trustBadges.length > 0 && (
                     <div className={styles.trustBadges}>
                         {hero.trustBadges.map((badge, idx) => (
                             <div key={idx} className={styles.trustBadgeItem}>
@@ -119,6 +120,7 @@ export default function ServiceLanding({ content }: ServiceLandingProps) {
                             </div>
                         ))}
                     </div>
+                    )}
                 </div>
             </section>
 
@@ -166,6 +168,35 @@ export default function ServiceLanding({ content }: ServiceLandingProps) {
                     <div className={styles.titleDivider}></div>
                 </div>
 
+                {capabilities.groups ? (
+                    <ol className={styles.groupList}>
+                        {capabilities.groups.map((group, idx) => (
+                            <li key={group.title} className={styles.group}>
+                                <span className={styles.groupNumber} aria-hidden="true">{String(idx + 1).padStart(2, '0')}</span>
+                                <div>
+                                    <h3 className={styles.groupTitle}>{group.title}</h3>
+                                    <p className={styles.groupText}>{group.description}</p>
+                                    <details className={styles.disclosure}>
+                                        <summary className={styles.disclosureSummary}>
+                                            {capabilities.detailsLabel ?? capabilities.deliverablesLabel}
+                                        </summary>
+                                        <div className={styles.disclosureBody}>
+                                            {group.pillars.map((i) => capabilities.pillars[i]).map((pillar) => (
+                                                <div key={pillar.title} className={styles.groupPillar}>
+                                                    <h4 className={styles.groupPillarTitle}>{pillar.title}</h4>
+                                                    <p>{pillar.description}</p>
+                                                    <p className={styles.groupPillarDeliverables}>
+                                                        <strong>{capabilities.deliverablesLabel}</strong> {pillar.deliverables.join(' · ')}
+                                                    </p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </details>
+                                </div>
+                            </li>
+                        ))}
+                    </ol>
+                ) : (
                 <div className={styles.pillarsGrid}>
                     {capabilities.pillars.map((pillar, idx) => (
                         <article key={idx} className={styles.pillarCard}>
@@ -189,6 +220,23 @@ export default function ServiceLanding({ content }: ServiceLandingProps) {
                     ))}
                 </div>
 
+                )}
+
+                {capabilities.method ? (
+                    <div className={styles.methodBox}>
+                        <h3 className={styles.techSpecsTitle}>{capabilities.method.title}</h3>
+                        <p className={styles.techSpecsSubtitle}>{capabilities.method.subtitle}</p>
+                        <ol className={styles.methodFlow}>
+                            {capabilities.method.steps.map((step, idx) => (
+                                <li key={step.title} className={styles.methodStep}>
+                                    <span className={styles.methodNumber} aria-hidden="true">{idx + 1}</span>
+                                    <h4 className={styles.methodTitle}>{step.title}</h4>
+                                    <p className={styles.methodText}>{step.text}</p>
+                                </li>
+                            ))}
+                        </ol>
+                    </div>
+                ) : (
                 <div className={styles.techSpecsBox}>
                     <h3 className={styles.techSpecsTitle}>{capabilities.techSpecs.title}</h3>
                     <p className={styles.techSpecsSubtitle}>{capabilities.techSpecs.subtitle}</p>
@@ -198,6 +246,7 @@ export default function ServiceLanding({ content }: ServiceLandingProps) {
                         ))}
                     </div>
                 </div>
+                )}
             </section>
 
             {/* Data, dependencies, responsibilities and limitations (optional) */}
@@ -216,11 +265,25 @@ export default function ServiceLanding({ content }: ServiceLandingProps) {
                         {requirements.columns.map((column) => (
                             <div key={column.title} className={styles.requirementsCard}>
                                 <h3 className={styles.requirementsTitle}>{column.title}</h3>
-                                <ul className={styles.requirementsList}>
-                                    {column.items.map((item) => (
-                                        <li key={item}>{item}</li>
-                                    ))}
-                                </ul>
+                                {column.summary ? (
+                                    <>
+                                        <p className={styles.requirementsSummary}>{column.summary}</p>
+                                        <details className={styles.disclosure}>
+                                            <summary className={styles.disclosureSummary}>{requirements.detailsLabel}</summary>
+                                            <ul className={styles.requirementsList}>
+                                                {column.items.map((item) => (
+                                                    <li key={item}>{item}</li>
+                                                ))}
+                                            </ul>
+                                        </details>
+                                    </>
+                                ) : (
+                                    <ul className={styles.requirementsList}>
+                                        {column.items.map((item) => (
+                                            <li key={item}>{item}</li>
+                                        ))}
+                                    </ul>
+                                )}
                             </div>
                         ))}
                     </div>
@@ -254,17 +317,13 @@ export default function ServiceLanding({ content }: ServiceLandingProps) {
                                         style={item.imageStyle}
                                         loading="lazy"
                                     />
-                                    <span className={styles.galleryCategoryTag}>{item.category}</span>
                                 </div>
                             )}
                             <div className={styles.galleryBody}>
+                                {!galleryTextOnly && <p className={styles.galleryEyebrow}>{item.category}</p>}
                                 <h3 className={styles.galleryTitle}>{item.title}</h3>
                                 <p className={styles.galleryDescription}>{item.description}</p>
-                                <div className={styles.galleryBadges}>
-                                    {item.badges.map((badge, i) => (
-                                        <span key={i} className={styles.galleryBadge}>{badge}</span>
-                                    ))}
-                                </div>
+                                <p className={styles.galleryMeta}>{item.badges.join(' · ')}</p>
                             </div>
                         </article>
                     ))}
@@ -282,12 +341,15 @@ export default function ServiceLanding({ content }: ServiceLandingProps) {
                     <div className={styles.titleDivider}></div>
                 </div>
 
-                <div className={styles.faqGrid}>
-                    {faq.items.map((item, idx) => (
-                        <div key={idx} className={styles.faqCard}>
-                            <h3 className={styles.faqQuestion}>{item.question}</h3>
+                {/* Native <details>: keyboard and screen-reader accessible, no JavaScript. */}
+                <div className={styles.faqList}>
+                    {faq.items.map((item) => (
+                        <details key={item.question} className={styles.faqItem}>
+                            <summary className={styles.faqQuestion}>
+                                <h3>{item.question}</h3>
+                            </summary>
                             <p className={styles.faqAnswer}>{item.answer}</p>
-                        </div>
+                        </details>
                     ))}
                 </div>
 

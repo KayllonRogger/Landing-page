@@ -439,3 +439,32 @@
   box-shadow: 0 8px 24px rgba(12, 35, 60, 0.35);
   filter: brightness(1.08);
 }
+
+/* Refinamento visual (incremento C): mesmos rótulos discretos das páginas de serviço. */
+.badge,
+.badgeLight {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+.badge {
+  color: #e2a868;
+}
+
+.badgeLight {
+  color: var(--primary-orange-dark);
+}
+
+.badgeDot {
+  display: none;
+}
+
+.titleDivider {
+  display: none;
+}

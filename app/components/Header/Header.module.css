@@ -110,13 +110,13 @@
   display: none;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1320px) {
   .nav {
     gap: 28px;
   }
 }
 
-@media (min-width: 860px) {
+@media (min-width: 1200px) {
   .nav {
     display: flex;
   }
@@ -192,7 +192,7 @@
   display: none;
 }
 
-@media (min-width: 860px) {
+@media (min-width: 1200px) {
   .desktopLangToggle {
     display: flex;
   }
@@ -253,7 +253,7 @@
   font-size: 11px;
 }
 
-@media (min-width: 860px) {
+@media (min-width: 1200px) {
   .mobileQuickLangBtn {
     display: none;
   }
@@ -269,7 +269,7 @@
   background: #8f5317;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
   .rightGroup .ctaButton {
     display: none;
   }
@@ -286,7 +286,7 @@
   display: flex;
 }
 
-@media (min-width: 860px) {
+@media (min-width: 1200px) {
   .hamburger {
     display: none;
   }
@@ -326,7 +326,7 @@
   display: flex;
 }
 
-@media (min-width: 860px) {
+@media (min-width: 1200px) {
   .mobileMenu {
     display: none !important;
   }
@@ -658,4 +658,12 @@
   visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
+}
+
+/* Menu completo entre 1200 e 1319 px: esconde a linha secundária da marca para
+   o menu e o botão de contato caberem sem encostar no logo. */
+@media (min-width: 1200px) and (max-width: 1319px) {
+  .logoSub {
+    display: none;
+  }
 }
