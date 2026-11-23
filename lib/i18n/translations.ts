@@ -21,12 +21,12 @@ export const translations = {
             ],
         },
         cta: {
-            pt: 'Solicitar conversa técnica',
-            en: 'Request a technical call',
+            pt: 'Apresentar demanda técnica',
+            en: 'Present a technical need',
         },
         mobileCta: {
-            pt: 'Solicitar conversa técnica',
-            en: 'Request a technical call',
+            pt: 'Apresentar demanda técnica',
+            en: 'Present a technical need',
         },
         tagline: {
             pt: 'Proteção • Automação • Comissionamento',

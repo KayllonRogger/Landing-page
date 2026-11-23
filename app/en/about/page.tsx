@@ -180,7 +180,7 @@ export default function AboutUsPageEn() {
                             Describe the type of installation, the equipment involved, and the planned window.
                         </p>
                         <Link href="/en/contact" className={styles.ctaActionBtn}>
-                            Request a technical call
+                            Present a technical need
                         </Link>
                     </div>
                 </section>

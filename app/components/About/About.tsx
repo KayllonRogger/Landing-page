@@ -23,6 +23,10 @@ export default function About({ locale = 'pt' }: AboutProps) {
                   title: 'Brazil and abroad',
                   text: 'Field experience in Brazil, the United States, Canada, Chile, and Poland, with fluent English. International mobilization is assessed according to scope and schedule.',
               },
+              {
+                  title: 'A lean operation',
+                  text: 'KR is a small engineering company. Capacity for each job depends on the scope, the schedule, and the resources contracted, and is confirmed before the proposal.',
+              },
           ]
         : [
               {
@@ -32,6 +36,10 @@ export default function About({ locale = 'pt' }: AboutProps) {
               {
                   title: 'Brasil e exterior',
                   text: 'Experiência de campo no Brasil, nos Estados Unidos, no Canadá, no Chile e na Polônia, com inglês fluente. A mobilização internacional é avaliada conforme escopo e agenda.',
+              },
+              {
+                  title: 'Operação enxuta',
+                  text: 'A KR é uma empresa de engenharia de pequeno porte. A capacidade de atendimento depende do escopo, da agenda e dos recursos contratados, e é confirmada antes da proposta.',
               },
           ];
 

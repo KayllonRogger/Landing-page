@@ -180,7 +180,7 @@ export default function SobrePage() {
                             Descreva o tipo de instalação, os equipamentos envolvidos e a janela prevista.
                         </p>
                         <Link href="/contato" className={styles.ctaActionBtn}>
-                            Solicitar conversa técnica
+                            Apresentar uma demanda técnica
                         </Link>
                     </div>
                 </section>

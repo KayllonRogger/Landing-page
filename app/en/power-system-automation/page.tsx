@@ -3,9 +3,9 @@ import ServiceLanding from '../../components/ServiceLanding';
 import { automationEn } from '@/lib/services/content';
 
 export const metadata: Metadata = {
-    title: 'Protection & Automation Retrofit',
+    title: 'Protection, Control & SCADA Retrofit',
     description:
-        'Technical support for protection and automation retrofits: IED integration, IEC 61850 communication (GOOSE and MMS), SCADA point integration, and approved logic.',
+        'Retrofit of legacy protection, control, and supervision systems: IED integration, IEC 61850 communication (GOOSE and MMS), SCADA point integration, and approved logic.',
     keywords: [
         'Protection Retrofit',
         'Automation Retrofit',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'Protection & Automation Retrofit | KR Engenharia',
+        title: 'Protection, Control & SCADA Retrofit | KR Engenharia',
         description:
             'IED integration, IEC 61850 (GOOSE and MMS), SCADA point integration, and implementation of approved logic.',
         url: '/en/power-system-automation/',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
                 url: '/og-image.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Protection & Automation Retrofit - KR Engenharia',
+                alt: 'Protection, Control & SCADA Retrofit - KR Engenharia',
             },
         ],
     },

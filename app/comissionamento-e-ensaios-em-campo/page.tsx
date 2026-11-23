@@ -3,7 +3,7 @@ import ServiceLanding from '../components/ServiceLanding';
 import { commissioningPt } from '@/lib/services/content';
 
 export const metadata: Metadata = {
-    title: 'Testes de Proteção & Comissionamento',
+    title: 'Testes e Comissionamento Especializados',
     description:
         'Parametrização, testes de painéis e comissionamento de sistemas de proteção em plataformas ABB, Schneider Electric, SEL e Siemens, com experiência em comissionamento envolvendo IEDs GE.',
     keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'Testes de Proteção & Comissionamento | KR Engenharia',
+        title: 'Testes e Comissionamento Especializados | KR Engenharia',
         description:
             'Parametrização, testes de painéis e comissionamento de sistemas de proteção, com escopo e entregáveis definidos antes da mobilização.',
         url: '/comissionamento-e-ensaios-em-campo/',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
                 url: '/og-image.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Testes de Proteção & Comissionamento - KR Engenharia',
+                alt: 'Testes e Comissionamento Especializados - KR Engenharia',
             },
         ],
     },

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Electrical studies, protection settings and testing, commissioning, and protection and automation retrofits. Hire a single stage or an integrated package, with responsibilities set in the proposal.",
+    "Testing and commissioning, fault diagnosis and investigation, protection, control and SCADA retrofits, and electrical studies. Hire a single stage or an integrated package, with responsibilities set in the proposal.",
   alternates: {
     canonical: "/en/services/",
     languages: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Services | KR Engenharia",
     description:
-      "Electrical studies, protection settings and testing, commissioning, and protection and automation retrofits. Hire a single stage or an integrated package, with responsibilities set in the proposal.",
+      "Testing and commissioning, fault diagnosis and investigation, protection, control and SCADA retrofits, and electrical studies. Hire a single stage or an integrated package, with responsibilities set in the proposal.",
     url: "/en/services/",
     siteName: "KR Engenharia",
     locale: "en_US",

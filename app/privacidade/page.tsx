@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     alternates: { canonical: '/privacidade/' },
 };
 
-const ATUALIZADA_EM = '22/10/2026';
+const ATUALIZADA_EM = '23/11/2026';
 
 const secao = { marginTop: '2rem' } as const;
 const titulo = { fontSize: '1.25rem', fontWeight: 600, color: '#003366', marginBottom: '0.5rem' } as const;
@@ -32,6 +32,11 @@ export default function Privacidade() {
                     <li>Nome, empresa, cargo, e-mail e telefone que você informa.</li>
                     <li>O conteúdo das mensagens que você envia pelo site, por e-mail ou pelo WhatsApp, incluindo arquivos.</li>
                     <li>Dados da demanda: serviço, local da obra ou planta e prazo.</li>
+                    <li>
+                        No formulário do site, a página visitada antes do contato e, se o link de acesso tiver, os
+                        parâmetros de campanha (utm), para saber qual serviço ou divulgação originou o contato. Esses
+                        dados ficam só na aba do navegador até o envio e não usam cookies.
+                    </li>
                     <li>No WhatsApp, o número de telefone e o nome do seu perfil, fornecidos pela própria plataforma.</li>
                 </ul>
             </section>

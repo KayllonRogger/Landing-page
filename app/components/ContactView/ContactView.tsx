@@ -1,8 +1,10 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './ContactView.module.css';
 import { COMPANY } from '@/lib/company';
+import { readLeadOrigin } from '@/lib/leadOrigin';
+import { catalog, serviceByKey } from '@/lib/services/catalog';
 
 type Locale = 'pt' | 'en';
 type Field = 'name' | 'company' | 'email' | 'phone' | 'service' | 'message' | 'website';
@@ -27,13 +29,7 @@ const COPY = {
         contactHint: 'Informe pelo menos um meio de retorno: e-mail ou telefone.',
         service: 'Serviço',
         servicePlaceholder: 'Selecione o serviço',
-        services: [
-            'Estudos elétricos',
-            'Parametrização e testes de proteção',
-            'Comissionamento em campo',
-            'Retrofit de proteção e automação',
-            'Outro assunto',
-        ],
+        otherService: 'Outro assunto',
         message: 'Mensagem',
         messagePlaceholder: 'Ex.: subestação de 138 kV, relés SEL e Siemens, testes de painéis previstos para março.',
         messageHint: 'Não inclua documentos, desenhos ou dados confidenciais nesta primeira mensagem.',
@@ -50,7 +46,7 @@ const COPY = {
             message: 'Descreva a demanda em pelo menos 20 caracteres.',
         },
         privacyTitle: 'Privacidade',
-        privacy: 'Ao enviar, os dados informados são processados pelo serviço de entrega de e-mail Resend e encaminhados para contato@krconsultoria.com.br, exclusivamente para responder à solicitação. Não envie documentos, desenhos ou informações confidenciais neste primeiro contato. Para sugerir o idioma da página, o site consulta um serviço externo de localização aproximada por IP.',
+        privacy: 'Ao enviar, os dados informados são processados pelo serviço de entrega de e-mail Resend e encaminhados para contato@krconsultoria.com.br, exclusivamente para responder à solicitação. Junto com a mensagem vão a página do site visitada antes do contato e, se o link de acesso tiver, os parâmetros de campanha (utm). Não envie documentos, desenhos ou informações confidenciais neste primeiro contato. Para sugerir o idioma da página, o site consulta um serviço externo de localização aproximada por IP.',
         direct: 'Contato direto',
         directText: 'Fale com Kayllon Rogger Nunes pelos canais abaixo.',
         emailLabel: 'E-mail',
@@ -75,13 +71,7 @@ const COPY = {
         contactHint: 'Provide at least one way to reach you: email or phone.',
         service: 'Service',
         servicePlaceholder: 'Select a service',
-        services: [
-            'Electrical studies',
-            'Protection settings and testing',
-            'Field commissioning',
-            'Protection and automation retrofit',
-            'Other',
-        ],
+        otherService: 'Other',
         message: 'Message',
         messagePlaceholder: 'E.g.: 138 kV substation, SEL and Siemens relays, panel testing planned for March.',
         messageHint: 'Do not include documents, drawings, or confidential data in this first message.',
@@ -98,7 +88,7 @@ const COPY = {
             message: 'Describe your need in at least 20 characters.',
         },
         privacyTitle: 'Privacy',
-        privacy: 'When submitted, the information is processed by the Resend email delivery service and forwarded to contato@krconsultoria.com.br solely to answer the request. Do not send documents, drawings, or confidential information in this first contact. To suggest the page language, the site queries an external service for approximate IP-based location.',
+        privacy: 'When submitted, the information is processed by the Resend email delivery service and forwarded to contato@krconsultoria.com.br solely to answer the request. The message also includes the site page visited before contacting us and, if the access link had them, campaign parameters (utm). Do not send documents, drawings, or confidential information in this first contact. To suggest the page language, the site queries an external service for approximate IP-based location.',
         direct: 'Direct contact',
         directText: 'Talk to Kayllon Rogger Nunes through the channels below.',
         emailLabel: 'Email',
@@ -114,6 +104,11 @@ const COPY = {
 // `next dev` serves app/api/contact/route.ts; the static export on the Apache/PHP
 // host uses public/api/contact.php instead.
 const CONTACT_ENDPOINT = process.env.NODE_ENV === 'development' ? '/api/contact/' : '/api/contact.php';
+
+function originFields() {
+    const { originPage, campaign } = readLeadOrigin();
+    return { origin_page: originPage, campaign };
+}
 
 const EMPTY: Record<Field, string> = {
     name: '',
@@ -131,6 +126,14 @@ export default function ContactView({ locale }: { locale: Locale }) {
     const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
     const [status, setStatus] = useState<Status>({ kind: 'idle' });
     const formRef = useRef<HTMLFormElement>(null);
+    const serviceOptions = [...catalog.map((service) => service.title[locale]), t.otherService];
+
+    // Links from service pages pre-select the service: /contato/?servico=<key>
+    useEffect(() => {
+        const preselected = serviceByKey(new URLSearchParams(window.location.search).get('servico'));
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time read of the URL after hydration
+        if (preselected) setValues((prev) => (prev.service ? prev : { ...prev, service: preselected.title[locale] }));
+    }, [locale]);
 
     const update = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -170,7 +173,7 @@ export default function ContactView({ locale }: { locale: Locale }) {
             const response = await fetch(CONTACT_ENDPOINT, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-                body: JSON.stringify({ ...values, locale }),
+                body: JSON.stringify({ ...values, locale, ...originFields() }),
             });
             // A missing endpoint returns the site's HTML error page; never show a JSON parser error.
             const isJson = response.headers.get('content-type')?.includes('application/json');
@@ -265,7 +268,7 @@ export default function ContactView({ locale }: { locale: Locale }) {
                                 </label>
                                 <select id="service" name="service" value={values.service} onChange={update} className={styles.input}>
                                     <option value="">{t.servicePlaceholder}</option>
-                                    {t.services.map((service) => (
+                                    {serviceOptions.map((service) => (
                                         <option key={service} value={service}>{service}</option>
                                     ))}
                                 </select>

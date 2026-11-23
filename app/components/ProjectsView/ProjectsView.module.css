@@ -390,3 +390,14 @@
   color: #475569;
   line-height: 1.45;
 }
+
+.relatedLink {
+  color: #8a5a22;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.relatedLink:hover {
+  color: var(--primary-blue);
+}

@@ -137,7 +137,7 @@ export default function BlogPageEn() {
                             While the articles are not yet published, describe your need and we will set up a technical call.
                         </p>
                         <Link href="/en/contact" className={styles.ctaActionBtn}>
-                            Request a technical call
+                            Present a technical need
                         </Link>
                     </div>
                 </section>

@@ -60,7 +60,7 @@ function buildJsonLd(content: ServiceLandingContent) {
 }
 
 export default function ServiceLanding({ content }: ServiceLandingProps) {
-    const { breadcrumb, hero, overview, capabilities, gallery, faq, cta } = content;
+    const { breadcrumb, hero, overview, capabilities, requirements, gallery, faq, cta } = content;
     // Cards without an approved photo are shown as text cards; keep the whole row consistent.
     const galleryTextOnly = gallery.items.some((item) => !item.image);
 
@@ -199,6 +199,33 @@ export default function ServiceLanding({ content }: ServiceLandingProps) {
                     </div>
                 </div>
             </section>
+
+            {/* Data, dependencies, responsibilities and limitations (optional) */}
+            {requirements && (
+                <section className={styles.section} style={{ paddingTop: 0 }} aria-labelledby="requisitos-title">
+                    <div className={styles.sectionHeader}>
+                        <div className={styles.badgeLight}>
+                            <span>{requirements.badge}</span>
+                        </div>
+                        <h2 id="requisitos-title" className={styles.sectionTitle}>{requirements.title}</h2>
+                        <p className={styles.sectionSubtitle}>{requirements.subtitle}</p>
+                        <div className={styles.titleDivider}></div>
+                    </div>
+
+                    <div className={styles.requirementsGrid}>
+                        {requirements.columns.map((column) => (
+                            <div key={column.title} className={styles.requirementsCard}>
+                                <h3 className={styles.requirementsTitle}>{column.title}</h3>
+                                <ul className={styles.requirementsList}>
+                                    {column.items.map((item) => (
+                                        <li key={item}>{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
 
             {/* Tools & Instrumentation Gallery */}
             <section className={styles.section} style={{ paddingTop: 0 }}>

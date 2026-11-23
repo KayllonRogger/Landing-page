@@ -3,10 +3,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Footer.module.css';
+import { catalog } from '@/lib/services/catalog';
 
 export default function Footer() {
     const pathname = usePathname();
     const isEn = pathname.startsWith('/en');
+    const locale = isEn ? 'en' : 'pt';
 
     return (
         <footer className={styles.footer}>
@@ -21,8 +23,8 @@ export default function Footer() {
                         </div>
                         <p className={styles.columnDescription}>
                             {isEn
-                                ? 'Protection and automation engineering with multi-vendor experience: electrical studies, relay settings, testing, and commissioning.'
-                                : 'Engenharia de proteção e automação com experiência multimarcas: estudos elétricos, parametrização, testes e comissionamento.'}
+                                ? 'Specialized engineering for protection, control, and automation systems: testing and commissioning, fault diagnosis, retrofits, and electrical studies.'
+                                : 'Engenharia especializada em sistemas de proteção, controle e automação: testes e comissionamento, diagnóstico de falhas, retrofit e estudos elétricos.'}
                         </p>
                         <div className={styles.companyMeta}>
                             <p className={styles.companyMetaItem}>KR Consultoria e Soluções em Engenharia LTDA</p>
@@ -90,21 +92,13 @@ export default function Footer() {
                                     <span className={styles.linkArrow}>→</span> {isEn ? 'Services' : 'Serviços'}
                                 </Link>
                             </li>
-                            <li className={styles.linksItem}>
-                                <Link href={isEn ? '/en/protection-and-selectivity-studies/' : '/estudos-de-protecao-e-seletividade/'} className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>↳</span> {isEn ? 'Protection & Selectivity Studies' : 'Estudos de Proteção e Seletividade'}
-                                </Link>
-                            </li>
-                            <li className={styles.linksItem}>
-                                <Link href={isEn ? '/en/power-system-automation/' : '/automacao-sistemas-eletricos/'} className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>↳</span> {isEn ? 'Protection & Automation Retrofit' : 'Retrofit de Proteção & Automação'}
-                                </Link>
-                            </li>
-                            <li className={styles.linksItem}>
-                                <Link href={isEn ? '/en/commissioning-and-field-testing/' : '/comissionamento-e-ensaios-em-campo/'} className={styles.linksItemLink}>
-                                    <span className={styles.linkArrow}>↳</span> {isEn ? 'Protection Testing & Commissioning' : 'Testes de Proteção & Comissionamento'}
-                                </Link>
-                            </li>
+                            {catalog.map((service) => (
+                                <li key={service.key} className={styles.linksItem}>
+                                    <Link href={service.href[locale]} className={styles.linksItemLink}>
+                                        <span className={styles.linkArrow}>↳</span> {service.title[locale]}
+                                    </Link>
+                                </li>
+                            ))}
                             <li className={styles.linksItem}>
                                 <Link href={isEn ? '/en/projects' : '/projetos'} className={styles.linksItemLink}>
                                     <span className={styles.linkArrow}>→</span> {isEn ? 'Projects' : 'Projetos'}

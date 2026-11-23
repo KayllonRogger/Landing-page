@@ -337,3 +337,19 @@
   color: #fff;
 }
 
+
+.problemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 24px;
+  padding-left: 18px;
+  list-style: disc;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.problemsList li::marker {
+  color: var(--primary-orange);
+}

@@ -6,7 +6,7 @@
     <loc>https://krconsultoria.com.br/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,7 +14,7 @@
     <loc>https://krconsultoria.com.br/en/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -24,7 +24,7 @@
     <loc>https://krconsultoria.com.br/estudos-de-protecao-e-seletividade/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/estudos-de-protecao-e-seletividade/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/protection-and-selectivity-studies/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -32,7 +32,7 @@
     <loc>https://krconsultoria.com.br/en/protection-and-selectivity-studies/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/estudos-de-protecao-e-seletividade/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/protection-and-selectivity-studies/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -42,7 +42,7 @@
     <loc>https://krconsultoria.com.br/automacao-sistemas-eletricos/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/automacao-sistemas-eletricos/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/power-system-automation/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -50,7 +50,7 @@
     <loc>https://krconsultoria.com.br/en/power-system-automation/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/automacao-sistemas-eletricos/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/power-system-automation/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -60,7 +60,7 @@
     <loc>https://krconsultoria.com.br/comissionamento-e-ensaios-em-campo/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/comissionamento-e-ensaios-em-campo/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/commissioning-and-field-testing/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -68,7 +68,25 @@
     <loc>https://krconsultoria.com.br/en/commissioning-and-field-testing/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/comissionamento-e-ensaios-em-campo/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/commissioning-and-field-testing/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Dedicated Service: Diagnóstico e Investigação de Falhas -->
+  <url>
+    <loc>https://krconsultoria.com.br/diagnostico-de-falhas-eletricas/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/diagnostico-de-falhas-eletricas/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/electrical-fault-diagnosis/" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://krconsultoria.com.br/en/electrical-fault-diagnosis/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/diagnostico-de-falhas-eletricas/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/electrical-fault-diagnosis/" />
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -78,7 +96,7 @@
     <loc>https://krconsultoria.com.br/servicos/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/servicos/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/services/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -86,7 +104,7 @@
     <loc>https://krconsultoria.com.br/en/services/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/servicos/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/services/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -96,7 +114,7 @@
     <loc>https://krconsultoria.com.br/sobre/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/sobre/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/about/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -104,7 +122,7 @@
     <loc>https://krconsultoria.com.br/en/about/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/sobre/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/about/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -114,7 +132,7 @@
     <loc>https://krconsultoria.com.br/projetos/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/projetos/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/projects/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -122,7 +140,7 @@
     <loc>https://krconsultoria.com.br/en/projects/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/projetos/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/projects/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -132,7 +150,7 @@
     <loc>https://krconsultoria.com.br/contato/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/contato/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/contact/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -140,7 +158,7 @@
     <loc>https://krconsultoria.com.br/en/contact/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://krconsultoria.com.br/contato/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://krconsultoria.com.br/en/contact/" />
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

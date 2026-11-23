@@ -2,24 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-
-const PT_TO_EN: Record<string, string> = {
-    '/': '/en',
-    '/sobre': '/en/about',
-    '/servicos': '/en/services',
-    '/estudos-de-protecao-e-seletividade': '/en/protection-and-selectivity-studies',
-    '/automacao-sistemas-eletricos': '/en/power-system-automation',
-    '/comissionamento-e-ensaios-em-campo': '/en/commissioning-and-field-testing',
-    '/projetos': '/en/projects',
-    '/blog': '/en/blog',
-    '/drive': '/en/drive',
-    '/contato': '/en/contact',
-};
-
-function englishRoute(pathname: string) {
-    const normalized = pathname.length > 1 ? pathname.replace(/\/$/, '') : pathname;
-    return PT_TO_EN[normalized] ?? '/en';
-}
+import { englishRoute } from '@/lib/routes';
 
 export default function GeoDetector() {
     const pathname = usePathname();
