@@ -22,8 +22,8 @@ export default function GeoDetector() {
             return;
         }
 
-        if (userPref === 'pt' && pathname.startsWith('/en')) {
-            // User explicitly chose PT
+        if (userPref === 'pt') {
+            // User explicitly chose PT: never send them to English automatically
             return;
         }
 
