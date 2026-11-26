@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import GeoDetector from "./components/GeoDetector";
+import LeadOriginTracker from "./components/LeadOriginTracker/LeadOriginTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,9 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 const SITE_URL = "https://krconsultoria.com.br";
-const DEFAULT_TITLE = "KR Engenharia - Engenharia de Proteção e Automação Multimarcas";
+const DEFAULT_TITLE = "KR Engenharia - Testes, Comissionamento e Diagnóstico de Sistemas de Proteção";
 const DEFAULT_DESCRIPTION =
-  "Engenharia de proteção e automação com experiência multimarcas: parametrização, testes e comissionamento em plataformas ABB, Schneider Electric, SEL e Siemens, além de experiência em comissionamento envolvendo IEDs GE. Estudos elétricos e retrofit.";
+  "Testes e comissionamento de proteção, diagnóstico de falhas, retrofit com IEC 61850 e estudos elétricos, com experiência multimarcas em IEDs ABB, Schneider Electric, SEL e Siemens.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -43,6 +44,8 @@ export const metadata: Metadata = {
     "SEL",
     "Siemens SIPROTEC",
     "Retrofit de Proteção",
+    "Diagnóstico de Falhas Elétricas",
+    "Análise de Oscilografia",
   ],
   creator: "KR Engenharia",
   publisher: "KR Engenharia",
@@ -92,6 +95,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <GeoDetector />
+        <LeadOriginTracker />
         <Header />
         <main id="conteudo" className="flex-1">{children}</main>
         <Footer />

@@ -2,11 +2,17 @@
 // They describe Kayllon Rogger Nunes's professional experience; they are not
 // direct contracts between KR and the owners of the installations.
 // Mining case: never add client, contractor, site name, city, or quantities.
+//
+// Case-study structure: `challenge`, `procedures` and `results` are optional and
+// stay empty until there is verified, publishable information (see
+// docs/estudos-de-caso/MODELO.md). Never fill them with estimates or examples.
+
+import type { ServiceKey } from './services/catalog';
 
 export type Locale = 'pt' | 'en';
 type L = { pt: string; en: string };
 
-export type ProjectCategory = 'substations' | 'offshore' | 'mining';
+export type ProjectCategory = 'substations' | 'offshore' | 'mining' | 'fat' | 'datacenter';
 
 export interface Project {
     slug: string;
@@ -18,6 +24,14 @@ export interface Project {
     technologies: string[];
     participation: L;
     activities: { pt: string[]; en: string[] };
+    /** Technical challenge faced, only when verified. */
+    challenge?: L;
+    /** Procedures executed (test methods, sequence), only when verified. */
+    procedures?: { pt: string[]; en: string[] };
+    /** Proven results only. Never percentages or savings without evidence. */
+    results?: { pt: string[]; en: string[] };
+    /** Service line this experience relates to (link shown in the case dialog). */
+    relatedService?: ServiceKey;
     coverImage: string | null;
     photos: { src: string; label: L }[];
 }
@@ -27,11 +41,14 @@ export const categoryLabels: Record<ProjectCategory | 'all', L> = {
     substations: { pt: 'Subestações', en: 'Substations' },
     offshore: { pt: 'Offshore', en: 'Offshore' },
     mining: { pt: 'Mineração', en: 'Mining' },
+    fat: { pt: 'Comissionamento e TAF', en: 'Commissioning and FAT' },
+    datacenter: { pt: 'Data center', en: 'Data center' },
 };
 
 export const projects: Project[] = [
     {
         slug: 'subestacao-500kv-espirito-santo',
+        relatedService: 'testes-comissionamento',
         category: 'substations',
         title: { pt: 'Subestação de 500 kV', en: '500 kV substation' },
         location: { pt: 'Espírito Santo, Brasil', en: 'Espírito Santo, Brazil' },
@@ -71,6 +88,7 @@ export const projects: Project[] = [
     },
     {
         slug: 'subestacao-230kv-para',
+        relatedService: 'retrofit-spcs',
         category: 'substations',
         title: { pt: 'Subestação de 230/138/13,8 kV', en: '230/138/13.8 kV substation' },
         location: { pt: 'Pará, Brasil', en: 'Pará, Brazil' },
@@ -110,6 +128,7 @@ export const projects: Project[] = [
     },
     {
         slug: 'conexao-eolica-offshore-400kv-polonia',
+        relatedService: 'testes-comissionamento',
         category: 'offshore',
         title: { pt: 'Conexão eólica offshore de 400 kV', en: '400 kV offshore wind connection' },
         location: { pt: 'Polônia', en: 'Poland' },
@@ -149,6 +168,7 @@ export const projects: Project[] = [
     },
     {
         slug: 'retrofit-sel-mineracao-minas-gerais',
+        relatedService: 'retrofit-spcs',
         category: 'mining',
         title: { pt: 'Retrofit SEL em subestação de mineração', en: 'SEL retrofit at a mining substation' },
         location: { pt: 'Minas Gerais, Brasil', en: 'Minas Gerais, Brazil' },
@@ -194,6 +214,7 @@ export const projects: Project[] = [
     },
     {
         slug: 'embarcacao-apoio-offshore-eua',
+        relatedService: 'testes-comissionamento',
         category: 'offshore',
         title: { pt: 'Embarcação de apoio offshore', en: 'Offshore support vessel' },
         location: { pt: 'Estados Unidos', en: 'United States' },
@@ -232,6 +253,57 @@ export const projects: Project[] = [
             { src: '/projects/eua/IMG-20250610-WA0021.jpg', label: { pt: 'Corredor do quadro elétrico principal', en: 'Main switchboard room' } },
         ],
     },
+    {
+        slug: 'comissionamento-taf-canada',
+        relatedService: 'testes-comissionamento',
+        category: 'fat',
+        title: { pt: 'Comissionamento e TAF', en: 'Commissioning and FAT' },
+        location: { pt: 'Canadá', en: 'Canada' },
+        headline: {
+            pt: 'Comissionamento e teste de aceitação em fábrica (TAF) de sistemas elétricos.',
+            en: 'Commissioning and factory acceptance testing (FAT) of electrical systems.',
+        },
+        context: {
+            pt: 'Projeto no Canadá, com atuação em inglês.',
+            en: 'Project in Canada, carried out in English.',
+        },
+        technologies: ['TAF', 'Comissionamento'],
+        participation: {
+            pt: 'Comissionamento e testes de aceitação em fábrica.',
+            en: 'Commissioning and factory acceptance testing.',
+        },
+        activities: {
+            pt: ['Teste de aceitação em fábrica (TAF)', 'Comissionamento em campo'],
+            en: ['Factory acceptance testing (FAT)', 'Field commissioning'],
+        },
+        coverImage: null,
+        photos: [],
+    },
+    {
+        slug: 'data-center-chile',
+        category: 'datacenter',
+        title: { pt: 'Data center', en: 'Data center' },
+        location: { pt: 'Chile', en: 'Chile' },
+        headline: {
+            pt: 'Atuação em engenharia elétrica em data center no Chile.',
+            en: 'Electrical engineering work at a data center in Chile.',
+        },
+        context: {
+            pt: 'Data center no Chile.',
+            en: 'Data center in Chile.',
+        },
+        technologies: ['Data center', 'Sistemas elétricos'],
+        participation: {
+            pt: 'Engenharia elétrica em data center.',
+            en: 'Electrical engineering at a data center.',
+        },
+        activities: {
+            pt: ['Sistemas elétricos de data center'],
+            en: ['Data center electrical systems'],
+        },
+        coverImage: null,
+        photos: [],
+    },
 ];
 
 const TECH_EN: Record<string, string> = {
@@ -241,6 +313,9 @@ const TECH_EN: Record<string, string> = {
     'Geração de bordo': 'Onboard generation',
     'Distribuição elétrica': 'Power distribution',
     'Automação': 'Automation',
+    'TAF': 'FAT',
+    'Comissionamento': 'Commissioning',
+    'Sistemas elétricos': 'Electrical systems',
 };
 
 export function techLabel(tech: string, locale: Locale) {

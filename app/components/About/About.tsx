@@ -1,90 +1,87 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import s from '../Section/Section.module.css';
 import styles from './About.module.css';
-import { COMPANY } from '@/lib/company';
 
 interface AboutProps {
     locale?: 'pt' | 'en';
 }
 
-export default function About({ locale = 'pt' }: AboutProps) {
-    const isEn = locale === 'en';
+const COPY = {
+    pt: {
+        eyebrow: 'Engenheiro responsável',
+        name: 'Kayllon Rogger Nunes',
+        text: 'Engenheiro com atuação de campo em subestações, indústrias, mineração e aplicações offshore, do TAF à energização. Na KR, é ele quem faz a conversa técnica e coordena cada entrega.',
+        lean: 'A KR é uma empresa de engenharia de pequeno porte. A capacidade de cada trabalho é confirmada antes da proposta.',
+        facts: [
+            { value: '500 kV', label: 'maior tensão em comissionamento' },
+            { value: '5 países', label: 'Brasil, EUA, Canadá, Chile e Polônia' },
+            { value: '5 fabricantes', label: 'de IEDs com experiência de campo' },
+        ],
+        skillsLabel: 'Competências',
+        skills: ['Parametrização e testes de IEDs', 'IEC 61850 · GOOSE e MMS', 'TAF e TAC', 'Seletividade lógica', 'Inglês fluente'],
+        link: 'Conheça a KR',
+        href: '/sobre/',
+        imageAlt: 'Kayllon Rogger Nunes em pátio de subestação de 400 kV, na Polônia',
+    },
+    en: {
+        eyebrow: 'Responsible engineer',
+        name: 'Kayllon Rogger Nunes',
+        text: 'Engineer with field experience at substations, industrial plants, mining sites, and offshore applications, from FAT to energization. At KR, he holds the technical call and coordinates every delivery.',
+        lean: 'KR is a small engineering company. Capacity for each job is confirmed before the proposal.',
+        facts: [
+            { value: '500 kV', label: 'highest commissioning voltage' },
+            { value: '5 countries', label: 'Brazil, USA, Canada, Chile, and Poland' },
+            { value: '5 vendors', label: 'of IEDs with hands-on experience' },
+        ],
+        skillsLabel: 'Expertise',
+        skills: ['IED settings and testing', 'IEC 61850 · GOOSE and MMS', 'FAT and SAT', 'Logic selectivity', 'Fluent English'],
+        link: 'More about KR',
+        href: '/en/about/',
+        imageAlt: 'Kayllon Rogger Nunes at a 400 kV substation yard in Poland',
+    },
+};
 
-    const points = isEn
-        ? [
-              {
-                  title: 'One point of contact',
-                  text: 'KR is the commercial point of contact and coordinates the delivery. When studies involve partners, who prepares, reviews, approves, and executes each stage is set in the proposal.',
-              },
-              {
-                  title: 'Brazil and abroad',
-                  text: 'Field experience in Brazil, the United States, and Poland, with fluent English. International mobilization is assessed according to scope and schedule.',
-              },
-          ]
-        : [
-              {
-                  title: 'Uma interface técnica e comercial',
-                  text: 'A KR é a interface comercial e coordena a entrega. Quando os estudos envolvem parceiros, quem elabora, revisa, aprova e executa cada etapa é definido na proposta.',
-              },
-              {
-                  title: 'Brasil e exterior',
-                  text: 'Experiência de campo no Brasil, nos Estados Unidos e na Polônia, com inglês fluente. A mobilização internacional é avaliada conforme escopo e agenda.',
-              },
-          ];
+export default function About({ locale = 'pt' }: AboutProps) {
+    const t = COPY[locale];
 
     return (
-        <section id={isEn ? 'about' : 'sobre'} className={s.section} aria-labelledby="sobre-title">
+        <section id={locale === 'en' ? 'about' : 'sobre'} className={s.sectionAlt} aria-labelledby="sobre-title">
             <div className={`${s.container} ${styles.layout}`}>
-                <div className={styles.imageCard}>
+                <figure className={styles.photo}>
                     <Image
                         src="/Image/20260130_130042.jpg"
-                        alt={isEn ? '400 kV substation yard in winter, Poland' : 'Pátio de subestação de 400 kV no inverno, na Polônia'}
+                        alt={t.imageAlt}
                         fill
-                        sizes="(max-width: 900px) 100vw, 440px"
+                        sizes="(max-width: 900px) 100vw, 420px"
                         className={styles.image}
                     />
-                </div>
+                </figure>
 
                 <div>
-                    <p className={s.eyebrow}>{isEn ? 'About KR' : 'Sobre a KR'}</p>
-                    <h2 id="sobre-title" className={s.title}>
-                        {isEn ? 'Kayllon Rogger Nunes and KR Engenharia' : 'Kayllon Rogger Nunes e a KR Engenharia'}
-                    </h2>
-                    <p className={s.lead}>
-                        {isEn
-                            ? 'KR Engenharia is the trade name of KR Consultoria e Soluções em Engenharia LTDA, based in Belo Horizonte, Brazil. It brings together Kayllon Rogger Nunes’s experience in substations, industrial facilities, mining, and offshore applications, connecting studies, settings, logic, integration, and field verification.'
-                            : 'KR Engenharia é o nome comercial da KR Consultoria e Soluções em Engenharia LTDA, com escritório em Belo Horizonte (MG). A empresa reúne a experiência de Kayllon Rogger Nunes em subestações, indústrias, mineração e aplicações offshore, conectando estudos, ajustes, lógicas, integração e verificação em campo.'}
-                    </p>
+                    <p className={s.eyebrow}>{t.eyebrow}</p>
+                    <h2 id="sobre-title" className={s.title}>{t.name}</h2>
+                    <p className={styles.text}>{t.text}</p>
 
-                    <div className={styles.points}>
-                        {points.map((point) => (
-                            <div key={point.title} className={styles.point}>
-                                <h3 className={styles.pointTitle}>{point.title}</h3>
-                                <p className={styles.pointText}>{point.text}</p>
+                    <dl className={styles.facts}>
+                        {t.facts.map((fact) => (
+                            <div key={fact.value}>
+                                <dt className={styles.factValue}>{fact.value}</dt>
+                                <dd className={styles.factLabel}>{fact.label}</dd>
                             </div>
                         ))}
-                    </div>
-
-                    <dl className={styles.registry}>
-                        <div>
-                            <dt>{isEn ? 'Legal name' : 'Razão social'}</dt>
-                            <dd>{COMPANY.legalName}</dd>
-                        </div>
-                        <div>
-                            <dt>CNPJ</dt>
-                            <dd>{COMPANY.cnpj}</dd>
-                        </div>
-                        <div>
-                            <dt>{isEn ? 'CREA registration' : 'Registro no CREA'}</dt>
-                            <dd>{isEn ? `No. ${COMPANY.crea}` : `nº ${COMPANY.crea}`}</dd>
-                        </div>
                     </dl>
 
-                    <Link href={isEn ? '/en/about' : '/sobre'} className={s.btnSecondary}>
-                        {isEn ? 'More about KR' : 'Conheça a KR'}
+                    <p className={styles.skillsLabel}>{t.skillsLabel}</p>
+                    <ul className={styles.skills}>
+                        {t.skills.map((skill) => (
+                            <li key={skill}>{skill}</li>
+                        ))}
+                    </ul>
+
+                    <p className={styles.lean}>{t.lean}</p>
+                    <Link href={t.href} className={styles.link}>
+                        {t.link}<span aria-hidden="true"> →</span>
                     </Link>
                 </div>
             </div>

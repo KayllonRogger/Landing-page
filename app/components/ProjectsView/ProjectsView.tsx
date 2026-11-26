@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './ProjectsView.module.css';
 import { categoryLabels, projects, techLabel, type Locale, type ProjectCategory } from '@/lib/projects';
 import { useDialog } from '@/lib/useDialog';
+import { serviceByKey } from '@/lib/services/catalog';
 
 const COPY = {
     pt: {
@@ -20,10 +21,14 @@ const COPY = {
         participation: 'Participação de Kayllon',
         activities: 'Atividades e entregas confirmadas',
         photos: 'Registros fotográficos',
+        challenge: 'Desafio técnico',
+        procedures: 'Procedimentos executados',
+        results: 'Resultados comprovados',
+        relatedService: 'Serviço relacionado',
         ctaTitle: 'Tem uma demanda parecida?',
         ctaText: 'Descreva a instalação, os equipamentos envolvidos e a janela prevista.',
-        ctaButton: 'Descrever minha demanda',
-        contactHref: '/contato',
+        ctaButton: 'Apresentar uma demanda técnica',
+        contactHref: '/contato/',
     },
     en: {
         badge: 'Professional track record',
@@ -38,14 +43,18 @@ const COPY = {
         participation: 'Kayllon’s role',
         activities: 'Confirmed activities and deliverables',
         photos: 'Site photos',
+        challenge: 'Technical challenge',
+        procedures: 'Procedures performed',
+        results: 'Proven results',
+        relatedService: 'Related service',
         ctaTitle: 'Have a similar need?',
         ctaText: 'Describe the installation, the equipment involved, and the planned window.',
-        ctaButton: 'Describe my need',
-        contactHref: '/en/contact',
+        ctaButton: 'Present a technical need',
+        contactHref: '/en/contact/',
     },
 };
 
-const FILTERS: (ProjectCategory | 'all')[] = ['all', 'substations', 'offshore', 'mining'];
+const FILTERS: (ProjectCategory | 'all')[] = ['all', 'substations', 'offshore', 'mining', 'fat', 'datacenter'];
 
 export default function ProjectsView({ locale }: { locale: Locale }) {
     const t = COPY[locale];
@@ -55,6 +64,7 @@ export default function ProjectsView({ locale }: { locale: Locale }) {
 
     const visible = filter === 'all' ? projects : projects.filter((p) => p.category === filter);
     const project = projects.find((p) => p.slug === openSlug) ?? null;
+    const related = serviceByKey(project?.relatedService);
 
     const open = (slug: string) => {
         setOpenSlug(slug);
@@ -201,6 +211,43 @@ export default function ProjectsView({ locale }: { locale: Locale }) {
                                     </ul>
                                 </dd>
                             </div>
+                            {project.challenge && (
+                                <div className={styles.fact}>
+                                    <dt>{t.challenge}</dt>
+                                    <dd>{project.challenge[locale]}</dd>
+                                </div>
+                            )}
+                            {project.procedures && (
+                                <div className={styles.fact}>
+                                    <dt>{t.procedures}</dt>
+                                    <dd>
+                                        <ul className={styles.activityList}>
+                                            {project.procedures[locale].map((item) => <li key={item}>{item}</li>)}
+                                        </ul>
+                                    </dd>
+                                </div>
+                            )}
+                            {project.results && (
+                                <div className={styles.fact}>
+                                    <dt>{t.results}</dt>
+                                    <dd>
+                                        <ul className={styles.activityList}>
+                                            {project.results[locale].map((item) => <li key={item}>{item}</li>)}
+                                        </ul>
+                                    </dd>
+                                </div>
+                            )}
+                            {related && (
+                                <div className={styles.fact}>
+                                    <dt>{t.relatedService}</dt>
+                                    <dd>
+                                        <Link href={related.href[locale]} className={styles.relatedLink}>
+                                            {related.title[locale]}
+                                            <span aria-hidden="true"> →</span>
+                                        </Link>
+                                    </dd>
+                                </div>
+                            )}
                         </dl>
 
                         {project.photos.length > 0 && (

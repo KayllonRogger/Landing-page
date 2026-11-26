@@ -88,6 +88,10 @@ $phone = clean_text($body['phone'] ?? '', 40);
 $phoneDigits = preg_replace('/\D/', '', $phone);
 $service = clean_text($body['service'] ?? '', 120);
 $message = clean_text($body['message'] ?? '', 5000);
+// Commercial origin: last site page visited before the contact page, and
+// external campaign parameters (utm_*) when present. Both optional.
+$originPage = clean_text($body['origin_page'] ?? '', 200);
+$campaign = clean_text($body['campaign'] ?? '', 300);
 
 $emailValid = $email === '' || filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
 $phoneValid = $phoneDigits === '' || strlen($phoneDigits) >= 10;
@@ -114,7 +118,11 @@ $fields = [
     ['Telefone / WhatsApp', $phone ?: 'Não informado'],
     ['Serviço', $service ?: 'Não especificado'],
     ['Idioma da página', $isEnglish ? 'Inglês' : 'Português'],
+    ['Página de origem', $originPage ?: 'Não identificada'],
 ];
+if ($campaign !== '') {
+    $fields[] = ['Campanha', $campaign];
+}
 $text = "Nova solicitação recebida pelo formulário do site da KR Engenharia.\n\n";
 $rows = '';
 foreach ($fields as [$label, $value]) {

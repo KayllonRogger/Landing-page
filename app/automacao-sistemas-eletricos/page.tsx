@@ -3,9 +3,9 @@ import ServiceLanding from '../components/ServiceLanding';
 import { automationPt } from '@/lib/services/content';
 
 export const metadata: Metadata = {
-    title: 'Retrofit de Proteção & Automação',
+    title: 'Retrofit e Integração de SPCS',
     description:
-        'Apoio técnico em retrofits de proteção e automação: integração de IEDs, comunicação IEC 61850 (GOOSE e MMS), integração de pontos ao supervisório e lógicas aprovadas.',
+        'Retrofit de sistemas de proteção, controle e supervisão (SPCS) legados: integração de IEDs, comunicação IEC 61850 (GOOSE e MMS), integração de pontos ao supervisório e lógicas aprovadas.',
     keywords: [
         'Retrofit de Proteção',
         'Retrofit de Automação',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'Retrofit de Proteção & Automação | KR Engenharia',
+        title: 'Retrofit e Integração de SPCS | KR Engenharia',
         description:
             'Integração de IEDs, IEC 61850 (GOOSE e MMS), integração de pontos ao supervisório e implementação de lógicas aprovadas.',
         url: '/automacao-sistemas-eletricos/',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
                 url: '/og-image.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Retrofit de Proteção & Automação - KR Engenharia',
+                alt: 'Retrofit e Integração de SPCS - KR Engenharia',
             },
         ],
     },

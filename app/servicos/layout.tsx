@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Serviços",
   description:
-    "Estudos elétricos, parametrização e testes de proteção, comissionamento e retrofit de proteção e automação. Contrate uma etapa ou um pacote integrado, com responsabilidades definidas na proposta.",
+    "Testes e comissionamento, diagnóstico e investigação de falhas, retrofit e integração de SPCS e estudos elétricos. Contrate uma etapa ou um pacote integrado, com responsabilidades definidas na proposta.",
   alternates: {
     canonical: "/servicos/",
     languages: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Serviços | KR Engenharia",
     description:
-      "Estudos elétricos, parametrização e testes de proteção, comissionamento e retrofit de proteção e automação. Contrate uma etapa ou um pacote integrado, com responsabilidades definidas na proposta.",
+      "Testes e comissionamento, diagnóstico e investigação de falhas, retrofit e integração de SPCS e estudos elétricos. Contrate uma etapa ou um pacote integrado, com responsabilidades definidas na proposta.",
     url: "/servicos/",
     siteName: "KR Engenharia",
     locale: "pt_BR",

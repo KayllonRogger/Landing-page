@@ -2,23 +2,17 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import styles from './Header.module.css';
 import { translations } from '@/lib/i18n/translations';
+import { englishRoute, portugueseRoute } from '@/lib/routes';
+import { catalog, type ServiceKey } from '@/lib/services/catalog';
 
-const SERVICE_ROUTES_PT = [
-    '/servicos',
-    '/estudos-de-protecao-e-seletividade',
-    '/automacao-sistemas-eletricos',
-    '/comissionamento-e-ensaios-em-campo',
-];
-
-const SERVICE_ROUTES_EN = [
-    '/en/services',
-    '/en/protection-and-selectivity-studies',
-    '/en/power-system-automation',
-    '/en/commissioning-and-field-testing',
-];
+// Diagnosis has its own top-level menu item, so it does not light up "Serviços".
+const SERVICE_ROUTES = ['/servicos', '/en/services', ...catalog
+    .filter((service) => service.key !== 'diagnostico-falhas')
+    .flatMap((service) => [service.href.pt, service.href.en])]
+    .map((route) => route.replace(/\/$/, ''));
 
 const studiesIcon = (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -41,6 +35,21 @@ const commissioningIcon = (
     </svg>
 );
 
+const diagnosisIcon = (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <circle cx="11" cy="11" r="7" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        <polyline points="7.5 11 9 11 10 8.5 12 13.5 13 11 14.5 11" />
+    </svg>
+);
+
+const SERVICE_ICONS: Record<ServiceKey, ReactNode> = {
+    'testes-comissionamento': commissioningIcon,
+    'diagnostico-falhas': diagnosisIcon,
+    'retrofit-spcs': automationIcon,
+    'estudos-eletricos': studiesIcon,
+};
+
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
@@ -59,84 +68,27 @@ export default function Header() {
         setIsServicesDropdownOpen(false);
     };
 
-    const serviceItems = isEn
-        ? [
-              {
-                  href: '/en/protection-and-selectivity-studies',
-                  title: 'Protection & Selectivity Studies',
-                  subtitle: 'Protection, coordination, short circuit, and load flow connected to implementation',
-                  icon: studiesIcon,
-              },
-              {
-                  href: '/en/power-system-automation',
-                  title: 'Protection & Automation Retrofit',
-                  subtitle: 'IED integration, IEC 61850 (GOOSE / MMS), and point integration with SCADA',
-                  icon: automationIcon,
-              },
-              {
-                  href: '/en/commissioning-and-field-testing',
-                  title: 'Protection Testing & Commissioning',
-                  subtitle: 'Settings, panel testing, and commissioning on ABB, Schneider Electric, SEL, and Siemens IEDs',
-                  icon: commissioningIcon,
-              },
-          ]
-        : [
-              {
-                  href: '/estudos-de-protecao-e-seletividade',
-                  title: 'Estudos de Proteção e Seletividade',
-                  subtitle: 'Proteção, coordenação, curto-circuito e fluxo de potência conectados à implementação',
-                  icon: studiesIcon,
-              },
-              {
-                  href: '/automacao-sistemas-eletricos',
-                  title: 'Retrofit de Proteção & Automação',
-                  subtitle: 'Integração de IEDs, IEC 61850 (GOOSE / MMS) e pontos no supervisório',
-                  icon: automationIcon,
-              },
-              {
-                  href: '/comissionamento-e-ensaios-em-campo',
-                  title: 'Testes de Proteção & Comissionamento',
-                  subtitle: 'Parametrização, testes de painéis e comissionamento em IEDs ABB, Schneider Electric, SEL e Siemens',
-                  icon: commissioningIcon,
-              },
-          ];
+    const serviceItems = catalog.map((service) => ({
+        href: service.href[locale].replace(/\/$/, ''),
+        title: service.title[locale],
+        subtitle: service.summary[locale],
+        icon: SERVICE_ICONS[service.key],
+    }));
 
     const isServicesLink = (href: string) => href === '/servicos' || href === '/en/services';
 
     const isServicesActive = (href: string) => {
         if (!isServicesLink(href)) return currentPath === href;
-        return [...SERVICE_ROUTES_PT, ...SERVICE_ROUTES_EN].some((route) => pathname.startsWith(route));
+        return SERVICE_ROUTES.some((route) => pathname.startsWith(route));
     };
 
     const switchLanguage = (targetLang: 'pt' | 'en') => {
         localStorage.setItem('kr_preferred_lang', targetLang);
 
         if (targetLang === 'en' && !isEn) {
-            // Map PT to EN routes
-            if (pathname === '/' || pathname === '') router.push('/en');
-            else if (pathname.startsWith('/sobre')) router.push('/en/about');
-            else if (pathname.startsWith('/servicos')) router.push('/en/services');
-            else if (pathname.startsWith('/estudos-de-protecao-e-seletividade')) router.push('/en/protection-and-selectivity-studies');
-            else if (pathname.startsWith('/automacao-sistemas-eletricos')) router.push('/en/power-system-automation');
-            else if (pathname.startsWith('/comissionamento-e-ensaios-em-campo')) router.push('/en/commissioning-and-field-testing');
-            else if (pathname.startsWith('/projetos')) router.push('/en/projects');
-            else if (pathname.startsWith('/blog')) router.push('/en/blog');
-            else if (pathname.startsWith('/drive')) router.push('/en/drive');
-            else if (pathname.startsWith('/contato')) router.push('/en/contact');
-            else router.push('/en');
+            router.push(englishRoute(pathname));
         } else if (targetLang === 'pt' && isEn) {
-            // Map EN to PT routes
-            if (pathname === '/en' || pathname === '/en/') router.push('/');
-            else if (pathname.startsWith('/en/about')) router.push('/sobre');
-            else if (pathname.startsWith('/en/services')) router.push('/servicos');
-            else if (pathname.startsWith('/en/protection-and-selectivity-studies')) router.push('/estudos-de-protecao-e-seletividade');
-            else if (pathname.startsWith('/en/power-system-automation')) router.push('/automacao-sistemas-eletricos');
-            else if (pathname.startsWith('/en/commissioning-and-field-testing')) router.push('/comissionamento-e-ensaios-em-campo');
-            else if (pathname.startsWith('/en/projects')) router.push('/projetos');
-            else if (pathname.startsWith('/en/blog')) router.push('/blog');
-            else if (pathname.startsWith('/en/drive')) router.push('/drive');
-            else if (pathname.startsWith('/en/contact')) router.push('/contato');
-            else router.push('/');
+            router.push(portugueseRoute(pathname));
         }
         closeMenu();
     };

@@ -12,6 +12,8 @@ type ContactBody = {
     message?: unknown;
     website?: unknown;
     locale?: unknown;
+    origin_page?: unknown;
+    campaign?: unknown;
 };
 
 function cleanText(value: unknown, maxLength: number) {
@@ -107,6 +109,9 @@ export async function POST(request: Request) {
         const phoneDigits = phoneDisplay.replace(/\D/g, '');
         const service = cleanText(body.service, 120);
         const message = cleanText(body.message, 5_000);
+        // Commercial origin (optional): last site page before the contact page and utm_* parameters.
+        const originPage = cleanText(body.origin_page, 200);
+        const campaign = cleanText(body.campaign, 300);
         const emailIsValid = !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         const phoneIsValid = !phoneDigits || phoneDigits.length >= 10;
 
@@ -145,6 +150,8 @@ export async function POST(request: Request) {
             ['Telefone / WhatsApp', phoneDisplay || 'Não informado'],
             ['Serviço', service || 'Não especificado'],
             ['Idioma da página', isEnglish ? 'Inglês' : 'Português'],
+            ['Página de origem', originPage || 'Não identificada'],
+            ...(campaign ? [['Campanha', campaign]] : []),
         ];
         const text = [
             'Nova solicitação recebida pelo formulário do site da KR Engenharia.',

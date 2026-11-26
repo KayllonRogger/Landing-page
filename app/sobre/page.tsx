@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import TechStack from '../components/TechStack';
 import styles from './page.module.css';
 
 const valuesList = [
@@ -76,6 +77,9 @@ export default function SobrePage() {
                     </p>
                 </div>
             </section>
+
+            {/* Multi-vendor expertise (moved from the home page) */}
+            <TechStack />
 
             {/* Core Values Section */}
             <section className={styles.section}>
@@ -166,7 +170,7 @@ export default function SobrePage() {
                         <div className={styles.leadRole}>ENGENHARIA E ATENDIMENTO TÉCNICO</div>
                         <h3 className={styles.leadName}>Eng. Kayllon Rogger Nunes</h3>
                         <p className={styles.leadBio}>
-                            Experiência em parametrização, testes e comissionamento em subestações de 230 kV a 500 kV, indústrias, mineração e aplicações offshore, no Brasil, nos Estados Unidos e na Polônia. Atuação com plataformas ABB, Schneider Electric, SEL e Siemens e em comissionamento envolvendo IEDs GE. Inglês fluente.
+                            Experiência em parametrização, testes e comissionamento em subestações de 230 kV a 500 kV, indústrias, mineração e aplicações offshore, no Brasil, nos Estados Unidos e na Polônia, além de comissionamento e TAF no Canadá e atuação em data center no Chile. Atuação com plataformas ABB, Schneider Electric, SEL e Siemens e em comissionamento envolvendo IEDs GE. Inglês fluente.
                         </p>
                     </div>
                 </section>
@@ -180,7 +184,7 @@ export default function SobrePage() {
                             Descreva o tipo de instalação, os equipamentos envolvidos e a janela prevista.
                         </p>
                         <Link href="/contato" className={styles.ctaActionBtn}>
-                            Solicitar conversa técnica
+                            Apresentar uma demanda técnica
                         </Link>
                     </div>
                 </section>

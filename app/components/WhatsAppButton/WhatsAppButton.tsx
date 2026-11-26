@@ -1,11 +1,51 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 import styles from './WhatsAppButton.module.css';
 import { whatsappUrl as buildWhatsappUrl } from '@/lib/company';
 
+// Page CTAs the floating button must never cover (CSS module class names keep
+// the source name, e.g. Hero-module__x__btnPrimary).
+const CTA_SELECTOR = 'a[class*="btn"], a[class*="Btn"], a[class*="cta"], a[class*="Cta"], button[type="submit"]';
+const CLEARANCE = 12;
+
 export default function WhatsAppButton() {
-    const isEn = usePathname().startsWith('/en');
+    const pathname = usePathname();
+    const isEn = pathname.startsWith('/en');
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [isOverCta, setIsOverCta] = useState(false);
+
+    // Step aside while a call-to-action passes under the button (mostly on phones,
+    // where CTAs are full width), so the two never overlap or sit too close.
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+        let frame = 0;
+        const check = () => {
+            frame = 0;
+            const button = container.querySelector('a');
+            if (!button) return;
+            const a = button.getBoundingClientRect();
+            const hit = Array.from(document.querySelectorAll<HTMLElement>(CTA_SELECTOR)).some((el) => {
+                if (container.contains(el) || el.closest('header') || el.offsetParent === null) return false;
+                const e = el.getBoundingClientRect();
+                return e.right > a.left - CLEARANCE && e.left < a.right + CLEARANCE
+                    && e.bottom > a.top - CLEARANCE && e.top < a.bottom + CLEARANCE;
+            });
+            setIsOverCta(hit);
+        };
+        const schedule = () => { if (!frame) frame = requestAnimationFrame(check); };
+        schedule();
+        window.addEventListener('scroll', schedule, { passive: true });
+        window.addEventListener('resize', schedule);
+        return () => {
+            window.removeEventListener('scroll', schedule);
+            window.removeEventListener('resize', schedule);
+            if (frame) cancelAnimationFrame(frame);
+        };
+    }, [pathname]);
+
     const message = isEn
         ? 'Hello! I would like to talk about a technical need with KR Engenharia.'
         : 'Olá! Gostaria de conversar sobre uma demanda técnica com a KR Engenharia.';
@@ -13,8 +53,10 @@ export default function WhatsAppButton() {
     const label = isEn ? 'Chat on WhatsApp' : 'Conversar pelo WhatsApp';
 
     return (
-        <div className={styles.container}>
+        <div ref={containerRef} className={`${styles.container} ${isOverCta ? styles.hidden : ''}`}>
             <a
+                tabIndex={isOverCta ? -1 : undefined}
+                aria-hidden={isOverCta || undefined}
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"

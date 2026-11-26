@@ -137,7 +137,7 @@ export default function BlogPage() {
                             Enquanto os artigos não são publicados, descreva a sua demanda e combinamos uma conversa técnica.
                         </p>
                         <Link href="/contato" className={styles.ctaActionBtn}>
-                            Solicitar conversa técnica
+                            Apresentar uma demanda técnica
                         </Link>
                     </div>
                 </section>

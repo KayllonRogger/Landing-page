@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import TechStack from '../../components/TechStack';
 import styles from '../../sobre/page.module.css';
 
 const valuesListEn = [
@@ -76,6 +77,9 @@ export default function AboutUsPageEn() {
                     </p>
                 </div>
             </section>
+
+            {/* Multi-vendor expertise (moved from the home page) */}
+            <TechStack locale="en" />
 
             {/* Core Values Section */}
             <section className={styles.section}>
@@ -166,7 +170,7 @@ export default function AboutUsPageEn() {
                         <div className={styles.leadRole}>ENGINEERING AND TECHNICAL CONTACT</div>
                         <h3 className={styles.leadName}>Eng. Kayllon Rogger Nunes</h3>
                         <p className={styles.leadBio}>
-                            Experience in relay settings, testing, and commissioning at 230 kV to 500 kV substations, industrial facilities, mining sites, and offshore applications in Brazil, the United States, and Poland. Work with ABB, Schneider Electric, SEL, and Siemens platforms and commissioning involving GE IEDs. Fluent English.
+                            Experience in relay settings, testing, and commissioning at 230 kV to 500 kV substations, industrial facilities, mining sites, and offshore applications in Brazil, the United States, and Poland, plus commissioning and FAT in Canada and data center work in Chile. Work with ABB, Schneider Electric, SEL, and Siemens platforms and commissioning involving GE IEDs. Fluent English.
                         </p>
                     </div>
                 </section>
@@ -180,7 +184,7 @@ export default function AboutUsPageEn() {
                             Describe the type of installation, the equipment involved, and the planned window.
                         </p>
                         <Link href="/en/contact" className={styles.ctaActionBtn}>
-                            Request a technical call
+                            Present a technical need
                         </Link>
                     </div>
                 </section>

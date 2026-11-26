@@ -4,29 +4,29 @@ export const translations = {
     header: {
         nav: {
             pt: [
-                { href: '/', label: 'Início' },
-                { href: '/sobre', label: 'Sobre' },
                 { href: '/servicos', label: 'Serviços' },
-                { href: '/projetos', label: 'Projetos' },
+                { href: '/diagnostico-de-falhas-eletricas', label: 'Diagnóstico' },
+                { href: '/projetos', label: 'Experiência' },
+                { href: '/sobre', label: 'Sobre' },
                 { href: '/blog', label: 'Blog' },
                 { href: '/drive', label: 'Área do cliente' },
             ],
             en: [
-                { href: '/en', label: 'Home' },
-                { href: '/en/about', label: 'About' },
                 { href: '/en/services', label: 'Services' },
-                { href: '/en/projects', label: 'Projects' },
+                { href: '/en/electrical-fault-diagnosis', label: 'Diagnosis' },
+                { href: '/en/projects', label: 'Experience' },
+                { href: '/en/about', label: 'About' },
                 { href: '/en/blog', label: 'Blog' },
                 { href: '/en/drive', label: 'Client area' },
             ],
         },
         cta: {
-            pt: 'Solicitar conversa técnica',
-            en: 'Request a technical call',
+            pt: 'Apresentar demanda técnica',
+            en: 'Present a technical need',
         },
         mobileCta: {
-            pt: 'Solicitar conversa técnica',
-            en: 'Request a technical call',
+            pt: 'Apresentar demanda técnica',
+            en: 'Present a technical need',
         },
         tagline: {
             pt: 'Proteção • Automação • Comissionamento',

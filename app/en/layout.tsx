@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import DocumentLanguage from "../components/DocumentLanguage/DocumentLanguage";
 
-const EN_TITLE = "KR Engenharia - Multi-Vendor Protection and Automation Engineering";
+const EN_TITLE = "KR Engenharia - Protection System Testing, Commissioning, and Fault Diagnosis";
 const EN_DESCRIPTION =
-  "Protection and automation engineering with multi-vendor experience: relay settings, testing, and commissioning on ABB, Schneider Electric, SEL, and Siemens platforms, plus commissioning experience involving GE IEDs. Electrical studies and retrofits.";
+  "Protection testing and commissioning, fault diagnosis, IEC 61850 retrofits, and electrical studies, with multi-vendor experience on ABB, Schneider Electric, SEL, and Siemens IEDs.";
 
 export const metadata: Metadata = {
   title: {

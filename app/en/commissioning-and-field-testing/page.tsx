@@ -3,7 +3,7 @@ import ServiceLanding from '../../components/ServiceLanding';
 import { commissioningEn } from '@/lib/services/content';
 
 export const metadata: Metadata = {
-    title: 'Protection Testing & Commissioning',
+    title: 'Specialized Testing & Commissioning',
     description:
         'Relay settings, panel testing, and commissioning of protection systems on ABB, Schneider Electric, SEL, and Siemens platforms, plus commissioning experience involving GE IEDs.',
     keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'Protection Testing & Commissioning | KR Engenharia',
+        title: 'Specialized Testing & Commissioning | KR Engenharia',
         description:
             'Relay settings, panel testing, and commissioning of protection systems, with scope and deliverables defined before mobilization.',
         url: '/en/commissioning-and-field-testing/',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
                 url: '/og-image.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Protection Testing & Commissioning - KR Engenharia',
+                alt: 'Specialized Testing & Commissioning - KR Engenharia',
             },
         ],
     },
